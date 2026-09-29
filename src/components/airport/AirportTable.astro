@@ -1,0 +1,99 @@
+---
+import type { Airport } from '../../lib/airports/types';
+
+interface Props {
+  airports: Airport[];
+  limit?: number;
+}
+
+const { airports, limit } = Astro.props;
+const displayList = limit ? airports.slice(0, limit) : airports;
+---
+
+<div class="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th class="w-1/5 min-w-[140px]">机场名称</th>
+        <th class="min-w-[130px]">线路类型</th>
+        <th class="min-w-[110px]">最低月付/年付</th>
+        <th class="min-w-[140px]">主要节点地区</th>
+        <th class="min-w-[120px]">流媒体/AI解锁</th>
+        <th class="min-w-[120px]">设备限制</th>
+        <th class="text-right min-w-[130px]">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      {displayList.map((airport) => {
+        let priceStr = '详见套餐';
+        if (airport.pricing.monthly !== null) {
+          priceStr = `¥${airport.pricing.monthly}/月起`;
+        } else if (airport.pricing.annual !== null) {
+          priceStr = `¥${airport.pricing.annual}/年起`;
+        } else if (airport.pricing.oneTime !== null) {
+          priceStr = `¥${airport.pricing.oneTime}/一次性`;
+        }
+
+        const topRegions = airport.regions.slice(0, 3).join(' / ') || '常用地区';
+
+        return (
+          <tr>
+            <td class="font-semibold text-slate-900">
+              <a href={`/airports/${airport.slug}/`} class="hover:text-brand-600 transition">
+                {airport.name}
+              </a>
+              {airport.hasClash && (
+                <span class="ml-1 inline-block rounded bg-blue-50 px-1 py-0.2 text-[10px] text-blue-700 font-normal">
+                  Clash
+                </span>
+              )}
+            </td>
+            <td class="text-xs text-slate-600 font-mono">
+              {airport.architecture}
+            </td>
+            <td class="font-semibold text-brand-600 text-xs">
+              {priceStr}
+            </td>
+            <td class="text-xs text-slate-600">
+              {topRegions}
+            </td>
+            <td class="text-xs text-slate-600">
+              <div class="flex flex-wrap gap-1">
+                {airport.streamingServices.slice(0, 2).map(s => (
+                  <span class="rounded bg-emerald-50 px-1 text-[10px] text-emerald-700">{s}</span>
+                ))}
+                {airport.aiServices.slice(0, 1).map(a => (
+                  <span class="rounded bg-purple-50 px-1 text-[10px] text-purple-700">{a}</span>
+                ))}
+                {airport.streamingServices.length === 0 && airport.aiServices.length === 0 && (
+                  <span class="text-slate-400 text-[11px]">-</span>
+                )}
+              </div>
+            </td>
+            <td class="text-xs text-slate-600">
+              {airport.deviceLimits || '以套餐规则为准'}
+            </td>
+            <td class="text-right">
+              <div class="inline-flex items-center gap-1.5">
+                <a
+                  href={`/airports/${airport.slug}/`}
+                  class="rounded border border-slate-200 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50 transition"
+                >
+                  详情
+                </a>
+                <a
+                  href={airport.ctaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="rounded bg-slate-900 px-2.5 py-1 text-xs font-medium text-white hover:bg-slate-800 transition"
+                >
+                  {airport.ctaText}
+                </a>
+              </div>
+            </td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+</div>

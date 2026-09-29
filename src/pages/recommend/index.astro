@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import AirportCard from '../../components/airport/AirportCard.astro';
+import { getAirportRecommendations } from '../../lib/airports/recommendations';
+
+const beginnerAirports = getAirportRecommendations('beginner', 4);
+const cheapAirports = getAirportRecommendations('cheap', 4);
+const streamingAirports = getAirportRecommendations('streaming', 4);
+const aiAirports = getAirportRecommendations('ai', 4);
+const largeTrafficAirports = getAirportRecommendations('largeTraffic', 4);
+const oneTimeAirports = getAirportRecommendations('oneTime', 4);
+const multiDeviceAirports = getAirportRecommendations('multiDevice', 4);
+const ieplAirports = getAirportRecommendations('iepl', 4);
+const iplcAirports = getAirportRecommendations('iplc', 4);
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '机场推荐', url: '/recommend/' }
+];
+---
+
+<BaseLayout
+  title="Clash机场推荐｜如何选择适合自己的Clash机场"
+  description="基于真实数据与实际业务场景的 Clash 机场推荐指南。覆盖新手入门、平价低预算、4K流媒体、ChatGPT/AI生产力、不限时流量与企业级专线。"
+  breadcrumbs={breadcrumbs}
+>
+  <div class="border-b border-slate-200 bg-white py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="flex text-xs text-slate-500 mb-3" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1">
+          <li><a href="/" class="hover:text-slate-900 transition">首页</a></li>
+          <li><span class="mx-1">/</span></li>
+          <li class="font-semibold text-slate-900">机场推荐</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-3xl">
+        <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+          Clash机场场景化推荐指南
+        </h1>
+        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+          不存在放之四海而皆准的“第一名机场”。根据你的实际使用用途（日常轻度办公、追求极致晚高峰低延迟、海外 4K 流媒体追剧还是高频调用 AI 工具），选择符合真实技术条件的机场才是最优解。
+        </p>
+      </div>
+
+      <!-- Jump Navigation -->
+      <div class="mt-6 flex flex-wrap gap-2 text-xs">
+        <span class="text-slate-400 self-center">定位锚点：</span>
+        <a href="#beginner" class="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700 hover:bg-slate-100">新手入门</a>
+        <a href="#cheap" class="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700 hover:bg-slate-100">低预算平价</a>
+        <a href="#streaming" class="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700 hover:bg-slate-100">流媒体追剧</a>
+        <a href="#ai" class="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700 hover:bg-slate-100">ChatGPT/AI</a>
+        <a href="#largeTraffic" class="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700 hover:bg-slate-100">大流量套餐</a>
+        <a href="#oneTime" class="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700 hover:bg-slate-100">不限时流量</a>
+        <a href="#multiDevice" class="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700 hover:bg-slate-100">多设备不限</a>
+        <a href="#iepl" class="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700 hover:bg-slate-100">IEPL专线</a>
+        <a href="#iplc" class="rounded border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700 hover:bg-slate-100">IPLC专线</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-16">
+    <!-- 1. 新手入门 -->
+    <section id="beginner">
+      <div class="border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span>适合新手入门的 Clash 机场</span>
+          <span class="rounded bg-brand-50 text-brand-700 text-xs px-2 py-0.5 font-normal">一键配置 • 灵活月付</span>
+        </h2>
+        <p class="text-xs text-slate-600 mt-1">
+          配置流程直观、通用订阅导入兼容性好、入门套餐单月价格亲民且提供工单帮助，非常适合首次接触 Clash 客户端的用户。
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {beginnerAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </section>
+
+    <!-- 2. 低预算平价 -->
+    <section id="cheap">
+      <div class="border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span>平价与低预算精选机场</span>
+          <span class="rounded bg-emerald-50 text-emerald-700 text-xs px-2 py-0.5 font-normal">百元内年付 • 高性价比</span>
+        </h2>
+        <p class="text-xs text-slate-600 mt-1">
+          根据真实核验的最低月付/年付门槛排序，严格把控质量底线，拒绝无技术冗余随时跑路的劣质垃圾机房。
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {cheapAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </section>
+
+    <!-- 3. 流媒体追剧 -->
+    <section id="streaming">
+      <div class="border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span>流媒体特化解锁机场</span>
+          <span class="rounded bg-purple-50 text-purple-700 text-xs px-2 py-0.5 font-normal">Netflix • Disney+ • 4K</span>
+        </h2>
+        <p class="text-xs text-slate-600 mt-1">
+          官方资料明确支持流媒体原生解锁的节点提供商，具备大带宽吞吐能力，支撑 YouTube 4K/8K 码率稳定不缓冲。
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {streamingAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </section>
+
+    <!-- 4. AI生产力 -->
+    <section id="ai">
+      <div class="border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span>ChatGPT / Claude 办公专用机场</span>
+          <span class="rounded bg-blue-50 text-blue-700 text-xs px-2 py-0.5 font-normal">原生IP • 防频繁验证</span>
+        </h2>
+        <p class="text-xs text-slate-600 mt-1">
+          针对 OpenAI、Anthropic、Google 等 AI 平台的风控策略优化，提供较为纯净的落地 IP 资源，降低被拦截或封号概率。
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {aiAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </section>
+
+    <!-- 5. 大流量套餐 -->
+    <section id="largeTraffic">
+      <div class="border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span>大流量充沛型机场</span>
+          <span class="rounded bg-amber-50 text-amber-700 text-xs px-2 py-0.5 font-normal">500GB - 2TB/月</span>
+        </h2>
+        <p class="text-xs text-slate-600 mt-1">
+          专为高频大文件传输、GitHub 代码拉取、家庭多屏共享及团队协作打造，月流量额度充裕，无需精打细算。
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {largeTrafficAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </section>
+
+    <!-- 6. 不限时流量包 -->
+    <section id="oneTime">
+      <div class="border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span>不限时按量计费流量包</span>
+          <span class="rounded bg-teal-50 text-teal-700 text-xs px-2 py-0.5 font-normal">永久有效 • 备用首选</span>
+        </h2>
+        <p class="text-xs text-slate-600 mt-1">
+          一次购买、用完为止，没有每月定期清零的时间压力。非常适合长期出差、低频备用或作为主力线路故障时的第二重保险。
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {oneTimeAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </section>
+
+    <!-- 7. 多设备不限制 -->
+    <section id="multiDevice">
+      <div class="border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span>无并发限制多设备机场</span>
+          <span class="rounded bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 font-normal">不限在线台数</span>
+        </h2>
+        <p class="text-xs text-slate-600 mt-1">
+          服务商明确声明全套餐不限制同时连接的客户端数量，多台手机、平板、笔电及路由器共用一条订阅不冲突。
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {multiDeviceAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </section>
+
+    <!-- 8. IEPL 专线 -->
+    <section id="iepl">
+      <div class="border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span>企业级 IEPL 专线机场</span>
+          <span class="rounded bg-slate-100 text-slate-800 text-xs px-2 py-0.5 font-normal">以太网内网 • 晚高峰平稳</span>
+        </h2>
+        <p class="text-xs text-slate-600 mt-1">
+          采用企业级以太网专线，国内入口智能优化，境外直达落地节点，晚高峰时段延迟波动极小。
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {ieplAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </section>
+
+    <!-- 9. IPLC 专线 -->
+    <section id="iplc">
+      <div class="border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span>纯 IPLC 国际专线机场</span>
+          <span class="rounded bg-rose-50 text-rose-700 text-xs px-2 py-0.5 font-normal">物理内网光纤 • 零公网丢包</span>
+        </h2>
+        <p class="text-xs text-slate-600 mt-1">
+          点对点私有物理线路直通海外，从物理层隔绝公网防火墙干扰，敏感时期依然具备高稳定性。
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {iplcAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

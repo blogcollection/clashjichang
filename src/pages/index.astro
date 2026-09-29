@@ -1,0 +1,373 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import AirportCard from '../components/airport/AirportCard.astro';
+import AirportTable from '../components/airport/AirportTable.astro';
+import { getAllAirports } from '../lib/airports/recommendations';
+import { getCollection } from 'astro:content';
+
+const allAirports = getAllAirports();
+// Top 6-8 popular airports
+const popularAirports = allAirports.slice(0, 8);
+
+// Posts
+const allPosts = await getCollection('posts');
+const tutorialPosts = allPosts.filter(p => p.data.category === 'client' || p.data.category === 'subscription').slice(0, 6);
+const problemPosts = allPosts.filter(p => p.data.category === 'troubleshoot').slice(0, 6);
+const knowledgePosts = allPosts.filter(p => p.data.category === 'node').slice(0, 6);
+const recentPosts = [...allPosts].sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()).slice(0, 6);
+
+const homeFaqs = [
+  {
+    q: '什么是 Clash 机场？',
+    a: 'Clash 机场是指专门提供 Shadowsocks、VLESS、Trojan 等协议节点的第三方加速服务商，他们提供格式化的订阅链接，用户导入 Clash、Clash Verge 或 Mihomo 客户端后即可实现规则分流与高速网络访问。'
+  },
+  {
+    q: '为什么说“机场是核心，客户端只是调度器”？',
+    a: '客户端软件本身不带任何服务器节点，网络访问的速度、延迟、晚高峰稳定性和能否解锁 Netflix/ChatGPT 完全取决于所购买机场的线路质量（如 IPLC/IEPL 专线或 BGP 中转）。'
+  },
+  {
+    q: '新手应该如何挑选第一个 Clash 机场？',
+    a: '建议选择提供平价月付套餐（如 15-25 元/月）、支持全平台客户端一键导入且具备原生流媒体/AI 解锁的服务商。切记首次购买先以一个月为周期进行晚高峰实测，切勿盲目充值年费。'
+  },
+  {
+    q: 'IPLC 专线与普通公网中转有什么区别？',
+    a: 'IPLC 专线是点对点租用的内网物理光纤，数据不过公网 GFW 防火墙检测，晚高峰极度稳定且零丢包；普通公网中转价格较低，但在特殊网络波动时期可能会受到跨境抖动影响。'
+  },
+  {
+    q: 'Clash 节点全部超时打不开网页怎么解决？',
+    a: '请先核对账户套餐流量是否耗尽或过期，其次检查电脑系统时间是否准确（时间偏差超过 90 秒会导致 TLS 握手失败），最后可在机场用户中心复制最新订阅地址重新下载配置。'
+  }
+];
+---
+
+<BaseLayout
+  title="Clash机场推荐｜Clash节点、订阅与使用教程 - Clash机场"
+  description="整理 Clash 机场、节点、订阅和客户端教程，帮助你了解不同机场套餐并解决 Clash 使用问题。提供 31 家优质专线机场评测与使用排障指南。"
+  faqs={homeFaqs}
+>
+  <!-- 1. Hero Section -->
+  <section class="border-b border-slate-200 bg-white py-14 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
+          <span class="inline-block h-2 w-2 rounded-full bg-emerald-500"></span>
+          <span>收录 31 家真实机场资料 ｜ 数据持续校准</span>
+        </div>
+
+        <h1 class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+          Clash机场推荐与Clash节点使用指南
+        </h1>
+
+        <p class="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
+          整理 Clash 机场、节点、订阅和客户端教程，帮助你了解不同机场套餐并解决 Clash 使用问题。基于真实服务商资料客观呈现，无虚假跑分，为你寻找最适合的科学上网解决方案。
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href="/recommend/"
+            class="rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 transition"
+          >
+            查看机场推荐
+          </a>
+          <a
+            href="/airports/"
+            class="rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition"
+          >
+            机场大全 (31家)
+          </a>
+          <a
+            href="/tutorials/"
+            class="rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition"
+          >
+            Clash教程
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 热门 Clash 机场 (6-8 cards) -->
+  <section class="py-12 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">Popular Airports</span>
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mt-1">
+            热门 Clash 机场精选
+          </h2>
+          <p class="mt-1 text-sm text-slate-600">
+            综合线路架构、节点覆盖、流媒体与 AI 解锁表现筛选的高关注度机场
+          </p>
+        </div>
+        <a href="/airports/" class="text-sm font-semibold text-brand-600 hover:text-brand-700 transition">
+          浏览全部 31 家机场 &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {popularAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 按需求找机场 (9 Category tags) -->
+  <section class="py-12 bg-white border-y border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">按具体使用需求找机场</h2>
+        <p class="mt-2 text-sm text-slate-600">
+          拒绝千篇一律的绝对评分。从真实数据条件出发，匹配最贴合你实际预算与业务场景的服务
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4">
+        {[
+          { title: '便宜机场', tag: 'cheap', desc: '最低月付 ¥20 内或年付百元内平价入门' },
+          { title: '大流量机场', tag: 'largeTraffic', desc: '月流量 500GB 至 1TB+ 高频下载优选' },
+          { title: '不限时流量机场', tag: 'oneTime', desc: '一次性充值无过期清零风险按量计费' },
+          { title: 'Clash机场', tag: 'clash', desc: '深度适配 Clash Verge Rev / Mihomo' },
+          { title: '流媒体机场', tag: 'streaming', desc: '官方标注解锁 Netflix、Disney+ 4K' },
+          { title: 'AI工具机场', tag: 'ai', desc: '原生 IP 稳定畅连 ChatGPT 与 Claude' },
+          { title: '多设备机场', tag: 'multiDevice', desc: '不限制在线客户端与并发设备数量' },
+          { title: 'IEPL机场', tag: 'iepl', desc: '企业级以太网内网专线保障晚高峰' },
+          { title: 'IPLC机场', tag: 'iplc', desc: '纯国际物理专线点对点无视敏感期' },
+        ].map(cat => (
+          <a
+            href={`/recommend/#${cat.tag}`}
+            class="flex flex-col justify-between p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-white hover:border-brand-500 hover:shadow-sm transition group"
+          >
+            <div>
+              <h3 class="text-base font-bold text-slate-900 group-hover:text-brand-600 transition">
+                {cat.title}
+              </h3>
+              <p class="mt-1 text-xs text-slate-500 leading-relaxed">
+                {cat.desc}
+              </p>
+            </div>
+            <span class="mt-3 text-xs font-semibold text-brand-600 inline-flex items-center gap-1">
+              查看符合机场 &rarr;
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 机场快速对比 (AirportTable) -->
+  <section class="py-12 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">Quick Comparison</span>
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mt-1">
+            机场核心参数快速对比
+          </h2>
+          <p class="mt-1 text-sm text-slate-600">
+            高密度横向比对线路类型、入门资费、节点地区与解锁支持
+          </p>
+        </div>
+        <a href="/compare/" class="text-sm font-semibold text-brand-600 hover:text-brand-700 transition">
+          进入完整对比矩阵 &rarr;
+        </a>
+      </div>
+
+      <AirportTable airports={allAirports} limit={10} />
+    </div>
+  </section>
+
+  <!-- 5. 最新Clash教程 -->
+  <section class="py-12 bg-white border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">Tutorials</span>
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mt-1">
+            最新 Clash 客户端与订阅教程
+          </h2>
+          <p class="mt-1 text-sm text-slate-600">
+            涵盖主流系统桌面端与移动端配置，一步步掌握规则分流
+          </p>
+        </div>
+        <a href="/tutorials/" class="text-sm font-semibold text-brand-600 hover:text-brand-700 transition">
+          查看全部教程 &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {tutorialPosts.map(post => (
+          <article class="flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-sm transition">
+            <div>
+              <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+                <span class="rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600">
+                  {post.data.category === 'client' ? '客户端' : '订阅指南'}
+                </span>
+                <span>•</span>
+                <span>2026-09-28</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 leading-snug">
+                <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                {post.data.description}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100">
+              <a href={`/posts/${post.slug}/`} class="text-xs font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center gap-1">
+                阅读教程全文 &rarr;
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Clash常见问题 -->
+  <section class="py-12 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">Troubleshooting</span>
+          <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mt-1">
+            Clash 常见问题排查与解决
+          </h2>
+          <p class="mt-1 text-sm text-slate-600">
+            遇到节点全部超时、连上无网络或系统代理无法打开？按步骤快速排错
+          </p>
+        </div>
+        <a href="/problems/" class="text-sm font-semibold text-brand-600 hover:text-brand-700 transition">
+          查看故障排查库 &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {problemPosts.map(post => (
+          <article class="flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-sm transition">
+            <div>
+              <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+                <span class="rounded bg-rose-50 text-rose-700 border border-rose-200 px-2 py-0.5 font-medium">
+                  故障诊断
+                </span>
+                <span>•</span>
+                <span>实用排障</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 leading-snug">
+                <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                {post.data.description}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100">
+              <a href={`/posts/${post.slug}/`} class="text-xs font-semibold text-rose-600 hover:text-rose-700 inline-flex items-center gap-1">
+                查看解决方案 &rarr;
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 机场知识科普 -->
+  <section class="py-12 bg-white border-y border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">Knowledge Base</span>
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl mt-1">
+          机场协议与专线技术科普
+        </h2>
+        <p class="mt-1 text-sm text-slate-600">
+          搞懂底层技术名词，不做被商家概念忽悠的糊涂消费者
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {knowledgePosts.map(post => (
+          <a
+            href={`/posts/${post.slug}/`}
+            class="rounded-lg border border-slate-200 p-4 bg-slate-50 hover:bg-white hover:border-slate-300 transition"
+          >
+            <h3 class="text-sm font-bold text-slate-900 hover:text-brand-600 transition">
+              {post.data.title}
+            </h3>
+            <p class="mt-1.5 text-xs text-slate-500 line-clamp-2">
+              {post.data.description}
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 最新文章 -->
+  <section class="py-12 bg-slate-50 border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          最新发布文章
+        </h2>
+        <p class="mt-1 text-sm text-slate-600">
+          持续更新的节点使用经验与网络优化实践
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {recentPosts.map(post => (
+          <div class="rounded-lg border border-slate-200 bg-white p-5">
+            <h3 class="text-base font-bold text-slate-900">
+              <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
+                {post.data.title}
+              </a>
+            </h3>
+            <p class="mt-2 text-xs text-slate-600 line-clamp-2 leading-relaxed">
+              {post.data.description}
+            </p>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-400">2026-09-28</span>
+              <a href={`/posts/${post.slug}/`} class="text-brand-600 font-semibold hover:underline">
+                阅读更多
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. 首页 FAQ -->
+  <section class="py-14 bg-white">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Clash 与机场常见疑问解答
+        </h2>
+        <p class="mt-2 text-sm text-slate-600">
+          初学者与老用户高频遇到的核心困惑汇总
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {homeFaqs.map((faq, idx) => (
+          <div class="rounded-lg border border-slate-200 bg-slate-50 p-5">
+            <h3 class="text-sm font-bold text-slate-900 flex items-start gap-2">
+              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-slate-900 text-[11px] font-bold text-white">
+                {idx + 1}
+              </span>
+              <span>{faq.q}</span>
+            </h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-600 pl-7">
+              {faq.a}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

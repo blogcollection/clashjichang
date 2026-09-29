@@ -1,0 +1,23 @@
+{
+  "totalRawRows": 32,
+  "successfulParsedAirports": 31,
+  "anomalousAirports": 0,
+  "excludedAirports": 1,
+  "airportsWithValidPrice": 31,
+  "plansJsonSuccessCount": 31,
+  "plansJsonFailedCount": 0,
+  "airportsWithAffiliateUrl": 31,
+  "airportsWithOfficialUrl": 0,
+  "airportsWithNodeRegions": 24,
+  "airportsWithClashSupport": 3,
+  "anomalies": [
+    {
+      "airport": "WgetCloud（原 GaCloud）",
+      "row": 31,
+      "field": "is_excluded",
+      "rawValue": "true",
+      "problem": "Duplicate entry under 闪跃.md with status EXCLUDED_PENDING_REVIEW",
+      "action": "excluded from website"
+    }
+  ]
+}

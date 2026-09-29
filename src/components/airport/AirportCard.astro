@@ -1,0 +1,140 @@
+---
+import type { Airport } from '../../lib/airports/types';
+
+interface Props {
+  airport: Airport;
+  featured?: boolean;
+}
+
+const { airport, featured = false } = Astro.props;
+
+// Formatting price
+let displayPrice = '';
+if (airport.pricing.monthly !== null) {
+  displayPrice = `¥${airport.pricing.monthly}/月起`;
+} else if (airport.pricing.annual !== null) {
+  displayPrice = `¥${airport.pricing.annual}/年起`;
+} else if (airport.pricing.oneTime !== null) {
+  displayPrice = `¥${airport.pricing.oneTime}/一次性`;
+}
+
+// Find lowest traffic or representative plan traffic
+let displayTraffic = '';
+if (airport.plans && airport.plans.length > 0) {
+  const regularPlan = airport.plans.find(p => p.traffic && !p.traffic.includes('以官网') && !p.traffic.includes('详见'));
+  if (regularPlan) {
+    displayTraffic = `${regularPlan.traffic}起`;
+  }
+}
+
+// Top 4-5 regions
+const topRegions = airport.regions.slice(0, 5);
+---
+
+<div class={`flex flex-col justify-between rounded-lg border bg-white p-5 transition-all duration-200 ${
+  featured 
+    ? 'border-brand-300 shadow-sm ring-1 ring-brand-100' 
+    : 'border-slate-200 hover:border-slate-300 hover:shadow-sm'
+}`}>
+  <div>
+    <!-- Card Top Header -->
+    <div class="flex items-start justify-between gap-3">
+      <div>
+        <h3 class="text-base font-bold text-slate-900 leading-snug">
+          <a href={`/airports/${airport.slug}/`} class="hover:text-brand-600 transition">
+            {airport.name}
+          </a>
+        </h3>
+        <p class="mt-0.5 text-xs text-slate-500 font-mono">
+          {airport.architecture}
+        </p>
+      </div>
+
+      {displayPrice && (
+        <div class="text-right flex-shrink-0">
+          <span class="text-base font-extrabold text-brand-600">{displayPrice}</span>
+        </div>
+      )}
+    </div>
+
+    <!-- Summary -->
+    <p class="mt-3 line-clamp-2 text-xs leading-relaxed text-slate-600">
+      {airport.summary}
+    </p>
+
+    <!-- Key Metrics Grid -->
+    <div class="mt-4 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3 text-xs text-slate-600">
+      <div>
+        <span class="text-slate-400 block text-[11px]">线路类型</span>
+        <span class="font-medium text-slate-800 line-clamp-1">{airport.architecture}</span>
+      </div>
+
+      <div>
+        <span class="text-slate-400 block text-[11px]">套餐流量</span>
+        <span class="font-medium text-slate-800 line-clamp-1">{displayTraffic || '以实际套餐为准'}</span>
+      </div>
+
+      <div class="col-span-2 mt-1">
+        <span class="text-slate-400 block text-[11px]">节点地区</span>
+        <div class="flex flex-wrap gap-1 mt-0.5">
+          {topRegions.length > 0 ? (
+            topRegions.map(reg => (
+              <span class="inline-block rounded bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-700">
+                {reg}
+              </span>
+            ))
+          ) : (
+            <span class="text-[11px] text-slate-500">主流亚太/欧美多节点</span>
+          )}
+          {airport.regions.length > 5 && (
+            <span class="inline-block text-[10px] text-slate-400 self-center">
+              +{airport.regions.length - 5}
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <!-- Supported Features / Badges -->
+    <div class="mt-3 flex flex-wrap gap-1.5 border-t border-slate-100 pt-3">
+      {airport.hasClash && (
+        <span class="rounded border border-blue-200 bg-blue-50 px-1.5 py-0.5 text-[10px] font-medium text-blue-700">
+          支持 Clash
+        </span>
+      )}
+      {airport.streamingServices.length > 0 && (
+        <span class="rounded border border-emerald-200 bg-emerald-50 px-1.5 py-0.5 text-[10px] font-medium text-emerald-700">
+          流媒体解锁
+        </span>
+      )}
+      {airport.aiServices.length > 0 && (
+        <span class="rounded border border-purple-200 bg-purple-50 px-1.5 py-0.5 text-[10px] font-medium text-purple-700">
+          ChatGPT/AI
+        </span>
+      )}
+      {airport.pricing.oneTime !== null && (
+        <span class="rounded border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[10px] font-medium text-amber-700">
+          不限时流量
+        </span>
+      )}
+    </div>
+  </div>
+
+  <!-- Bottom Actions -->
+  <div class="mt-4 flex items-center gap-2 border-t border-slate-100 pt-3">
+    <a
+      href={`/airports/${airport.slug}/`}
+      class="flex-1 rounded border border-slate-300 bg-white py-1.5 text-center text-xs font-medium text-slate-700 transition hover:bg-slate-50"
+    >
+      查看详情
+    </a>
+    <a
+      href={airport.ctaUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex-1 rounded border border-brand-600 bg-brand-600 py-1.5 text-center text-xs font-medium text-white transition hover:bg-brand-700"
+    >
+      {airport.ctaText}
+    </a>
+  </div>
+</div>

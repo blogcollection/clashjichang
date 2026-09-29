@@ -1,0 +1,4330 @@
+[
+  {
+    "id": "ap_02",
+    "slug": "sogoyun",
+    "name": "Sogo云 (Sogo Cloud)",
+    "aliases": [
+      "Sogo",
+      "Cloud"
+    ],
+    "summary": "Sogo云全线采用 IPLC 专线网络，单节点最高速率达 2.5Gbps。所有节点均为 1x 倍率且晚高峰不限速，完全不限制在线设备/客户端数量。全线支持原生 IP 资源，完美解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
+    "officialUrl": null,
+    "affiliateUrl": "https://wzjc.sogoyunaff.cc/#/?code=Da28sVAh",
+    "registrationUrl": "https://wzjc.sogoyunaff.cc/#/?code=Da28sVAh",
+    "telegramUrl": null,
+    "ctaUrl": "https://wzjc.sogoyunaff.cc/#/?code=Da28sVAh",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全 IPLC 专线（单节点最高速率 2.5Gbps）",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "德国",
+      "法国",
+      "泰国",
+      "越南",
+      "土耳其",
+      "巴西"
+    ],
+    "deviceLimits": "不限制在线设备与客户端数量",
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 25.0,
+      "annual": 98.0,
+      "oneTime": 120.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "小包·年付版",
+        "price": "¥98.00 / 年",
+        "numericPrice": 98.0,
+        "billingCycle": "年付",
+        "traffic": "60GB / 月",
+        "targetUser": "年费福利体验包，适合低流量/日常轻度办公用户（折合约 ¥8.1/月）"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "基础版",
+        "price": "¥25.00 / 月",
+        "numericPrice": 25.0,
+        "billingCycle": "月付",
+        "traffic": "150GB / 月",
+        "targetUser": "入门性价比推荐，满足日常网页浏览、AI 工具与社交软件"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "优选版",
+        "price": "¥45.00 / 月",
+        "numericPrice": 45.0,
+        "billingCycle": "月付",
+        "traffic": "350GB / 月",
+        "targetUser": "主流中度使用，适合高清流媒体追剧、日常远程办公"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "强化版",
+        "price": "¥80.00 / 月",
+        "numericPrice": 80.0,
+        "billingCycle": "月付",
+        "traffic": "550GB / 月",
+        "targetUser": "高速专线大流量，适合重度影音发烧友、大文件频繁下载"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "顶配版",
+        "price": "¥150.00 / 月",
+        "numericPrice": 150.0,
+        "billingCycle": "月付",
+        "traffic": "1.1TB / 月",
+        "targetUser": "顶级大流量方案，适合全天候视频访问、多终端/团队共享"
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "SOGO基础餐不限时版",
+        "price": "¥120.00 / 一次性",
+        "numericPrice": 120.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "SOGO优选餐不限时版",
+        "price": "¥220.00 / 一次性",
+        "numericPrice": 220.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "SOGO强化餐不限时版",
+        "price": "¥450.00 / 一次性",
+        "numericPrice": 450.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "SOGO至尊餐不限时版",
+        "price": "¥850.00 / 一次性",
+        "numericPrice": 850.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "全程 IPLC 专线保障：单节点最高支持 2.5Gbps 速率，晚高峰不限速且延迟表现优异。",
+      "零设备数量限制：全套餐均不限制客户端数量，支持手机、电脑、平板及路由器等多设备同时在线。",
+      "丰富的全套不限时包：提供从 120GB 到 1TB 多档位不限时包，适合作为防封备用线路或低频高需求用户。",
+      "选购建议：轻度需求选 小包·年付版 (¥98/年)；个人高频使用推荐 基础版 (¥25/月) 或 优选版 (¥45/月)；备用需求推荐按需选择 不限时套餐。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 2
+  },
+  {
+    "id": "ap_03",
+    "slug": "u1s1",
+    "name": "U1S1 (有一说一)",
+    "aliases": [
+      "有一说一"
+    ],
+    "summary": "U1S1 采用 BGP 三网智能优化 + IEPL 专线出口，全平台支持 SS (Shadowsocks) 协议。全套餐维持不限速、不限制在线设备数量，且官方每两个月固定扩容 +200Mbps 带宽以保障晚高峰冗余。完美秒开解锁 Netflix、Disney+、HBO、DAZN 等流媒体及 ChatGPT、Claude、Midjourney 等 AI 平台。",
+    "officialUrl": null,
+    "affiliateUrl": "https://pkdj7.vipaff.cc/#/?code=SrIisw0u",
+    "registrationUrl": "https://pkdj7.vipaff.cc/#/?code=SrIisw0u",
+    "telegramUrl": null,
+    "ctaUrl": "https://pkdj7.vipaff.cc/#/?code=SrIisw0u",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "BGP 三网智能优化 + IEPL 专线出口",
+    "protocols": [
+      "SS",
+      "(Shadowsocks)"
+    ],
+    "regions": [],
+    "deviceLimits": "全节点不限速，不限制使用客户端及设备在线数量",
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "HBO",
+      "TikTok",
+      "DAZN"
+    ],
+    "aiServices": [
+      "ChatGPT",
+      "Claude",
+      "Midjourney"
+    ],
+    "pricing": {
+      "monthly": 20.0,
+      "annual": 96.0,
+      "oneTime": null
+    },
+    "plans": [
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "u1s1·就是好用包",
+        "price": "¥96.00 / 年",
+        "numericPrice": 96.0,
+        "billingCycle": "年付",
+        "traffic": "60GB / 月",
+        "targetUser": "年费轻量包，适合学生党查资料、日常网页查阅、社交聊天"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "u1s1·普通人真够了包",
+        "price": "¥20.00 / 月",
+        "numericPrice": 20.0,
+        "billingCycle": "月付",
+        "traffic": "120GB / 月",
+        "targetUser": "主流性价比推荐，适合日常刷视频、追剧、远程办公"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "u1s1·你以为用不到包",
+        "price": "¥40.00 / 月",
+        "numericPrice": 40.0,
+        "billingCycle": "月付",
+        "traffic": "300GB / 月",
+        "targetUser": "进阶大流量，适合高清影音发烧友、频繁大文件下载"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "u1s1·瘾大就拉满包",
+        "price": "¥100.00 / 月",
+        "numericPrice": 100.0,
+        "billingCycle": "月付",
+        "traffic": "700GB / 月",
+        "targetUser": "重度使用，适合多终端家庭共享、远程办公团队"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "u1s1·我全部都要包",
+        "price": "¥180.00 / 月",
+        "numericPrice": 180.0,
+        "billingCycle": "月付",
+        "traffic": "1.5TB / 月",
+        "targetUser": "极致超大流量，适合多人共享、小团队运营、跨境协作与 AI 效率工作"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "u1s1·定制包",
+        "price": "¥600.00 / 月",
+        "numericPrice": 600.0,
+        "billingCycle": "月付",
+        "traffic": "专属定制",
+        "targetUser": "企业级量身定制，赋能跨境电商业务、TikTok 运营与海外直播"
+      }
+    ],
+    "features": [
+      "BGP + IEPL 专线保障：结合三网智能优化与 IEPL 专线出口，且官方承诺每两个月固定扩充 200M 冗余带宽，晚高峰流畅不卡顿。",
+      "原生 IP 全流媒体/AI 解锁：支持主流 4K 流媒体秒开，同时原生支持 ChatGPT、Claude、Midjourney 等主流 AI 服务。",
+      "零设备数量限制：全套餐均不限制客户端数量，单账号支持手机、电脑、平板及路由器等多端同时在线。",
+      "选购策略：轻度网页浏览选 就是好用包 (¥96/年)；个人日常高频使用首推 普通人真够了包 (¥20/月)；多设备/团队协作推荐 瘾大就拉满包 (¥100/月)。",
+      "contains_service_or_marketing_claims_not_independently_verified",
+      "contains_performance_or_test_data_preserved_from_source_document"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 3
+  },
+  {
+    "id": "ap_04",
+    "slug": "firefly",
+    "name": "Firefly 机场",
+    "aliases": [],
+    "summary": "Firefly 是由海外团队运营的加速服务商。服务主打 IPLC 专线与 VLESS 协议，提供原生 IP，不限速且不限制客户端与设备数量。支持流媒体与 AI 工具解锁，包含多种周期套餐及一次性不限时流量包。",
+    "officialUrl": null,
+    "affiliateUrl": "https://vip02.fireflyaff.com/#/?code=QvtWcNbI",
+    "registrationUrl": "https://vip02.fireflyaff.com/#/?code=QvtWcNbI",
+    "telegramUrl": null,
+    "ctaUrl": "https://vip02.fireflyaff.com/#/?code=QvtWcNbI",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "IPLC 专线 + VLESS 协议",
+    "protocols": [],
+    "regions": [],
+    "deviceLimits": "不限制客户端及设备连接数量",
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "微信支付",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "YouTube",
+      "HBO"
+    ],
+    "aiServices": [
+      "ChatGPT",
+      "Claude",
+      "Gemini",
+      "Meta AI",
+      "Grok"
+    ],
+    "pricing": {
+      "monthly": 8.0,
+      "annual": 96.0,
+      "oneTime": 100.0
+    },
+    "plans": [
+      {
+        "section": "二、 周期套餐对比",
+        "name": "Firefly 年付版",
+        "price": "¥96 / 年（折合 ¥8/月）",
+        "numericPrice": 96.0,
+        "billingCycle": "月付",
+        "traffic": "60GB / 月",
+        "targetUser": "轻度长期使用，需一次性支付全年费用"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "Firefly Lite",
+        "price": "¥25 / 月",
+        "numericPrice": 25.0,
+        "billingCycle": "月付",
+        "traffic": "150GB / 月",
+        "targetUser": "日常网页、社交与轻度视频"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "Firefly Plus",
+        "price": "¥45 / 月",
+        "numericPrice": 45.0,
+        "billingCycle": "月付",
+        "traffic": "300GB / 月",
+        "targetUser": "AI 工具、办公与中等频率视频"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "Firefly Blaze",
+        "price": "¥85 / 月",
+        "numericPrice": 85.0,
+        "billingCycle": "月付",
+        "traffic": "600GB / 月",
+        "targetUser": "高频流媒体与多设备使用"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "Firefly Nova",
+        "price": "¥150 / 月",
+        "numericPrice": 150.0,
+        "billingCycle": "月付",
+        "traffic": "1000GB / 月",
+        "targetUser": "大流量与重度使用"
+      },
+      {
+        "section": "三、 一次性不限时流量包",
+        "name": "Firefly 不限时",
+        "price": "¥100 / 一次性",
+        "numericPrice": 100.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "100GB",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "通用订阅获取：目前后台暂未开放直接复制订阅，需联系客服索取通用订阅链接后再导入 Shadowrocket、Clash 等客户端。",
+      "原生 IP 与流媒体：节点提供原生 IP，宣称覆盖主流流媒体平台与 AI 工具。",
+      "企业定制服务：除常规套餐外，还提供企业定制方案及免翻墙访问官网等服务。",
+      "选购策略：鉴于新机场长期表现仍需观察，建议首次体验优先选购 Firefly Lite (¥25/月) 进行实际网络与晚高峰测试。",
+      "citation_markers_present_without_embedded_source_map",
+      "contains_service_or_marketing_claims_not_independently_verified"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 4
+  },
+  {
+    "id": "ap_05",
+    "slug": "flyv",
+    "name": "FlyV 机场",
+    "aliases": [],
+    "summary": "FlyV 是一家深耕游戏加速与跨境专线的高性能机场。全线采用 IEPL 游戏与流媒体双特化专线，全节点 1x 计费且无限速、不限设备数。完美支持 4K/8K 影音与 ChatGPT 等 AI 工具。",
+    "officialUrl": null,
+    "affiliateUrl": "https://varnexa.flyvaff.com/#/?code=28mmffKv",
+    "registrationUrl": "https://varnexa.flyvaff.com/#/?code=28mmffKv",
+    "telegramUrl": null,
+    "ctaUrl": "https://varnexa.flyvaff.com/#/?code=28mmffKv",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "IEPL 专线（游戏与流媒体双特化）",
+    "protocols": [
+      "Shadowsocks",
+      "VLESS",
+      "Hysteria",
+      "2"
+    ],
+    "regions": [],
+    "deviceLimits": "全节点 1x 计费，无限速，不限客户端及设备数量",
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Surge"
+    ],
+    "platforms": [
+      "Android"
+    ],
+    "hasClash": true,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [
+      "ChatGPT",
+      "Claude"
+    ],
+    "pricing": {
+      "monthly": 25.0,
+      "annual": 99.0,
+      "oneTime": 189.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期与独享订阅套餐",
+        "name": "FlyV 会员·入门方案",
+        "price": "¥25.00 / 月",
+        "numericPrice": 25.0,
+        "billingCycle": "月付",
+        "traffic": "详见套餐",
+        "targetUser": "150G 起步大流量，性价比优选（推荐）"
+      },
+      {
+        "section": "1. 周期与独享订阅套餐",
+        "name": "FlyV 会员·进阶方案",
+        "price": "¥50.00 / 月",
+        "numericPrice": 50.0,
+        "billingCycle": "月付",
+        "traffic": "详见套餐",
+        "targetUser": "日常高频使用与中度影音需求"
+      },
+      {
+        "section": "1. 周期与独享订阅套餐",
+        "name": "FlyV 会员·高端方案",
+        "price": "¥110.00 / 月",
+        "numericPrice": 110.0,
+        "billingCycle": "月付",
+        "traffic": "详见套餐",
+        "targetUser": "多设备共享与大流量重度用户"
+      },
+      {
+        "section": "1. 周期与独享订阅套餐",
+        "name": "FlyV 会员·商业方案",
+        "price": "¥190.00 / 月",
+        "numericPrice": 190.0,
+        "billingCycle": "月付",
+        "traffic": "详见套餐",
+        "targetUser": "团队办公与高并发业务需求"
+      },
+      {
+        "section": "1. 周期与独享订阅套餐",
+        "name": "FlyV 会员·年付标准轻量版",
+        "price": "¥99.00 / 年",
+        "numericPrice": 99.0,
+        "billingCycle": "年付",
+        "traffic": "详见套餐",
+        "targetUser": "低成本长期轻度备用"
+      },
+      {
+        "section": "1. 周期与独享订阅套餐",
+        "name": "FlyV 会员·原生IP·独享黄金专线",
+        "price": "¥600.00 / 月",
+        "numericPrice": 600.0,
+        "billingCycle": "月付",
+        "traffic": "详见套餐",
+        "targetUser": "追求独立极高品质 IP 与专属带宽极客用户"
+      },
+      {
+        "section": "2. 单次不限时流量包",
+        "name": "单次轻量版·小流量包",
+        "price": "¥189.00 / 一次性",
+        "numericPrice": 189.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 单次不限时流量包",
+        "name": "单次轻量版·标准流量包",
+        "price": "¥479.00 / 一次性",
+        "numericPrice": 479.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 单次不限时流量包",
+        "name": "单次轻量版·精英流量包",
+        "price": "¥799.00 / 一次性",
+        "numericPrice": 799.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "专线分流调度：针对游戏 UDP 流量与流媒体 TCP 流量进行智能分流，确保跨国游戏（港服、日服等）丢包率几乎为 0，有效降低 Ping 值。",
+      "流媒体原生支持：不仅覆盖常规欧美节点，还独家优化了冷门高带宽节点及港澳台 TVB / Bilibili 地区解锁。",
+      "性价比策略：入门方案起步即给 150G 大流量（¥25/月），结账时输入专属优惠码 fly20 体验更佳，非常适合跨国游戏玩家、手游党和大流量影音用户。",
+      "citation_markers_present_without_embedded_source_map",
+      "contains_service_or_marketing_claims_not_independently_verified",
+      "contains_performance_or_test_data_preserved_from_source_document"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 5
+  },
+  {
+    "id": "ap_06",
+    "slug": "ssone",
+    "name": "SSONE 机场",
+    "aliases": [],
+    "summary": "SSONE 是一家主打性价比的网络加速服务商，采用 BGP 隧道中转线路，支持 SS/V2Ray/Trojan 多种协议。提供 1天 1G 免费试用，月付低至 10元/60G，解锁主流流媒体及 AI 工具，支持多设备同时在线。",
+    "officialUrl": null,
+    "affiliateUrl": "https://m.ssone.io/#/register?code=GeTpX1Qx",
+    "registrationUrl": "https://m.ssone.io/#/register?code=GeTpX1Qx",
+    "telegramUrl": null,
+    "ctaUrl": "https://m.ssone.io/#/register?code=GeTpX1Qx",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "BGP 隧道中转",
+    "protocols": [
+      "Shadowsocks",
+      "V2Ray",
+      "Trojan"
+    ],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "韩国"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "V2Ray"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": 15.0,
+      "annual": 148.0,
+      "oneTime": 36.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "每月-128G",
+        "price": "¥15/月 ｜ ¥42/季 ｜ ¥75/半年 ｜ ¥148/年",
+        "numericPrice": 15.0,
+        "billingCycle": "月付",
+        "traffic": "128 GB/周期",
+        "targetUser": "日常浏览、社交与轻度视频"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "每月-192G",
+        "price": "¥22/月 ｜ ¥62/季 ｜ ¥110/半年 ｜ ¥216/年",
+        "numericPrice": 22.0,
+        "billingCycle": "月付",
+        "traffic": "192 GB/周期",
+        "targetUser": "AI 工具、办公与日常追剧"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "每月-256G",
+        "price": "¥28/月 ｜ ¥80/季 ｜ ¥140/半年 ｜ ¥268/年",
+        "numericPrice": 28.0,
+        "billingCycle": "月付",
+        "traffic": "256 GB/周期",
+        "targetUser": "中度流媒体播放与多设备共享"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "每月-512G",
+        "price": "¥52/月 ｜ ¥148/季 ｜ ¥260/半年 ｜ ¥498/年",
+        "numericPrice": 52.0,
+        "billingCycle": "月付",
+        "traffic": "512 GB/周期",
+        "targetUser": "4K/8K 极清视频与重度流量需求"
+      },
+      {
+        "section": "2. 一次性不限时流量包",
+        "name": "不限时-128G",
+        "price": "¥36.00 / 一次性",
+        "numericPrice": 36.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "128 GB",
+        "targetUser": "不限时长，用完为止"
+      },
+      {
+        "section": "2. 一次性不限时流量包",
+        "name": "不限时-256G",
+        "price": "¥68.00 / 一次性",
+        "numericPrice": 68.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "256 GB",
+        "targetUser": "低频备用推荐"
+      },
+      {
+        "section": "2. 一次性不限时流量包",
+        "name": "不限时-512G",
+        "price": "¥128.00 / 一次性",
+        "numericPrice": 128.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "512 GB",
+        "targetUser": "灵活多设备备用"
+      },
+      {
+        "section": "2. 一次性不限时流量包",
+        "name": "不限时-1024G",
+        "price": "¥238.00 / 一次性",
+        "numericPrice": 238.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "1024 GB",
+        "targetUser": "大容量长期备用"
+      }
+    ],
+    "features": [
+      "contains_service_or_marketing_claims_not_independently_verified",
+      "contains_performance_or_test_data_preserved_from_source_document"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 6
+  },
+  {
+    "id": "ap_07",
+    "slug": "wgetcloud",
+    "name": "WgetCloud（原 GaCloud）",
+    "aliases": [
+      "原",
+      "GaCloud"
+    ],
+    "summary": "WgetCloud（原 GaCloud）是一家老牌高端加速服务商。平台采用 BGP 服务器接入与亚马逊 Global Accelerator 专线，支持 Trojan 协议，主打低延迟与高稳定性。",
+    "officialUrl": null,
+    "affiliateUrl": "https://invite.wgetcloud.ltd/auth/register?code=1i8Pgu",
+    "registrationUrl": "https://invite.wgetcloud.ltd/auth/register?code=1i8Pgu",
+    "telegramUrl": null,
+    "ctaUrl": "https://invite.wgetcloud.ltd/auth/register?code=1i8Pgu",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "BGP 服务器接入 + 亚马逊 Global Accelerator 专线加速，提供高达 10000Mbps 总线接入能力",
+    "protocols": [
+      "Trojan"
+    ],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "德国",
+      "泰国",
+      "韩国",
+      "澳大利亚",
+      "加拿大",
+      "土耳其",
+      "巴西",
+      "印度",
+      "印度尼西亚",
+      "俄罗斯"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": 79.0,
+      "annual": 758.0,
+      "oneTime": null
+    },
+    "plans": [
+      {
+        "section": "二、 可用套餐对比",
+        "name": "基础专线",
+        "price": "¥79.00 / 月 ｜ ¥225.00 / 季 ｜ ¥758.00 / 年",
+        "numericPrice": 79.0,
+        "billingCycle": "月付 ｜ 季付 ｜ 年付",
+        "traffic": "160G/月（月付） ｜ 230G/月（季付） ｜ 280G/月（年付）",
+        "targetUser": ""
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "优质专线",
+        "price": "¥89.00 / 月 ｜ ¥253.00 / 季 ｜ ¥854.00 / 年",
+        "numericPrice": 89.0,
+        "billingCycle": "月付 ｜ 季付 ｜ 年付",
+        "traffic": "180G/月（月付） ｜ 250G/月（季付） ｜ 320G/月（年付）",
+        "targetUser": ""
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "精品专线",
+        "price": "¥99.00 / 月 ｜ ¥281.00 / 季 ｜ ¥950.00 / 年",
+        "numericPrice": 99.0,
+        "billingCycle": "月付 ｜ 季付 ｜ 年付",
+        "traffic": "200G/月（月付） ｜ 270G/月（季付） ｜ 360G/月（年付）",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "contains_service_or_marketing_claims_not_independently_verified",
+      "contains_performance_or_test_data_preserved_from_source_document",
+      "near_duplicate_content:闪跃.md:0.952"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 7
+  },
+  {
+    "id": "ap_08",
+    "slug": "yifanyun",
+    "name": "一翻云 (1flyun)",
+    "aliases": [
+      "1flyun"
+    ],
+    "summary": "一翻云全线配备 IEPL 企业级专线，拥有顶级带宽冗余与低延迟表现。全套餐不限制在线设备与客户端数量，提供自研客户端支持一键连接，完美解锁主流流媒体及各类 AI 智能工具。",
+    "officialUrl": null,
+    "affiliateUrl": "https://wzjc.1flyunaff.cc/#/?code=cX5Pnju4",
+    "registrationUrl": "https://wzjc.1flyunaff.cc/#/?code=cX5Pnju4",
+    "telegramUrl": null,
+    "ctaUrl": "https://wzjc.1flyunaff.cc/#/?code=cX5Pnju4",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全 IEPL 企业级专线（最高级带宽冗余）",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国"
+    ],
+    "deviceLimits": "不限制在线设备与客户端数量",
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": 20.0,
+      "annual": 98.0,
+      "oneTime": 100.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "98元·年付小包",
+        "price": "¥98.00 / 年",
+        "numericPrice": 98.0,
+        "billingCycle": "年付专属（折合 ¥8.16/月）",
+        "traffic": "60GB / 月",
+        "targetUser": "轻度需求首选，适合日常浏览网页与社交沟通"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "轻享版",
+        "price": "¥20.00 / 月",
+        "numericPrice": 20.0,
+        "billingCycle": "季付¥55 ｜ 半年付¥90 ｜ 年付¥168",
+        "traffic": "150GB / 月",
+        "targetUser": "高性价比基础款，满足日常浏览与 AI 工具使用"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "舒享版",
+        "price": "¥35.00 / 月",
+        "numericPrice": 35.0,
+        "billingCycle": "季付¥98 ｜ 半年付¥178 ｜ 年付¥298",
+        "traffic": "350GB / 月",
+        "targetUser": "独享高速通道保障，适合经常观看高清流媒体"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "尊享版",
+        "price": "¥55.00 / 月",
+        "numericPrice": 55.0,
+        "billingCycle": "季付¥155 ｜ 半年付¥288 ｜ 年付¥498",
+        "traffic": "600GB / 月",
+        "targetUser": "晚高峰高级优先保障，适合重度影音与大流量需求"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "极致版",
+        "price": "¥95.00 / 月",
+        "numericPrice": 95.0,
+        "billingCycle": "季付¥268 ｜ 半年付¥498 ｜ 年付¥888",
+        "traffic": "1.2TB / 月",
+        "targetUser": "尊享企业级专线流量，适合多设备共享或极高流量用户"
+      },
+      {
+        "section": "2. 永久不限时流量包（按量付费）",
+        "name": "轻享版·不限时包",
+        "price": "¥100.00 / 一次性",
+        "numericPrice": 100.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包（按量付费）",
+        "name": "舒享版·不限时包",
+        "price": "¥200.00 / 一次性",
+        "numericPrice": 200.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包（按量付费）",
+        "name": "尊享版·不限时包",
+        "price": "¥400.00 / 一次性",
+        "numericPrice": 400.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "全端适配与零设备限制：全套餐均不限在线客户端数量，适配自研客户端支持一键连接。",
+      "IEPL 专线晚高峰保障：拥有 60+ 顶级专线节点，高阶套餐（如尊享版、极致版）享有晚高峰高级优先与企业级带宽保障。",
+      "选购建议：轻度用量首选 98元年付小包（折合 ¥8.16/月）；日常高频使用推荐 轻享版 (¥20/月)；追剧及重度需求推荐 舒享版 (¥35/月)；备用或低频用户建议选择 不限时包。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 8
+  },
+  {
+    "id": "ap_09",
+    "slug": "ermaoyun",
+    "name": "二猫云 (2mao Cloud)",
+    "aliases": [
+      "2mao",
+      "Cloud"
+    ],
+    "summary": "二猫云全线配备 IEPL 专线网络，单节点峰值速率最高可达 2.5Gbps。所有节点均维持 1x 倍率且晚高峰不降速，完全不限制在线设备/客户端数量。全线采用原生 IP 资源，完美解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
+    "officialUrl": null,
+    "affiliateUrl": "https://waaa.2maoyunaff.cc/#/?code=dzgbKSSJ",
+    "registrationUrl": "https://waaa.2maoyunaff.cc/#/?code=dzgbKSSJ",
+    "telegramUrl": null,
+    "ctaUrl": "https://waaa.2maoyunaff.cc/#/?code=dzgbKSSJ",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全 IEPL 专线（单节点最高速率 2.5Gbps）",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国"
+    ],
+    "deviceLimits": "不限制在线设备与客户端数量",
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 20.0,
+      "annual": 89.0,
+      "oneTime": 99.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "二猫年付小包",
+        "price": "¥89.00 / 年",
+        "numericPrice": 89.0,
+        "billingCycle": "年付",
+        "traffic": "60GB / 月",
+        "targetUser": "年费极高性价比入门包，适合低流量/日常轻度办公（折合约 ¥7.4/月）"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "二猫云·白猫套餐",
+        "price": "¥20.00 / 月",
+        "numericPrice": 20.0,
+        "billingCycle": "月付",
+        "traffic": "130GB / 月",
+        "targetUser": "最多人选套餐，满足日常网页浏览、AI 工具与社交沟通需求"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "二猫云·橘猫畅玩版",
+        "price": "¥40.00 / 月",
+        "numericPrice": 40.0,
+        "billingCycle": "月付",
+        "traffic": "230GB / 月",
+        "targetUser": "进阶性价比推荐，适合高清流媒体追剧、日常远程办公"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "二猫云·牛奶猫尊享版",
+        "price": "¥80.00 / 月",
+        "numericPrice": 80.0,
+        "billingCycle": "月付",
+        "traffic": "430GB / 月",
+        "targetUser": "大流量尊享方案，适合重度影音发烧友、大文件频繁下载"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "二猫云·黑猫重度用户版",
+        "price": "¥160.00 / 月",
+        "numericPrice": 160.0,
+        "billingCycle": "月付",
+        "traffic": "850GB / 月",
+        "targetUser": "重度用户专属方案，适合全天候视频访问、多终端/团队共享"
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "二猫云·不限时套餐",
+        "price": "¥99.00 / 一次性",
+        "numericPrice": 99.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "全程 IEPL 专线保障：拥有 60+ 专线节点，单节点最高支持 2.5Gbps 速率，智能路由自动择优，晚高峰不降速。",
+      "零设备数量限制：全套餐均不限制客户端数量，支持电脑、手机、平板及路由器等多设备同时在线。",
+      "灵活套餐组合：覆盖低至 ¥89/年的轻量包到 850GB/月的重度大流量包，兼顾按量付费的不限时流量需求。",
+      "选购建议：轻度需求首选 二猫年付小包 (¥89/年)；日常高频使用推荐 白猫套餐 (¥20/月) 或 橘猫畅玩版 (¥40/月)；对于备用或用量不固定用户，推荐选择 不限时套餐 (¥99/100GB)。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 9
+  },
+  {
+    "id": "ap_10",
+    "slug": "guangnianti",
+    "name": "光年梯 (Guangnianti)",
+    "aliases": [
+      "Guangnianti"
+    ],
+    "summary": "光年梯（Guangnianti）全线基于 IPLC/IEPL 专线网络 架构构建，最高单节点带宽可达 2.5Gbps。全节点按 1x 倍率扣费，晚高峰不限速，且不限制同时在线客户端/设备数量。节点配备纯净原生 IP 资源，全面解锁 Netflix、Disney+、HBO 等主流流媒体及 ChatGPT、Claude、Gemini、TikTok 等 AI 与社媒平台。",
+    "officialUrl": null,
+    "affiliateUrl": "https://ggmq.gntaff.com/#/?code=oTY2f32o",
+    "registrationUrl": "https://ggmq.gntaff.com/#/?code=oTY2f32o",
+    "telegramUrl": null,
+    "ctaUrl": "https://ggmq.gntaff.com/#/?code=oTY2f32o",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全程 IPLC 专线（最高 2.5Gbps 速率） / 独享 IEPL 专线",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "马来西亚"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "HBO",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT",
+      "Claude",
+      "Gemini"
+    ],
+    "pricing": {
+      "monthly": 18.0,
+      "annual": 89.0,
+      "oneTime": null
+    },
+    "plans": [
+      {
+        "section": "1. 通用订阅套餐",
+        "name": "年付限时套餐",
+        "price": "¥89.00 / 年",
+        "numericPrice": 89.0,
+        "billingCycle": "年付",
+        "traffic": "50GB / 月",
+        "targetUser": "年费性价比体验包，适合低频查资料、轻度网页浏览（折合仅 ¥7.4/月）"
+      },
+      {
+        "section": "1. 通用订阅套餐",
+        "name": "光年梯·入门版",
+        "price": "¥18.00 / 月",
+        "numericPrice": 18.0,
+        "billingCycle": "月付",
+        "traffic": "110GB / 月",
+        "targetUser": "入门档位，适合日常网页查阅、AI 工具及社交沟通"
+      },
+      {
+        "section": "1. 通用订阅套餐",
+        "name": "光年梯·晋级版",
+        "price": "¥34.00 / 月",
+        "numericPrice": 34.0,
+        "billingCycle": "月付",
+        "traffic": "220GB / 月",
+        "targetUser": "性价比推荐，满足高清流媒体播放、日常远程办公"
+      },
+      {
+        "section": "1. 通用订阅套餐",
+        "name": "光年梯·专业版",
+        "price": "¥68.00 / 月",
+        "numericPrice": 68.0,
+        "billingCycle": "月付",
+        "traffic": "450GB / 月",
+        "targetUser": "重度影音与办公，适合大流量下载、多终端共享"
+      },
+      {
+        "section": "1. 通用订阅套餐",
+        "name": "光年梯·至尊版",
+        "price": "¥130.00 / 月",
+        "numericPrice": 130.0,
+        "billingCycle": "月付",
+        "traffic": "900GB / 月",
+        "targetUser": "极致大流量方案，适合全天候视频观看、大文件传输与小团队"
+      },
+      {
+        "section": "2. 企业级独享私人专线套餐",
+        "name": "独享私人专线节点",
+        "price": "¥680.00 / 月",
+        "numericPrice": 680.0,
+        "billingCycle": "月付",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "IPLC/IEPL 高速专线：最高提供 2.5Gbps 传输速率，晚高峰依然保持极低延迟与稳定连接。",
+      "零设备数量限制：全通用套餐均不限制设备客户端连接数量，单账号支持手机、电脑、平板及路由器等多端同时在线。",
+      "全平台 AI 与流媒体解锁：完美解锁 Netflix、Disney+、HBO 及 ChatGPT、Claude、Gemini 等主流 AI 工具。",
+      "选购策略：轻度查资料选 年付限时套餐 (¥89/年)；日常个人首推 入门版 (¥18/月) 或 晋级版 (¥34/月)；有企业跨境直播/独立公网 IP 需求请选 独享私人专线节点 (¥680/月)。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 10
+  },
+  {
+    "id": "ap_11",
+    "slug": "guangshuyun",
+    "name": "光速云 (Lightspeed Cloud)",
+    "aliases": [
+      "Lightspeed",
+      "Cloud"
+    ],
+    "summary": "光速云（Lightspeed Cloud）全线采用全球 IPLC 专线网络接入，单节点最高速率可达 2.5Gbps。节点统一 1 倍率计费、晚高峰满速且不限制设备连接数量。线路搭配原生 IP，轻松解锁 Netflix、Disney+、ChatGPT 及 TikTok 等主流服务。",
+    "officialUrl": null,
+    "affiliateUrl": "https://mdlky.gsyaff.com/#/?code=BEXBm84c",
+    "registrationUrl": "https://mdlky.gsyaff.com/#/?code=BEXBm84c",
+    "telegramUrl": null,
+    "ctaUrl": "https://mdlky.gsyaff.com/#/?code=BEXBm84c",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全球 IPLC 专线（单节点速率最高可达 2.5Gbps）",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "法国",
+      "越南",
+      "土耳其"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 23.0,
+      "annual": 99.0,
+      "oneTime": 680.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "光速云·轻量版",
+        "price": "¥99.00 / 年",
+        "numericPrice": 99.0,
+        "billingCycle": "年付",
+        "traffic": "59GB / 月",
+        "targetUser": "年费福利小包（折合一天不到 ¥0.16），适合办公、查邮件、聊天等轻度用户"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "光速云·极速版",
+        "price": "¥23.00 / 月",
+        "numericPrice": 23.0,
+        "billingCycle": "月付",
+        "traffic": "148GB / 月",
+        "targetUser": "入门首选，适合日常网页浏览、AI 工具使用与中度流媒体观看"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "光速云·流光版",
+        "price": "¥34.00 / 月",
+        "numericPrice": 34.0,
+        "billingCycle": "月付",
+        "traffic": "238GB / 月",
+        "targetUser": "性价比推荐，适合高频 4K 影音与多设备共享需求"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "光速云·量子版",
+        "price": "¥68.00 / 月",
+        "numericPrice": 68.0,
+        "billingCycle": "月付",
+        "traffic": "450GB / 月",
+        "targetUser": "大流量档位，适合重度下载与多终端高频率使用"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "光速云·无界版",
+        "price": "¥130.00 / 月",
+        "numericPrice": 130.0,
+        "billingCycle": "月付",
+        "traffic": "900GB / 月",
+        "targetUser": "极致超大流量，适合多设备重度影音或小微团队共享"
+      },
+      {
+        "section": "2. 永久不限时与定制套餐",
+        "name": "光速云·不限时套餐",
+        "price": "¥680.00 / 一次性",
+        "numericPrice": 680.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时与定制套餐",
+        "name": "光速云·定制套餐",
+        "price": "¥680.00 / 月",
+        "numericPrice": 680.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "IPLC 专线保障：全线节点最高提供 2.5Gbps 吞吐，晚高峰依然能维持低延迟与稳定传输。",
+      "零设备数量限制：不限制多端同时在线数量，适合手机、电脑、平板及软路由全家共享。",
+      "灵活的套餐类型：覆盖了年费轻量小包、常规月付、永久不限时流量包及独享企业定制，满足各类场景。",
+      "选购策略：轻度查资料选 轻量版 (¥99/年)；日常高频使用推荐 极速版 (¥23/月) 或 流光版 (¥34/月)，搭配多半年付或年付折扣购买性价比更高。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 11
+  },
+  {
+    "id": "ap_12",
+    "slug": "quanqiuyun",
+    "name": "全球云",
+    "aliases": [
+      "Global",
+      "Cloud"
+    ],
+    "summary": "全球云主打出海线路与流媒体解锁服务，采用企业级 IPLC/IEPL 专线传输、智能负载均衡与三网入口优化。提供 70+ 节点并基于 VLESS 协议，支持常见的第三方客户端（Shadowrocket、Clash、V2Ray 等）以及多平台场景使用。本文整理了全球云的基础信息、周期套餐、不限时流量包及选购建议。",
+    "officialUrl": null,
+    "affiliateUrl": "https://vbfdvfj1.quanqiugttt1.club/#/?code=NKII9ZkH",
+    "registrationUrl": "https://vbfdvfj1.quanqiugttt1.club/#/?code=NKII9ZkH",
+    "telegramUrl": null,
+    "ctaUrl": "https://vbfdvfj1.quanqiugttt1.club/#/?code=NKII9ZkH",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "IPLC / IEPL 专线（宣称配有智能负载均衡与三网入口优化）",
+    "protocols": [
+      "VLESS",
+      "协议（服务商提供）"
+    ],
+    "regions": [
+      "香港",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "德国",
+      "法国",
+      "泰国",
+      "越南",
+      "韩国",
+      "土耳其",
+      "菲律宾"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "V2Ray"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": true,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": 20.0,
+      "annual": 99.0,
+      "oneTime": 100.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "年付轻量版",
+        "price": "¥99 / 年",
+        "numericPrice": 99.0,
+        "billingCycle": "年付",
+        "traffic": "59 GB （重置方式未说明）",
+        "targetUser": "低频备用，能接受年付风险的用户"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "BGP 智能优化·入门方案",
+        "price": "¥20 / 月",
+        "numericPrice": 20.0,
+        "billingCycle": "月付",
+        "traffic": "120 GB / 月",
+        "targetUser": "首次测试、轻中度日常使用"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "BGP 智能优化·进阶方案",
+        "price": "¥40 / 月",
+        "numericPrice": 40.0,
+        "billingCycle": "月付",
+        "traffic": "300 GB / 月",
+        "targetUser": "日常视频与 AI 工具依赖者"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "BGP 智能优化·高端方案",
+        "price": "¥100 / 月",
+        "numericPrice": 100.0,
+        "billingCycle": "月付",
+        "traffic": "700 GB / 月",
+        "targetUser": "多设备、高流量消耗用户"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "BGP 智能优化·商业方案",
+        "price": "¥180 / 月",
+        "numericPrice": 180.0,
+        "billingCycle": "月付",
+        "traffic": "1500 GB / 月",
+        "targetUser": "团队或重度大流量用户"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "独享私人专线节点",
+        "price": "¥680 / 月",
+        "numericPrice": 680.0,
+        "billingCycle": "月付",
+        "traffic": "500 GB / 月",
+        "targetUser": "需要独享节点并需确认线路规格的用户（咨询购买）"
+      },
+      {
+        "section": "2. 一次性不限时流量包（买断制）",
+        "name": "BGP 智能优化·不限时轻量包",
+        "price": "¥100 / 一次性",
+        "numericPrice": 100.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "100 GB",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 一次性不限时流量包（买断制）",
+        "name": "BGP 智能优化·不限时标准包",
+        "price": "¥360 / 一次性",
+        "numericPrice": 360.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "400 GB",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 一次性不限时流量包（买断制）",
+        "name": "BGP 智能优化·不限时大容量包",
+        "price": "¥700 / 一次性",
+        "numericPrice": 700.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "800 GB",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "IPLC/IEPL 专线与晚高峰优化：",
+      "流媒体与 AI 工具解锁：",
+      "多平台通用订阅：",
+      "service_name_fallback_to_filename",
+      "contains_service_or_marketing_claims_not_independently_verified",
+      "contains_performance_or_test_data_preserved_from_source_document"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 12
+  },
+  {
+    "id": "ap_13",
+    "slug": "kexinyun",
+    "name": "可信云 (Kexin Cloud)",
+    "aliases": [
+      "Kexin",
+      "Cloud"
+    ],
+    "summary": "可信云全线搭载 60+ IEPL 专线节点，覆盖港/台/新/日/美等核心地区。线路维持高品质稳定输出，完全不限制在线设备与客户端数量。全线采用原生 IP 资源，完美解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
+    "officialUrl": null,
+    "affiliateUrl": "https://work.kosingaff.com/#/?code=JDeEfOcq",
+    "registrationUrl": "https://work.kosingaff.com/#/?code=JDeEfOcq",
+    "telegramUrl": null,
+    "ctaUrl": "https://work.kosingaff.com/#/?code=JDeEfOcq",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "60+ 顶级 IEPL 专线节点",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国"
+    ],
+    "deviceLimits": "不限制在线设备与客户端数量",
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 15.0,
+      "annual": 96.0,
+      "oneTime": 50.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "可信云月付小包",
+        "price": "¥15.00 / 月",
+        "numericPrice": 15.0,
+        "billingCycle": "月付",
+        "traffic": "60GB / 月",
+        "targetUser": "纯体验尝鲜包，适合低流量、轻度网页浏览与社交网络"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "可信云年费小礼包",
+        "price": "¥96.00 / 年",
+        "numericPrice": 96.0,
+        "billingCycle": "年付",
+        "traffic": "60GB / 月",
+        "targetUser": "高性价比轻量年包，适合日常查资料与轻度办公"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "基础版 (Basic)",
+        "price": "¥25.00 / 月",
+        "numericPrice": 25.0,
+        "billingCycle": "月付",
+        "traffic": "150GB / 月",
+        "targetUser": "入门主力推荐，满足日常高频浏览与 AI 工具使用"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "标准版 (Standard)",
+        "price": "¥50.00 / 月",
+        "numericPrice": 50.0,
+        "billingCycle": "月付",
+        "traffic": "300GB / 月",
+        "targetUser": "性价比进阶款，适合流畅观看 4K 高清视频、远程办公"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "专业版 (Pro)",
+        "price": "¥100.00 / 月",
+        "numericPrice": 100.0,
+        "billingCycle": "月付",
+        "traffic": "600GB / 月",
+        "targetUser": "大流量尊享方案，适合重度影音发烧友、大文件下载"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "旗舰版 (Ultimate)",
+        "price": "¥200.00 / 月",
+        "numericPrice": 200.0,
+        "billingCycle": "月付",
+        "traffic": "1.2TB / 月",
+        "targetUser": "旗舰超大流量包，适合多终端共享或团队跨境运营"
+      },
+      {
+        "section": "2. 永久不限时流量包（按量付费）",
+        "name": "可信云轻量不限时",
+        "price": "¥50.00 / 一次性",
+        "numericPrice": 50.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "全 IEPL 专线保障：拥有 60+ 顶级专线节点，低延迟、高稳定性，晚高峰视频播放流畅。",
+      "零设备及客户端限制：所有套餐均不限制设备与客户端在线数量，支持多终端同时并发使用。",
+      "多梯队套餐选择：提供低至 ¥15/月的体验包到 1.2TB/月的旗舰包，长周期续费最高可享 7 折优惠。",
+      "选购建议：试用首选 月付小包 (¥15/月)；长周期轻度用量选 年费小礼包 (¥96/年)；高频日常使用推荐 基础版 (¥25/月) 或 标准版 (¥50/月)；用量不固定选 轻量不限时包 (¥50/50GB)。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 13
+  },
+  {
+    "id": "ap_14",
+    "slug": "ve2yun",
+    "name": "唯兔云 (V2Yun)",
+    "aliases": [
+      "V2Yun"
+    ],
+    "summary": "唯兔云全线基于 IPLC 专线 + VLESS 协议 打造，并配有备用直连节点。全节点 1x 速率扣费，不限速且不限制客户端/设备连接数量。依靠纯净原生 IP 资源，全面解锁 Netflix、Hulu、HBO、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒平台。",
+    "officialUrl": null,
+    "affiliateUrl": "https://fast.v2yunvipaff.com/#/?code=4WmxN4Tr",
+    "registrationUrl": "https://fast.v2yunvipaff.com/#/?code=4WmxN4Tr",
+    "telegramUrl": null,
+    "ctaUrl": "https://fast.v2yunvipaff.com/#/?code=4WmxN4Tr",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全 IPLC 专线 + 备用直连节点",
+    "protocols": [
+      "VLESS"
+    ],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "德国",
+      "法国",
+      "泰国",
+      "印度",
+      "菲律宾"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "HBO",
+      "TikTok",
+      "Hulu"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 14.9,
+      "annual": 79.9,
+      "oneTime": 100.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "唯兔云·年付限量款",
+        "price": "¥79.90 / 年",
+        "numericPrice": 79.9,
+        "billingCycle": "年付",
+        "traffic": "45GB / 月",
+        "targetUser": "年费性价比小包，适合低频查资料、轻度办公"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "唯兔云·年付加强专线",
+        "price": "¥120.00 / 年",
+        "numericPrice": 120.0,
+        "billingCycle": "年付",
+        "traffic": "75GB / 月",
+        "targetUser": "年费加强专线，适合轻度网页浏览与日常社媒使用"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "唯兔云·普通版",
+        "price": "¥19.90 / 月",
+        "numericPrice": 19.9,
+        "billingCycle": "月付",
+        "traffic": "150GB / 月",
+        "targetUser": "入门档位，适合高频网页查阅、AI 工具及日常流媒体观看"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "唯兔云·进阶版",
+        "price": "¥29.90 / 月",
+        "numericPrice": 29.9,
+        "billingCycle": "月付",
+        "traffic": "200GB / 月",
+        "targetUser": "性价比推荐，满足多设备 4K 流媒体播放与日常办公"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "唯兔云·专业版",
+        "price": "¥59.90 / 月",
+        "numericPrice": 59.9,
+        "billingCycle": "月付",
+        "traffic": "500GB / 月",
+        "targetUser": "重度使用，适合大流量下载、多设备共享与影音发烧友"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "唯兔云·至尊版",
+        "price": "¥119.90 / 月",
+        "numericPrice": 119.9,
+        "billingCycle": "月付",
+        "traffic": "1.0TB / 月",
+        "targetUser": "极致大流量套餐，适合小微团队或重度业务并发"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "唯兔云·节假日限时开启",
+        "price": "¥14.90 / 月起",
+        "numericPrice": 14.9,
+        "billingCycle": "月付",
+        "traffic": "100GB / 月",
+        "targetUser": "活动特惠包（支持月付 ¥14.9 / 年付 ¥142.9 / 三年付 ¥321.9）"
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "唯兔云·永久不限时 100G",
+        "price": "¥100.00 / 一次性",
+        "numericPrice": 100.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "唯兔云·永久不限时 200G",
+        "price": "¥160.00 / 一次性",
+        "numericPrice": 160.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "唯兔云·永久不限时 500G",
+        "price": "¥340.00 / 一次性",
+        "numericPrice": 340.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "IPLC 专线 + VLESS 协议：采用现代化 VLESS 协议搭配 IPLC 专线，辅以备用直连节点，确保晚高峰拥堵时段依然连接稳定、延迟低。",
+      "零设备数量门槛：全套餐均不限制客户端数量，单账号可同时在手机、PC、Mac、平板及软路由等多端部署使用。",
+      "灵活的购买选择：既有最低 ¥79.90/年的超值年费包，也有不按月清零的永久流量包，续费/重置均享 9 折。",
+      "选购策略：轻度查资料选 年付限量款 (¥79.90/年)；日常使用首推 普通版 (¥19.90/月) 或 进阶版 (¥29.90/月)；低频备用建议选 永久不限时流量包。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 14
+  },
+  {
+    "id": "ap_15",
+    "slug": "dageyun",
+    "name": "大哥云 (DeGeYun)",
+    "aliases": [
+      "DeGeYun"
+    ],
+    "summary": "本指南针对大哥云（DeGeYun）网络加速服务进行整体解析，包含注册入口、各档位套餐配置、节点使用建议、常见疑问及全平台客户端支持列表。",
+    "officialUrl": null,
+    "affiliateUrl": "https://a03.dgy02.com/#/register?code=X8MBmftq",
+    "registrationUrl": "https://a03.dgy02.com/#/register?code=X8MBmftq",
+    "telegramUrl": null,
+    "ctaUrl": "https://a03.dgy02.com/#/register?code=X8MBmftq",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "专线/BGP中转",
+    "protocols": [
+      "Trojan"
+    ],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": 19.0,
+      "annual": 88.0,
+      "oneTime": null
+    },
+    "plans": [
+      {
+        "section": "二、 可用套餐对比",
+        "name": "小流量套餐",
+        "price": "¥88.00 / 年",
+        "numericPrice": 88.0,
+        "billingCycle": "365天",
+        "traffic": "15 GB/月",
+        "targetUser": ""
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "单月套餐 100GB",
+        "price": "¥19.00 / 月",
+        "numericPrice": 19.0,
+        "billingCycle": "30天",
+        "traffic": "100 GB/月",
+        "targetUser": ""
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "单月套餐B 150GB",
+        "price": "¥29.90 / 月",
+        "numericPrice": 29.9,
+        "billingCycle": "30天",
+        "traffic": "150 GB/月",
+        "targetUser": ""
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "季付套餐A 200GB",
+        "price": "¥69.00 / 季",
+        "numericPrice": 69.0,
+        "billingCycle": "90天",
+        "traffic": "200 GB/月",
+        "targetUser": ""
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "套餐A 300GB",
+        "price": "¥199.00 / 年",
+        "numericPrice": 199.0,
+        "billingCycle": "365天",
+        "traffic": "300 GB/月",
+        "targetUser": ""
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "套餐A 500GB",
+        "price": "¥299.00 / 年",
+        "numericPrice": 299.0,
+        "billingCycle": "365天",
+        "traffic": "500 GB/月",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "日常轻中度用户：尤其适合对流媒体解锁（如 Netflix）和 AI 工具（如 ChatGPT）有稳定需求的使用者。",
+      "大流量需求者：适合预算有限、但希望获取较高流量配额的场景。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 15
+  },
+  {
+    "id": "ap_16",
+    "slug": "yuzhouyun",
+    "name": "宇宙云 (Yuzhou Cloud)",
+    "aliases": [
+      "Yuzhou",
+      "Cloud"
+    ],
+    "summary": "宇宙云配备 70+ 顶级 IEPL/IPLC 专线节点，覆盖港/台/新/日/美/马/德等核心地区。节点统一维持不限速，完全不限制设备与客户端在线数量。全线支持自研客户端一键连接，完美解锁各大主流流媒体及 ChatGPT、Claude、TikTok 等 AI 与社媒工具。",
+    "officialUrl": null,
+    "affiliateUrl": "https://wzjc.yuzoucloud.cc/#/?code=4FJ182Jl",
+    "registrationUrl": "https://wzjc.yuzoucloud.cc/#/?code=4FJ182Jl",
+    "telegramUrl": null,
+    "ctaUrl": "https://wzjc.yuzoucloud.cc/#/?code=4FJ182Jl",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "70+ 精品 IEPL/IPLC 专线节点",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "马来西亚",
+      "德国"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT",
+      "Claude"
+    ],
+    "pricing": {
+      "monthly": 25.0,
+      "annual": 96.0,
+      "oneTime": 110.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "星云年付小包",
+        "price": "¥96.00 / 年",
+        "numericPrice": 96.0,
+        "billingCycle": "年付",
+        "traffic": "60GB / 月",
+        "targetUser": "年费性价比轻量包，适合低流量、日常查资料与社交沟通（折合仅 ¥8/月）"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "行星基础版",
+        "price": "¥25.00 / 月",
+        "numericPrice": 25.0,
+        "billingCycle": "月付",
+        "traffic": "160GB / 月",
+        "targetUser": "基础入门推荐，满足日常网页浏览、AI 工具使用"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "恒星标准版",
+        "price": "¥50.00 / 月",
+        "numericPrice": 50.0,
+        "billingCycle": "月付",
+        "traffic": "300GB / 月",
+        "targetUser": "性价比主力款，流畅看高清流媒体视频、日常远程办公"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "星系专业版",
+        "price": "¥100.00 / 月",
+        "numericPrice": 100.0,
+        "billingCycle": "月付",
+        "traffic": "700GB / 月",
+        "targetUser": "高速专线大流量，适合影音发烧友、频繁大文件传输"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "寰宇旗舰版",
+        "price": "¥200.00 / 月",
+        "numericPrice": 200.0,
+        "billingCycle": "月付",
+        "traffic": "1.5TB / 月",
+        "targetUser": "极致超大流量方案，适合多终端家庭共享、小团队与跨境运营"
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "行星基础版 (不限时)",
+        "price": "¥110.00 / 一次性",
+        "numericPrice": 110.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "恒星标准版 (不限时)",
+        "price": "¥220.00 / 一次性",
+        "numericPrice": 220.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "IEPL/IPLC 专线保障：拥有 70+ 专线节点，有效降低延迟与丢包，晚高峰依旧稳定流畅。",
+      "零设备并发限制：全套餐均不限制客户端数量，单账号支持手机、电脑、平板及路由器等多端同时在线。",
+      "自研客户端简单易用：支持官方自研客户端，一键下载登录即可连接，上手门槛极低。",
+      "选购建议：轻度查资料首选 星云年付小包 (¥96/年)；日常个人高频使用首推 行星基础版 (¥25/月) 或 恒星标准版 (¥50/月)；对于用量不固定或需要防封备用的用户，推荐选择 不限时套餐。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 16
+  },
+  {
+    "id": "ap_17",
+    "slug": "weifeng",
+    "name": "微风网络",
+    "aliases": [],
+    "summary": "微风网络是一家高性价比的入门级网络加速服务商。服务提供约 61 个节点，采用 IEPL 专线、IPLC 专线与 BGP 中继架构，解锁主流流媒体及 AI 工具。门槛低至 10 元/月，非常适合学生党、轻度翻墙用户及文献资料查询需求。",
+    "officialUrl": null,
+    "affiliateUrl": "https://wep01.breezenetaff.com/#/?code=JHqHSog8",
+    "registrationUrl": "https://wep01.breezenetaff.com/#/?code=JHqHSog8",
+    "telegramUrl": null,
+    "ctaUrl": "https://wep01.breezenetaff.com/#/?code=JHqHSog8",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "IEPL 专线、IPLC 专线、BGP 中继",
+    "protocols": [
+      "Shadowsocks",
+      "Vmess",
+      "Trojan"
+    ],
+    "regions": [],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "微信支付",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 27.0,
+      "annual": 137.0,
+      "oneTime": 200.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "清风（微风）",
+        "price": "¥137 / 年",
+        "numericPrice": 137.0,
+        "billingCycle": "年付",
+        "traffic": "100GB / 月",
+        "targetUser": "轻度长期使用，极低成本备用"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "乘风（骑马）",
+        "price": "¥27 / 月",
+        "numericPrice": 27.0,
+        "billingCycle": "月付",
+        "traffic": "200GB / 月",
+        "targetUser": "日常网页、社交与 1080P 视频播放"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "破风（破）",
+        "price": "¥57 / 月",
+        "numericPrice": 57.0,
+        "billingCycle": "月付",
+        "traffic": "500GB / 月",
+        "targetUser": "高频使用、多设备共享与资料下载"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "御风（精通）",
+        "price": "¥127 / 月",
+        "numericPrice": 127.0,
+        "billingCycle": "月付",
+        "traffic": "1.2TB / 月",
+        "targetUser": "大流量需求与重度影音办公"
+      },
+      {
+        "section": "2. 一次性不限时流量包",
+        "name": "信风·不限时",
+        "price": "¥200 / 一次性",
+        "numericPrice": 200.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "270GB",
+        "targetUser": "永不过期，低频备用首选"
+      },
+      {
+        "section": "2. 一次性不限时流量包",
+        "name": "长风·不限时",
+        "price": "¥370 / 一次性",
+        "numericPrice": 370.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "570GB",
+        "targetUser": "永不过期，长期灵活使用"
+      }
+    ],
+    "features": [
+      "实测性能数据：中位延迟约 42ms，下载速率达 50 MB/s，30 天在线率 99.9%，丢包率仅 0.1%。",
+      "流媒体与体验：可稳定解锁常规地区流媒体及 1080P 画质视频，高峰期观看超高清视频可能会有轻微缓冲。",
+      "节点容错率高：拥有约 61 个节点储备（覆盖香港、日本、韩国、台湾、新加坡、美国等），若晚高峰个别节点拥堵，可快速切换顺畅线路。",
+      "选购策略：定位偏向实用入门级，建议对延迟无极度苛刻要求的用户先通过基础套餐低成本体验后再升级。",
+      "citation_markers_present_without_embedded_source_map",
+      "contains_service_or_marketing_claims_not_independently_verified"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 17
+  },
+  {
+    "id": "ap_18",
+    "slug": "kuaili",
+    "name": "快狸 (Kuaili Cloud)",
+    "aliases": [
+      "Kuaili",
+      "Cloud"
+    ],
+    "summary": "快狸全线采用 全 IEPL 专线网络，单节点峰值带宽高达 2.5Gbps。全节点保持 1x 倍率 且晚高峰不降速，完全不限制在线设备与客户端数量。配备原生 IP 资源，完美解锁 Netflix、Disney+ 等流媒体及 ChatGPT、TikTok 等 AI 与社媒工具。",
+    "officialUrl": null,
+    "affiliateUrl": "https://work.kuailicloud.cc/#/?code=xVU3Wv16",
+    "registrationUrl": "https://work.kuailicloud.cc/#/?code=xVU3Wv16",
+    "telegramUrl": null,
+    "ctaUrl": "https://work.kuailicloud.cc/#/?code=xVU3Wv16",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全 IEPL 专线网络 (单节点峰值 2.5Gbps)",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "德国",
+      "法国",
+      "泰国",
+      "土耳其",
+      "巴西"
+    ],
+    "deviceLimits": "不限制在线设备与客户端数量",
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 15.0,
+      "annual": 120.0,
+      "oneTime": null
+    },
+    "plans": [
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "月狸月付小套餐",
+        "price": "¥15.00 / 月",
+        "numericPrice": 15.0,
+        "billingCycle": "仅限月付",
+        "traffic": "50GB / 月",
+        "targetUser": "纯体验尝鲜包，适合低流量、轻度网页浏览"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "森狸年付小套餐",
+        "price": "¥120.00 / 年",
+        "numericPrice": 120.0,
+        "billingCycle": "年付专属（折合 ¥10/月）",
+        "traffic": "30GB / 月",
+        "targetUser": "轻量年包方案，适合日常查资料与轻度社交办公"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "小狸基础版",
+        "price": "¥22.00 / 月",
+        "numericPrice": 22.0,
+        "billingCycle": "年付8折 ｜ 两年7折 ｜ 三年6折",
+        "traffic": "100GB / 月",
+        "targetUser": "性价比入门款，满足日常网页高频浏览与 AI 工具使用"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "灵狸标准版",
+        "price": "¥35.00 / 月",
+        "numericPrice": 35.0,
+        "billingCycle": "年付8折 ｜ 两年7折 ｜ 三年6折",
+        "traffic": "250GB / 月",
+        "targetUser": "主力进阶推荐，适合流畅观看 4K 高清视频与文件下载"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "夜狸强化版",
+        "price": "¥95.00 / 月",
+        "numericPrice": 95.0,
+        "billingCycle": "年付8折 ｜ 两年7折 ｜ 三年6折",
+        "traffic": "500GB / 月",
+        "targetUser": "大流量尊享版，适合重度影音爱好者及多设备高速并发"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "天狸顶配版",
+        "price": "¥180.00 / 月",
+        "numericPrice": 180.0,
+        "billingCycle": "年付8折 ｜ 两年7折 ｜ 三年6折",
+        "traffic": "1.0TB / 月",
+        "targetUser": "旗舰顶级方案，适合团队跨境办公或多用户共享运营"
+      }
+    ],
+    "features": [
+      "IEPL 专线超高带宽：配备单节点最高 2.5Gbps 专线带宽，晚高峰时段流畅稳定，刷视频不卡顿。",
+      "无设备并发限制：全节点不限制登录客户端数量与多设备在线连接数，适配多终端共享需求。",
+      "灵活套餐搭配：从低至 ¥15/月的体验包到 1.0TB/月的大流量顶配包应有尽有，长续费享最高 6 折优惠。",
+      "选购建议：试用选 月付小包 (¥15/月)；日常使用推荐 小狸基础版 (¥22/月) 或 灵狸标准版 (¥35/月)；大流量重度用户首选 夜狸强化版 (¥95/月)。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 18
+  },
+  {
+    "id": "ap_19",
+    "slug": "wuyoulink",
+    "name": "无忧链接 (WUYOU LINK / EST. 2024)",
+    "aliases": [
+      "WUYOU",
+      "LINK",
+      "EST.",
+      "2024",
+      "|",
+      "WUYOU",
+      "LINK"
+    ],
+    "summary": "无忧链接（WUYOU LINK）是一家运营约 1 年的网络加速服务商。服务主打不限速、不限制客户端使用，支持通用订阅协议及小火箭（Shadowrocket）等主流客户端，解锁常见流媒体与 AI 工具，提供多种周期套餐及一次性不限时流量包。",
+    "officialUrl": null,
+    "affiliateUrl": "https://lsitel.worryfreettt.homes/#/?code=SaSZbwak",
+    "registrationUrl": "https://lsitel.worryfreettt.homes/#/?code=SaSZbwak",
+    "telegramUrl": null,
+    "ctaUrl": "https://lsitel.worryfreettt.homes/#/?code=SaSZbwak",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "专线/BGP中转",
+    "protocols": [],
+    "regions": [],
+    "deviceLimits": null,
+    "clients": [
+      "Clash Verge Rev",
+      "Clash",
+      "Shadowrocket"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": true,
+    "paymentMethods": [
+      "支付宝",
+      "微信支付"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "HBO",
+      "Hulu"
+    ],
+    "aiServices": [
+      "ChatGPT",
+      "Gemini"
+    ],
+    "pricing": {
+      "monthly": 12.92,
+      "annual": 79.0,
+      "oneTime": 16.15
+    },
+    "plans": [
+      {
+        "section": "二、 周期套餐对比",
+        "name": "mini链接",
+        "price": "¥79.00 / 年",
+        "numericPrice": 79.0,
+        "billingCycle": "年付",
+        "traffic": "40 GB/月",
+        "targetUser": "偶尔使用、低频备用"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "舒心链接",
+        "price": "¥12.92 / 月 ｜ ¥34.68 / 季 ｜ ¥65.28 / 半年 ｜ ¥123.76 / 年",
+        "numericPrice": 12.92,
+        "billingCycle": "月付",
+        "traffic": "100 GB/月",
+        "targetUser": "日常网页、社交与轻度视频"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "省心链接",
+        "price": "¥22.44 / 月 ｜ ¥60.52 / 季 ｜ ¥114.24 / 半年 ｜ ¥214.88 / 年",
+        "numericPrice": 22.44,
+        "billingCycle": "月付",
+        "traffic": "200 GB/月",
+        "targetUser": "AI 工具、办公与中等频率视频"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "随心链接",
+        "price": "¥52.36 / 月 ｜ ¥140.76 / 季 ｜ ¥266.56 / 半年 ｜ ¥502.52 / 年",
+        "numericPrice": 52.36,
+        "billingCycle": "月付",
+        "traffic": "500 GB/月",
+        "targetUser": "高频流媒体与多设备使用"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "忘忧链接",
+        "price": "¥117.00 / 月 ｜ ¥315.00 / 季 ｜ ¥596.00 / 半年 ｜ ¥1123.00 / 年",
+        "numericPrice": 117.0,
+        "billingCycle": "月付",
+        "traffic": "1 TB/月",
+        "targetUser": "大流量与重度使用"
+      },
+      {
+        "section": "三、 一次性不限时流量包",
+        "name": "不限时 100GB 流量包",
+        "price": "¥16.15 / 一次性",
+        "numericPrice": 16.15,
+        "billingCycle": "一次性不限时",
+        "traffic": "100 GB",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "通用订阅兼容：支持通用订阅格式导入，客户端适配度广（如 Windows/macOS 平台推荐 FlClash、Clash Verge Rev，iOS 推荐 Shadowrocket 等）。",
+      "流量覆盖广泛：涵盖轻量年付、常规月付至 1TB/月的大流量套餐，同时提供按量付费选项。",
+      "选购策略：建议首次体验优先选择 舒心链接 (月付) 进行网络环境与晚高峰节点测试，满意后再考虑长期套餐。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 19
+  },
+  {
+    "id": "ap_20",
+    "slug": "xingdaomeng",
+    "name": "星岛梦 (Stardream)",
+    "aliases": [
+      "Stardream"
+    ],
+    "summary": "星岛梦采用全 IPLC/IEPL 专线网络接入，单节点峰值速率高达 2.5Gbps。全节点 1x 速率扣费，高峰时段不降速，且完全不限制客户端在线设备数量。原生 IP 支持完美解锁 Netflix、Disney+、ChatGPT 及 TikTok 等主流服务。",
+    "officialUrl": null,
+    "affiliateUrl": "https://kfccbb.xingdaomeng.com/#/?code=0gckwZkN",
+    "registrationUrl": "https://kfccbb.xingdaomeng.com/#/?code=0gckwZkN",
+    "telegramUrl": null,
+    "ctaUrl": "https://kfccbb.xingdaomeng.com/#/?code=0gckwZkN",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全 IPLC / IEPL 专线（单节点速率最高可达 2.5Gbps）",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "德国",
+      "法国",
+      "泰国",
+      "韩国",
+      "土耳其",
+      "巴西"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 25.0,
+      "annual": 96.0,
+      "oneTime": 100.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "星岛梦·贴心小包",
+        "price": "¥96.00 / 年",
+        "numericPrice": 96.0,
+        "billingCycle": "年付",
+        "traffic": "60GB / 月",
+        "targetUser": "年费小包，适合低流量/新手用户，年付折合约 ¥8/月"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "星岛梦·超量150G",
+        "price": "¥25.00 / 月",
+        "numericPrice": 25.0,
+        "billingCycle": "月付",
+        "traffic": "150GB / 月",
+        "targetUser": "日常高频查阅、AI 工具及中度流媒体观看"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "星岛梦·进阶300G",
+        "price": "¥50.00 / 月",
+        "numericPrice": 50.0,
+        "billingCycle": "月付",
+        "traffic": "300GB / 月",
+        "targetUser": "4K 影音发烧友与多设备高用量需求"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "星岛梦·闪光500G",
+        "price": "¥70.00 / 月",
+        "numericPrice": 70.0,
+        "billingCycle": "月付",
+        "traffic": "500GB / 月",
+        "targetUser": "重度使用、大文件下载与家庭共享"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "星岛梦·旗舰1T版",
+        "price": "¥130.00 / 月",
+        "numericPrice": 130.0,
+        "billingCycle": "月付",
+        "traffic": "1.0TB / 月",
+        "targetUser": "极致大流量需求与小微团队/工作室共享"
+      },
+      {
+        "section": "2. 永久不限时流量包与定制套餐",
+        "name": "星岛梦·永久不限时100",
+        "price": "¥100.00 / 一次性",
+        "numericPrice": 100.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包与定制套餐",
+        "name": "星岛梦·永久不限时300",
+        "price": "¥300.00 / 一次性",
+        "numericPrice": 300.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包与定制套餐",
+        "name": "星岛梦·永久不限时1TB",
+        "price": "¥600.00 / 一次性",
+        "numericPrice": 600.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包与定制套餐",
+        "name": "星岛梦·定制套餐",
+        "price": "¥680.00 / 月",
+        "numericPrice": 680.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "全 IPLC/IEPL 专线保障：单节点最高支持 2.5Gbps 吞吐，晚高峰抗干扰性能好，拒绝高延迟与断流。",
+      "零设备数量限制：不限制在线设备数，可轻松支持手机、平板、电脑以及软路由等全家设备共享使用。",
+      "多梯级不限时流量包：提供 100GB / 300GB / 1TB 多挡位按量计费流量包，用完还可 9 折重置，极适合低频高稳定要求的备用需求。",
+      "选购策略：低频备用或轻度翻墙建议选购 贴心小包 (¥96/年) 或 不限时流量包；高频使用推荐买 超量150G (¥25/月) 并配合年付折扣以获得最高性价比。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 20
+  },
+  {
+    "id": "ap_21",
+    "slug": "muguang",
+    "name": "暮光加速",
+    "aliases": [
+      "Twilight",
+      "Speed"
+    ],
+    "summary": "暮光加速成立于 2025 年，由新加坡海外团队运营，采用 VLESS 协议及专线传输，覆盖香港、台湾、日本、新加坡及美国等热门地区节点。本文汇总了暮光加速的基础信息、套餐价格表、测速表现及购买注意事项。",
+    "officialUrl": null,
+    "affiliateUrl": "https://varnexa.twilightaff.com/#/?code=37v8Onc7",
+    "registrationUrl": "https://varnexa.twilightaff.com/#/?code=37v8Onc7",
+    "telegramUrl": null,
+    "ctaUrl": "https://varnexa.twilightaff.com/#/?code=37v8Onc7",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "专线/BGP中转",
+    "protocols": [
+      "VLESS",
+      "协议（服务商宣称为大机房专线）"
+    ],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": null,
+      "annual": null,
+      "oneTime": 109.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期套餐（周期订阅）",
+        "name": "暮光·基础版",
+        "price": "",
+        "numericPrice": null,
+        "billingCycle": "标准周期",
+        "traffic": "120 GB",
+        "targetUser": "初体验、轻度日常浏览"
+      },
+      {
+        "section": "1. 周期套餐（周期订阅）",
+        "name": "暮光·标准版",
+        "price": "",
+        "numericPrice": null,
+        "billingCycle": "标准周期",
+        "traffic": "300 GB",
+        "targetUser": "日常主力、看视频与 AI 工具"
+      },
+      {
+        "section": "1. 周期套餐（周期订阅）",
+        "name": "暮光·旗舰版",
+        "price": "",
+        "numericPrice": null,
+        "billingCycle": "标准周期",
+        "traffic": "700 GB",
+        "targetUser": "高频视频、多设备大流量"
+      },
+      {
+        "section": "1. 周期套餐（周期订阅）",
+        "name": "暮光·至尊版",
+        "price": "",
+        "numericPrice": null,
+        "billingCycle": "标准周期",
+        "traffic": "1.5 TB",
+        "targetUser": "重度流量使用用户"
+      },
+      {
+        "section": "2. 年付轻量版（一次性限额）",
+        "name": "暮光·年付轻量版",
+        "price": "¥109 / 年",
+        "numericPrice": 109.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "70 GB / 全年",
+        "targetUser": "低频使用、年付小流量备用"
+      }
+    ],
+    "features": [
+      "建议先按月订阅：",
+      "确认客户端与设备限制：",
+      "退款条件需理性看待：",
+      "registration_url_not_found",
+      "service_name_fallback_to_filename",
+      "contains_service_or_marketing_claims_not_independently_verified"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 21
+  },
+  {
+    "id": "ap_22",
+    "slug": "jilianyun",
+    "name": "极连云 (Jilian Cloud)",
+    "aliases": [
+      "Jilian",
+      "Cloud"
+    ],
+    "summary": "极连云全线接入 IPLC 专线 网络，单节点最高速率达 2.5Gbps。节点统一 1x 速率扣费且晚高峰不限速，完全不限制在线设备/客户端数量。全线搭配原生 IP 资源，完美解锁 Netflix 等主流流媒体及 ChatGPT、TikTok 等 AI/社媒应用。",
+    "officialUrl": null,
+    "affiliateUrl": "https://kdjhao.jlyvipaff.com/#/?code=YCC3SRLe",
+    "registrationUrl": "https://kdjhao.jlyvipaff.com/#/?code=YCC3SRLe",
+    "telegramUrl": null,
+    "ctaUrl": "https://kdjhao.jlyvipaff.com/#/?code=YCC3SRLe",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全 IPLC 专线（单节点最高速率 2.5Gbps）",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "德国",
+      "法国",
+      "泰国",
+      "韩国",
+      "土耳其"
+    ],
+    "deviceLimits": "不限制在线设备与客户端数量",
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 18.0,
+      "annual": 96.0,
+      "oneTime": 399.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "限时年付套餐体验",
+        "price": "¥96.00 / 年",
+        "numericPrice": 96.0,
+        "billingCycle": "年付",
+        "traffic": "60GB / 月",
+        "targetUser": "年费福利体验包，适合低流量/日常轻度办公用户（折合 ¥8/月）"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "极连云·基础套餐",
+        "price": "¥18.00 / 月",
+        "numericPrice": 18.0,
+        "billingCycle": "月付",
+        "traffic": "100GB / 月",
+        "targetUser": "入门性价比首选，满足日常网页浏览、AI 工具使用"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "极连云·进阶套餐",
+        "price": "¥32.00 / 月",
+        "numericPrice": 32.0,
+        "billingCycle": "月付",
+        "traffic": "200GB / 月",
+        "targetUser": "流畅观看各大流媒体与 AI 服务，适合中度影音与办公需求"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "极连云·旗舰套餐",
+        "price": "¥61.00 / 月",
+        "numericPrice": 61.0,
+        "billingCycle": "月付",
+        "traffic": "500GB / 月",
+        "targetUser": "高速专线大流量，适合重度影音发烧友、大文件下载"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "极连云·尊享套餐",
+        "price": "¥122.00 / 月",
+        "numericPrice": 122.0,
+        "billingCycle": "月付",
+        "traffic": "1.0TB / 月",
+        "targetUser": "顶级大流量方案，适合全视频访问、学术科研及多端共享"
+      },
+      {
+        "section": "2. 永久不限时流量包",
+        "name": "极连云·不限时套餐",
+        "price": "¥399.00 / 一次性",
+        "numericPrice": 399.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "全 IPLC 专线保证：单节点吞吐最高可达 2.5Gbps，晚高峰不降速、不限速，保障低延迟稳定体验。",
+      "设备连线无门槛：全套餐均不限制客户端数量，支持手机、电脑、平板及路由器等多端同时在线。",
+      "灵活动态更新：季付及以上套餐自购买日起算每 30 天自动刷新月流量，支持年付最高 6 折优惠。",
+      "选购建议：轻度需求直接选 限时年付体验 (¥96/年)；日常个人高频使用推荐 基础套餐 (¥18/月) 或 进阶套餐 (¥32/月)；备用防封锁需求可选择 不限时套餐 (¥399/600GB)。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 22
+  },
+  {
+    "id": "ap_23",
+    "slug": "tiziyun",
+    "name": "梯子云",
+    "aliases": [
+      "LadderCloud"
+    ],
+    "summary": "梯子云成立于 2025 年，主打 IEPL 专线传输、三网入口优化与全平台自研客户端。提供通用订阅及一键连接客户端，覆盖香港、日本、新加坡、美国、台湾等地区的 60+ 节点，支持主流流媒体与 AI 工具解锁。本文整理了梯子云的基础信息、周期与不限时套餐明细及选购建议。",
+    "officialUrl": null,
+    "affiliateUrl": "https://varnexa.ladderaff.com/#/?code=rhKeiJTM",
+    "registrationUrl": "https://varnexa.ladderaff.com/#/?code=rhKeiJTM",
+    "telegramUrl": null,
+    "ctaUrl": "https://varnexa.ladderaff.com/#/?code=rhKeiJTM",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "VLESS 协议 + 企业级 IEPL 专线（宣称配有智能负载均衡与三网入口优化）",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": 25.0,
+      "annual": 89.0,
+      "oneTime": 169.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "初阶网络·基础视野",
+        "price": "¥25/月；¥71.25/季；¥135/半年；¥255/年；¥480/两年；¥675/三年",
+        "numericPrice": 25.0,
+        "billingCycle": "月付",
+        "traffic": "125 GB / 月",
+        "targetUser": "轻度日常使用，适合首先月付体验"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "中阶加速·极清多线",
+        "price": "¥60/月；¥171/季；¥324/半年；¥612/年；¥1152/两年；¥1620/三年",
+        "numericPrice": 60.0,
+        "billingCycle": "月付",
+        "traffic": "350 GB / 月",
+        "targetUser": "日常视频、AI 工具与远程办公"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "高阶专线·全球智联",
+        "price": "¥110/月；¥313.50/季；¥594/半年；¥1122/年；¥2112/两年；¥2970/三年",
+        "numericPrice": 110.0,
+        "billingCycle": "月付",
+        "traffic": "750 GB / 月",
+        "targetUser": "中重度视频与多设备使用"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "顶阶商业·全球骨干",
+        "price": "¥190/月；¥541.50/季；¥1026/半年；¥1938/年；¥3648/两年；¥5130/三年",
+        "numericPrice": 190.0,
+        "billingCycle": "月付",
+        "traffic": "1.6 TB / 月",
+        "targetUser": "大流量或团队用户"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "天梯随行·年度保活方案",
+        "price": "¥89 / 年",
+        "numericPrice": 89.0,
+        "billingCycle": "年付",
+        "traffic": "60 GB / 年",
+        "targetUser": "使用频率较低、希望控制年费的备用用户"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "云端独享·私人定制专线",
+        "price": "¥650 / 月",
+        "numericPrice": 650.0,
+        "billingCycle": "月付",
+        "traffic": "500 GB / 月",
+        "targetUser": "有私人定制线路需求的用户（咨询购买）"
+      },
+      {
+        "section": "2. 一次性不限时流量包（买断制）",
+        "name": "云端买断·永不限时轻量包",
+        "price": "¥169 / 一次性",
+        "numericPrice": 169.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "120 GB",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 一次性不限时流量包（买断制）",
+        "name": "云端买断·永不限时标准包",
+        "price": "¥449 / 一次性",
+        "numericPrice": 449.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "350 GB",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 一次性不限时流量包（买断制）",
+        "name": "云端买断·永不限时精英包",
+        "price": "¥849 / 一次性",
+        "numericPrice": 849.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "700 GB",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "registration_url_not_found",
+      "service_name_fallback_to_filename",
+      "contains_service_or_marketing_claims_not_independently_verified",
+      "contains_performance_or_test_data_preserved_from_source_document"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 23
+  },
+  {
+    "id": "ap_24",
+    "slug": "langwang",
+    "name": "浪网",
+    "aliases": [],
+    "summary": "发布时间：2026-07-23 文章信息：约 2896 字 \\| 阅读约 10 分钟 \\| 标签：科学上网、VPN、机场推荐、浪网 \\| 浏览：66 \\| 喜欢：0",
+    "officialUrl": null,
+    "affiliateUrl": "https://varnexa.wavenetaff.com/#/?code=XMK38sdf",
+    "registrationUrl": "https://varnexa.wavenetaff.com/#/?code=XMK38sdf",
+    "telegramUrl": null,
+    "ctaUrl": "https://varnexa.wavenetaff.com/#/?code=XMK38sdf",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "专线/BGP中转",
+    "protocols": [],
+    "regions": [],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "YouTube",
+      "HBO",
+      "TikTok",
+      "Hulu",
+      "DAZN"
+    ],
+    "aiServices": [
+      "ChatGPT",
+      "Claude"
+    ],
+    "pricing": {
+      "monthly": 30.0,
+      "annual": 119.0,
+      "oneTime": 239.0
+    },
+    "plans": [
+      {
+        "section": "1. 月付与年付套餐",
+        "name": "浪网 入门",
+        "price": "¥30/月",
+        "numericPrice": 30.0,
+        "billingCycle": "月付",
+        "traffic": "150GB/月",
+        "targetUser": "网页、社交、短视频和轻度流媒体"
+      },
+      {
+        "section": "1. 月付与年付套餐",
+        "name": "浪网 进阶",
+        "price": "¥70/月",
+        "numericPrice": 70.0,
+        "billingCycle": "月付",
+        "traffic": "400GB/月",
+        "targetUser": "日常办公、AI 工具和中等频率视频"
+      },
+      {
+        "section": "1. 月付与年付套餐",
+        "name": "浪网 高端",
+        "price": "¥120/月",
+        "numericPrice": 120.0,
+        "billingCycle": "月付",
+        "traffic": "800GB/月",
+        "targetUser": "高频视频、下载和远程办公"
+      },
+      {
+        "section": "1. 月付与年付套餐",
+        "name": "浪网 商业",
+        "price": "¥200/月",
+        "numericPrice": 200.0,
+        "billingCycle": "月付",
+        "traffic": "2TB/月",
+        "targetUser": "团队、大流量和高并发使用"
+      },
+      {
+        "section": "1. 月付与年付套餐",
+        "name": "浪网 年付标准",
+        "price": "¥119/年",
+        "numericPrice": 119.0,
+        "billingCycle": "年付",
+        "traffic": "80GB/月",
+        "targetUser": "轻度长期使用"
+      },
+      {
+        "section": "1. 月付与年付套餐",
+        "name": "浪网 定制线路包",
+        "price": "¥640/月",
+        "numericPrice": 640.0,
+        "billingCycle": "月付",
+        "traffic": "500GB/月",
+        "targetUser": "独立 IP、直播和跨境业务"
+      },
+      {
+        "section": "2. 浪网不限时流量包",
+        "name": "浪网 小流量包",
+        "price": "¥239/一次性",
+        "numericPrice": 239.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "180GB",
+        "targetUser": "独立 IP、限 1 台设备"
+      },
+      {
+        "section": "2. 浪网不限时流量包",
+        "name": "浪网 标准流量包",
+        "price": "¥569/一次性",
+        "numericPrice": 569.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "450GB",
+        "targetUser": "适合经常出差及两台设备使用"
+      },
+      {
+        "section": "2. 浪网不限时流量包",
+        "name": "浪网 精英流量包",
+        "price": "¥1099/一次性",
+        "numericPrice": 1099.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "900GB",
+        "targetUser": "面向重度生产力和业务用户"
+      }
+    ],
+    "features": [
+      "如果是第一次使用浪网，建议从 30 元 150GB 入门套餐开始。它的成本最低，流量也足够完成日常浏览、社交和轻度视频需求。",
+      "经常看高清视频、使用 ChatGPT 或进行远程办公，可以选择 70 元 400GB 进阶套餐；视频和下载需求较高，则可以考虑 120 元 800GB 高端套餐。",
+      "团队使用或每月需要超大流量，可以选择 200 元 2TB 商业套餐。需要独立公网 IP、直播推流或专人维护线路的用户，则更适合咨询定制线路。",
+      "registration_url_not_found",
+      "service_name_fallback_to_filename",
+      "contains_service_or_marketing_claims_not_independently_verified"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 24
+  },
+  {
+    "id": "ap_25",
+    "slug": "lingdongyun",
+    "name": "灵动云",
+    "aliases": [],
+    "summary": "机场推荐 科学上网 Trojan 不限时流量包 | 👁️ 111 | 📅 2026-07-23",
+    "officialUrl": null,
+    "affiliateUrl": "https://varnexa.lingdongaff.com/#/?code=DCHs4aEH",
+    "registrationUrl": "https://varnexa.lingdongaff.com/#/?code=DCHs4aEH",
+    "telegramUrl": "https://t.me/+KMqGQjOeRY1hNjY1",
+    "ctaUrl": "https://varnexa.lingdongaff.com/#/?code=DCHs4aEH",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "专线/BGP中转",
+    "protocols": [],
+    "regions": [],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "YouTube"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 20.0,
+      "annual": 99.0,
+      "oneTime": 199.0
+    },
+    "plans": [
+      {
+        "section": "周期套餐",
+        "name": "灵动·拂风",
+        "price": "¥20/月；¥57/季；¥108/半年；¥204/年；¥384/两年；¥540/三年",
+        "numericPrice": 20.0,
+        "billingCycle": "月付",
+        "traffic": "100GB/月",
+        "targetUser": "轻度日常使用，适合先月付体验"
+      },
+      {
+        "section": "周期套餐",
+        "name": "灵动·驭浪",
+        "price": "¥50/月；¥142.50/季；¥270/半年；¥510/年；¥960/两年；¥1350/三年",
+        "numericPrice": 50.0,
+        "billingCycle": "月付",
+        "traffic": "300GB/月",
+        "targetUser": "日常视频与 AI 工具使用"
+      },
+      {
+        "section": "周期套餐",
+        "name": "灵动·破晓",
+        "price": "¥100/月；¥285/季；¥540/半年；¥1020/年；¥1920/两年；¥2700/三年",
+        "numericPrice": 100.0,
+        "billingCycle": "月付",
+        "traffic": "700GB/月",
+        "targetUser": "中重度视频与多设备使用"
+      },
+      {
+        "section": "周期套餐",
+        "name": "灵动·凌霄",
+        "price": "¥180/月；¥513/季；¥972/半年；¥1836/年；¥3456/两年；¥4860/三年",
+        "numericPrice": 180.0,
+        "billingCycle": "月付",
+        "traffic": "1.5TB/月",
+        "targetUser": "大流量用户"
+      },
+      {
+        "section": "周期套餐",
+        "name": "灵动·穿云",
+        "price": "¥99/年",
+        "numericPrice": 99.0,
+        "billingCycle": "年付",
+        "traffic": "70GB/年",
+        "targetUser": "使用频率较低、希望控制年费"
+      },
+      {
+        "section": "周期套餐",
+        "name": "灵动云·至尊私人定制",
+        "price": "¥620/月",
+        "numericPrice": 620.0,
+        "billingCycle": "月付",
+        "traffic": "500GB/月",
+        "targetUser": "有定制线路需求的用户，下单前确认具体交付内容"
+      },
+      {
+        "section": "一次性不限时流量包",
+        "name": "灵动·闲云（小流量包）",
+        "price": "¥199/一次性",
+        "numericPrice": 199.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "150GB",
+        "targetUser": "低频备用"
+      },
+      {
+        "section": "一次性不限时流量包",
+        "name": "灵动·惊云（标准流量包）",
+        "price": "¥499/一次性",
+        "numericPrice": 499.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "400GB",
+        "targetUser": "阶段性补充流量"
+      },
+      {
+        "section": "一次性不限时流量包",
+        "name": "灵动·飞云（精英流量包）",
+        "price": "¥899/一次性",
+        "numericPrice": 899.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "800GB",
+        "targetUser": "较高流量的长期备用"
+      }
+    ],
+    "features": [
+      "官方称采用 Trojan 协议专线，并支持通用订阅。",
+      "套餐跨度较大，从 70GB/年的小包到 1.5TB/月的大流量档均有覆盖。",
+      "提供三档一次性不限时流量包，适合低频或备用场景。",
+      "服务商宣传支持多媒体、YouTube 4K 和 ChatGPT 解锁，实际可用性应以本地网络测试为准。",
+      "支持支付宝和 USDT，付款方式相对灵活。",
+      "service_name_fallback_to_filename"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 25
+  },
+  {
+    "id": "ap_26",
+    "slug": "lingmaoyun",
+    "name": "灵猫网络 (Spirit Cat)",
+    "aliases": [
+      "Spirit",
+      "Cat"
+    ],
+    "summary": "灵猫网络（Spirit Cat）于 2026 年上线运营，主打 IPLC 专线线路。服务宣传全节点 1 倍倍率、不限速且不限制设备连接数量，支持通用订阅导入及主流流媒体与 AI 工具解锁。",
+    "officialUrl": null,
+    "affiliateUrl": "https://edp01.civetaff.com/#/?code=8n0vbtUD",
+    "registrationUrl": "https://edp01.civetaff.com/#/?code=8n0vbtUD",
+    "telegramUrl": null,
+    "ctaUrl": "https://edp01.civetaff.com/#/?code=8n0vbtUD",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "IPLC 专线（宣传所有套餐均为 1 倍流量倍率）",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "韩国",
+      "印度"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": 7.08,
+      "annual": 85.0,
+      "oneTime": null
+    },
+    "plans": [
+      {
+        "section": "二、 周期套餐对比",
+        "name": "灵猫·年付小包",
+        "price": "¥85 / 年（折合约 ¥7.08/月）",
+        "numericPrice": 85.0,
+        "billingCycle": "月付",
+        "traffic": "45 GB",
+        "targetUser": "低频备用，能接受年付风险"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "灵猫·年付 Small",
+        "price": "¥195 / 年",
+        "numericPrice": 195.0,
+        "billingCycle": "年付",
+        "traffic": "150 GB",
+        "targetUser": "中低用量，已完成短期测试用户"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "灵猫·年付 Big",
+        "price": "¥295 / 年",
+        "numericPrice": 295.0,
+        "billingCycle": "年付",
+        "traffic": "300 GB",
+        "targetUser": "中等用量，长期稳定需求"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "灵猫·季付 Small",
+        "price": "¥65 / 季",
+        "numericPrice": 65.0,
+        "billingCycle": "标准周期",
+        "traffic": "150 GB",
+        "targetUser": "减少续费次数的轻中度用户"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "灵猫·季付 Big",
+        "price": "¥125 / 季",
+        "numericPrice": 125.0,
+        "billingCycle": "标准周期",
+        "traffic": "300 GB",
+        "targetUser": "中等流量需求，先用季度验证"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "灵猫·月付 Small",
+        "price": "¥25 / 月",
+        "numericPrice": 25.0,
+        "billingCycle": "月付",
+        "traffic": "150 GB",
+        "targetUser": "首次体验、日常轻中度使用（推荐）"
+      },
+      {
+        "section": "二、 周期套餐对比",
+        "name": "灵猫·月付 Big",
+        "price": "¥45 / 月",
+        "numericPrice": 45.0,
+        "billingCycle": "月付",
+        "traffic": "300 GB",
+        "targetUser": "多设备共享或较高流量需求"
+      }
+    ],
+    "features": [
+      "通用订阅与客户端支持：支持生成通用订阅链接，客服称可提供小火箭（Shadowrocket）下载账号支持。",
+      "流媒体与 AI 解锁：宣称覆盖常规地区及冷门节点，完美解锁主流 4K 影音与 AI 工具。",
+      "选购与测试建议：鉴于新平台上线时间较短，且部分协议与流量重置规则以结算页实际显示为准，强烈建议首次使用优先选购 月付 Small 套餐 (¥25/月) 在自己的网络环境与晚高峰时段测试满意后再考虑长周期套餐。",
+      "citation_markers_present_without_embedded_source_map",
+      "contains_service_or_marketing_claims_not_independently_verified"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 26
+  },
+  {
+    "id": "ap_27",
+    "slug": "saiboyun",
+    "name": "赛博云机场",
+    "aliases": [
+      "Saiboyun"
+    ],
+    "summary": "赛博云机场是一家提供高速网络加速服务的平台，主打低延迟与高性价比。支持油管 8K 秒开，解锁主流流媒体与 AI 工具，线路涵盖 CN2/CMIN2/4837 高端专线及中转线路，节点覆盖全球多地。",
+    "officialUrl": null,
+    "affiliateUrl": "https://saiboyun.pages.dev/",
+    "registrationUrl": "https://saiboyun.pages.dev/",
+    "telegramUrl": null,
+    "ctaUrl": "https://saiboyun.pages.dev/",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "CN2 / CMIN2 / 4837 高端专线、高端直连、高速中转线路",
+    "protocols": [],
+    "regions": [
+      "马来西亚"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 3.0,
+      "annual": null,
+      "oneTime": null
+    },
+    "plans": [
+      {
+        "section": "二、 可用套餐对比",
+        "name": "轻量套餐",
+        "price": "¥3.00 / 月",
+        "numericPrice": 3.0,
+        "billingCycle": "月付",
+        "traffic": "100 GB/月",
+        "targetUser": "基础节点（美/英/德/法/日/新/港/澳/台等），无高端线路与中转节点"
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "入门套餐",
+        "price": "¥6.00 / 月",
+        "numericPrice": 6.0,
+        "billingCycle": "月付",
+        "traffic": "300 GB/月",
+        "targetUser": "含美/日/欧/新等 CN2/CMIN2/4837 高端专线，无中转节点"
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "基础套餐",
+        "price": "¥9.00 / 月",
+        "numericPrice": 9.0,
+        "billingCycle": "月付",
+        "traffic": "500 GB/月",
+        "targetUser": "增加港/日/新 ss 中转节点、香港/日本专线线路，包含冷门地区节点"
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "进阶套餐",
+        "price": "¥12.00 / 月",
+        "numericPrice": 12.0,
+        "billingCycle": "月付",
+        "traffic": "700 GB/月",
+        "targetUser": "包含所有入门套餐节点，超低延迟豪华专线线路"
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "高级套餐",
+        "price": "¥16.00 / 月",
+        "numericPrice": 16.0,
+        "billingCycle": "月付",
+        "traffic": "1000 GB/月",
+        "targetUser": "包含所有入门套餐节点，超低延迟豪华专线线路"
+      },
+      {
+        "section": "二、 可用套餐对比",
+        "name": "豪华套餐",
+        "price": "¥28.00 / 月",
+        "numericPrice": 28.0,
+        "billingCycle": "月付",
+        "traffic": "2000 GB/月",
+        "targetUser": "包含所有入门套餐节点，最高流量配额，超低延迟豪华专线线路"
+      }
+    ],
+    "features": [
+      "高速稳定：支持油管 8K 视频秒开，提供 CN2/CMIN2/4837 高速专线与中转线路。",
+      "全球覆盖：除热门地区外，还覆盖南极洲、马来西亚、乌克兰、埃及、澳大利亚等冷门节点。",
+      "自由灵活：月付 3 元起，支持按量付费与免费试用，无政治审查屏蔽。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 27
+  },
+  {
+    "id": "ap_28",
+    "slug": "kuajieyun",
+    "name": "跨界云 (Crossover)",
+    "aliases": [
+      "Crossover"
+    ],
+    "summary": "跨界云（Crossover）于 2026 年开业，宣称网络已全面升级为“全专线链路”。套餐覆盖 120GB 至 1500GB 多档流量，支持通用订阅导入及微信、支付宝付款。包含 50 条 Vless 节点，可解锁主流流媒体。",
+    "officialUrl": null,
+    "affiliateUrl": "https://vip02.kuajieaff.com/#/?code=kTdpCGi9",
+    "registrationUrl": "https://vip02.kuajieaff.com/#/?code=kTdpCGi9",
+    "telegramUrl": null,
+    "ctaUrl": "https://vip02.kuajieaff.com/#/?code=kTdpCGi9",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "宣称全专线升级链路",
+    "protocols": [
+      "Vless",
+      "协议（约",
+      "50",
+      "条节点）"
+    ],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": 20.0,
+      "annual": 192.0,
+      "oneTime": null
+    },
+    "plans": [
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "轻云 Lite (月付)",
+        "price": "¥20 / 月",
+        "numericPrice": 20.0,
+        "billingCycle": "月付",
+        "traffic": "120 GB",
+        "targetUser": "首次体验、轻中度使用（推荐）"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "轻云 Lite (季付)",
+        "price": "¥54 / 季",
+        "numericPrice": 54.0,
+        "billingCycle": "标准周期",
+        "traffic": "120 GB",
+        "targetUser": "已完成月付测试，减少续费次数"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "轻云 Lite (年付)",
+        "price": "¥192 / 年",
+        "numericPrice": 192.0,
+        "billingCycle": "年付",
+        "traffic": "120 GB",
+        "targetUser": "用量稳定，可接受预付风险"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "跃云 Leap (月付)",
+        "price": "¥40 / 月",
+        "numericPrice": 40.0,
+        "billingCycle": "月付",
+        "traffic": "300 GB",
+        "targetUser": "日常中等流量需求"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "跃云 Leap (季付)",
+        "price": "¥108 / 季",
+        "numericPrice": 108.0,
+        "billingCycle": "标准周期",
+        "traffic": "300 GB",
+        "targetUser": "用量稳定，先用季度验证"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "跃云 Leap (年付)",
+        "price": "¥384 / 年",
+        "numericPrice": 384.0,
+        "billingCycle": "年付",
+        "traffic": "300 GB",
+        "targetUser": "持续使用且能承担预付风险"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "凌云 Soar (月付)",
+        "price": "¥100 / 月",
+        "numericPrice": 100.0,
+        "billingCycle": "月付",
+        "traffic": "700 GB",
+        "targetUser": "多设备或较高流量需求"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "凌云 Soar (季付)",
+        "price": "¥270 / 季",
+        "numericPrice": 270.0,
+        "billingCycle": "标准周期",
+        "traffic": "700 GB",
+        "targetUser": "已验证线路的高流量用户"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "凌云 Soar (年付)",
+        "price": "¥960 / 年",
+        "numericPrice": 960.0,
+        "billingCycle": "年付",
+        "traffic": "700 GB",
+        "targetUser": "长期高流量，能承担预付风险"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "无界 Infinity (月付)",
+        "price": "¥180 / 月",
+        "numericPrice": 180.0,
+        "billingCycle": "月付",
+        "traffic": "1500 GB",
+        "targetUser": "重度流量使用"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "无界 Infinity (季付)",
+        "price": "¥486 / 季",
+        "numericPrice": 486.0,
+        "billingCycle": "标准周期",
+        "traffic": "1500 GB",
+        "targetUser": "已确认实际用量的重度用户"
+      },
+      {
+        "section": "二、 周期套餐价格表",
+        "name": "无界 Infinity (年付)",
+        "price": "¥1728 / 年",
+        "numericPrice": 1728.0,
+        "billingCycle": "年付",
+        "traffic": "1500 GB",
+        "targetUser": "长期重度使用，能承担预付风险"
+      }
+    ],
+    "features": [
+      "全专线升级宣称：服务商宣传整体网络已全面升级为全专线链路，老用户可免费使用升级后的线路，延迟与速度有所改善。",
+      "流媒体支持：提供香港、日本、台湾、新加坡、美国等多地 Vless 节点，支持解锁 YouTube、Netflix、Disney+ 等主流平台。",
+      "选购建议：对于新开业的机场，高价或长周期套餐并不必然带来更好的单节点速度。建议先购买 轻云 Lite 月付版 (¥20/月)，在自己的网络与晚高峰环境下复测满意后，再考虑按需升级或购买更长周期的套餐。",
+      "citation_markers_present_without_embedded_source_map",
+      "contains_service_or_marketing_claims_not_independently_verified"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 28
+  },
+  {
+    "id": "ap_29",
+    "slug": "edgenova",
+    "name": "边缘节点 (EdgeNova)",
+    "aliases": [
+      "EdgeNova"
+    ],
+    "summary": "边缘节点全线搭载 IPLC 专线网络，单节点峰值速率达 2.5Gbps。所有节点统一为 1x 倍率，晚高峰不降速，且完全不限制在线设备与客户端数量。全线采用原生 IP，流畅解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社媒应用。",
+    "officialUrl": null,
+    "affiliateUrl": "https://work.edgenovaaff.cc/#/?code=PCoJq5SC",
+    "registrationUrl": "https://work.edgenovaaff.cc/#/?code=PCoJq5SC",
+    "telegramUrl": null,
+    "ctaUrl": "https://work.edgenovaaff.cc/#/?code=PCoJq5SC",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全 IPLC 专线（最高带宽 2.5Gbps）",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "德国",
+      "法国",
+      "菲律宾",
+      "阿根廷"
+    ],
+    "deviceLimits": "不限制在线设备与客户端数量",
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 15.0,
+      "annual": 98.0,
+      "oneTime": 100.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "限时体验月付小包",
+        "price": "¥15.00 / 月",
+        "numericPrice": 15.0,
+        "billingCycle": "月付",
+        "traffic": "30GB / 月",
+        "targetUser": "纯粹体验试用包，适合日常极低用量或轻度网页浏览"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "限时年付",
+        "price": "¥98.00 / 年",
+        "numericPrice": 98.0,
+        "billingCycle": "年付",
+        "traffic": "45GB / 月",
+        "targetUser": "年费性价比小包，适合学生党及低流量日常办公（折合约 ¥8.16/月）"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "极界-标准套餐",
+        "price": "¥22.00 / 月",
+        "numericPrice": 22.0,
+        "billingCycle": "月付",
+        "traffic": "120GB / 月",
+        "targetUser": "基础性价比主力款，满足日常网页访问与 AI 工具使用"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "极界-专家套餐",
+        "price": "¥35.00 / 月",
+        "numericPrice": 35.0,
+        "billingCycle": "月付",
+        "traffic": "200GB / 月",
+        "targetUser": "进阶实用款，适合日常高清流媒体追剧与频繁办公"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "极界-进阶套餐",
+        "price": "¥50.00 / 月",
+        "numericPrice": 50.0,
+        "billingCycle": "月付",
+        "traffic": "250GB / 月",
+        "targetUser": "高中度用量推荐，保障多设备及中度视频播放"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "极界-高级套餐",
+        "price": "¥100.00 / 月",
+        "numericPrice": 100.0,
+        "billingCycle": "月付",
+        "traffic": "499GB / 月",
+        "targetUser": "大流量尊享方案，适合重度影音发烧友、大文件下载"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "极界-极限套餐",
+        "price": "¥200.00 / 月",
+        "numericPrice": 200.0,
+        "billingCycle": "月付",
+        "traffic": "1.0TB / 月",
+        "targetUser": "旗舰级超大流量包，适合多终端家庭共享或跨境团队运营"
+      },
+      {
+        "section": "2. 永久不限时流量包（按量付费）",
+        "name": "永久不限时100G",
+        "price": "¥100.00 / 一次性",
+        "numericPrice": 100.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 永久不限时流量包（按量付费）",
+        "name": "永久不限时450G",
+        "price": "¥399.00 / 一次性",
+        "numericPrice": 399.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "IPLC 全专线极速网络：全线提供 IPLC 专线传输，单节点最高 2.5Gbps 带宽，1x 节点倍率，晚高峰稳定无阻塞。",
+      "零设备及客户端限制：不限制多设备同时在线，支持电脑、手机、平板及路由器等全平台并发连接。",
+      "灵活充值重置机制：不限时流量包支持 8 折重置优惠（100G 续重 ¥80，450G 续重 ¥320），无需重复购买新套餐。",
+      "选购建议：试用或低用量可选 体验小包 (¥15/月) 或 限时年付 (¥98/年)；日常高频性价比推荐 标准套餐 (¥22/月)；备用防封或用量不固定推荐 不限时套餐。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 29
+  },
+  {
+    "id": "ap_30",
+    "slug": "sujie",
+    "name": "速界 (Speed World)",
+    "aliases": [
+      "Speed",
+      "World"
+    ],
+    "summary": "速界全线搭载 全 IPLC 专线网络，最高提供 2.5Gbps 稳定速率。全节点保持 1x 节点倍率 且晚高峰不降速，完全不限制设备在线数量与客户端连接数。全线配备原生 IP 线路，完美解锁 Netflix、Disney+ 等主流流媒体及 ChatGPT、TikTok 等 AI 与社交平台。",
+    "officialUrl": null,
+    "affiliateUrl": "https://work.speedworldaff.cc/#/?code=rLgiidtU",
+    "registrationUrl": "https://work.speedworldaff.cc/#/?code=rLgiidtU",
+    "telegramUrl": null,
+    "ctaUrl": "https://work.speedworldaff.cc/#/?code=rLgiidtU",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全 IPLC 专线网络 (最高 2.5Gbps 稳定带宽)",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "德国",
+      "法国",
+      "泰国",
+      "越南",
+      "韩国",
+      "印度",
+      "菲律宾"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [
+      "Netflix",
+      "Disney+",
+      "TikTok"
+    ],
+    "aiServices": [
+      "ChatGPT"
+    ],
+    "pricing": {
+      "monthly": 15.0,
+      "annual": 90.0,
+      "oneTime": null
+    },
+    "plans": [
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "单月试用",
+        "price": "¥15.00 / 月",
+        "numericPrice": 15.0,
+        "billingCycle": "仅限月付",
+        "traffic": "50GB / 月",
+        "targetUser": "试用体验包，适合低流量、学生党轻度浏览"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "限时年付",
+        "price": "¥90.00 / 年",
+        "numericPrice": 90.0,
+        "billingCycle": "年付专属（折合 ¥7.5/月）",
+        "traffic": "50GB / 月",
+        "targetUser": "超高性价比轻量年包，适合日常办公查资料"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "极速版",
+        "price": "¥25.00 / 月",
+        "numericPrice": 25.0,
+        "billingCycle": "季付9折 ｜ 半年8折 ｜ 年付7折 ｜ 三年6折",
+        "traffic": "120GB / 月",
+        "targetUser": "入门主力推荐，满足高频浏览与 AI 工具使用"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "超速版",
+        "price": "¥50.00 / 月",
+        "numericPrice": 50.0,
+        "billingCycle": "季付9折 ｜ 半年8折 ｜ 年付7折 ｜ 三年6折",
+        "traffic": "250GB / 月",
+        "targetUser": "性价比进阶款，适合 4K 高清视频观看、大文件传输"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "光速版",
+        "price": "¥100.00 / 月",
+        "numericPrice": 100.0,
+        "billingCycle": "季付9折 ｜ 半年8折 ｜ 年付7折 ｜ 三年6折",
+        "traffic": "500GB / 月",
+        "targetUser": "重度用户首选，超大流量，多设备高速并发"
+      },
+      {
+        "section": "二、 订阅套餐价格表",
+        "name": "跃迁版",
+        "price": "¥200.00 / 月",
+        "numericPrice": 200.0,
+        "billingCycle": "季付9折 ｜ 半年8折 ｜ 年付7折 ｜ 三年6折",
+        "traffic": "1.0TB / 月",
+        "targetUser": "旗舰顶配方案，适合团队办公、多用户共享运营"
+      }
+    ],
+    "features": [
+      "全 IPLC 高速专线：采用 IPLC 专线架构，最高 2.5Gbps 带宽，全节点 1x 倍率，晚高峰依然稳定流畅。",
+      "零设备及客户端限制：不限制多设备同时在线与客户端登录数量，适合多终端同时连接使用。",
+      "长周期折扣力度大：提供季付 9 折、半年 8 折、年付 7 折乃至三年付 6 折的长周期超高性价比折扣。",
+      "选购建议：尝鲜试用选 单月试用 (¥15/月)；轻度长期用量选 限时年付 (¥90/年)；日常高频使用首推 极速版 (¥25/月) 或 超速版 (¥50/月)。"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 30
+  },
+  {
+    "id": "ap_32",
+    "slug": "yinxingren",
+    "name": "隐形人",
+    "aliases": [
+      "Invisibles"
+    ],
+    "summary": "隐形人机场已运营约 2 年，主打企业级 IEPL 纯专线传输与 BGP 智能调度，宣称全节点 1 倍率计费、不限速且常规周期套餐不限制设备数量。本文整理了隐形人机场的基础信息、周期与不限时套餐明细及选购注意事项。",
+    "officialUrl": null,
+    "affiliateUrl": "https://yinxingren1.invisibleaff.com/#/register?code=Gcp1CRso",
+    "registrationUrl": "https://yinxingren1.invisibleaff.com/#/register?code=YoFYiixJ",
+    "telegramUrl": null,
+    "ctaUrl": "https://yinxingren1.invisibleaff.com/#/register?code=Gcp1CRso",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "企业级 IEPL 纯专线（支持云端多链路 / BGP 智能调度优化，全节点 1 倍率计费）",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": 24.0,
+      "annual": 109.0,
+      "oneTime": 229.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "隐形人·白银纪元",
+        "price": "¥24 / 月",
+        "numericPrice": 24.0,
+        "billingCycle": "月付",
+        "traffic": "144 GB / 月",
+        "targetUser": "首次体验、日常轻度学习与办公"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "隐形人·黄金序列",
+        "price": "¥48 / 月",
+        "numericPrice": 48.0,
+        "billingCycle": "月付",
+        "traffic": "360 GB / 月",
+        "targetUser": "中高频视频观赏、日常主力使用"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "隐形人·铂金至臻",
+        "price": "¥105 / 月",
+        "numericPrice": 105.0,
+        "billingCycle": "月付",
+        "traffic": "750 GB / 月",
+        "targetUser": "大文件传输、高流量重度用户"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "隐形人·钻石穹顶",
+        "price": "¥185 / 月",
+        "numericPrice": 185.0,
+        "billingCycle": "月付",
+        "traffic": "1600 GB / 月",
+        "targetUser": "团队协作或多设备重度流量需求"
+      },
+      {
+        "section": "1. 周期套餐（定期重置流量）",
+        "name": "隐形人·星耀风暴 365天不熄",
+        "price": "¥109 / 年",
+        "numericPrice": 109.0,
+        "billingCycle": "年付",
+        "traffic": "80 GB / 年",
+        "targetUser": "低频备用，能接受年付风险的用户"
+      },
+      {
+        "section": "2. 一次性不限时流量包（买断制）",
+        "name": "隐形人·一次性小流量",
+        "price": "¥229 / 一次性",
+        "numericPrice": 229.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "160 GB",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 一次性不限时流量包（买断制）",
+        "name": "隐形人·一次性标准流量包",
+        "price": "¥549 / 一次性",
+        "numericPrice": 549.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "420 GB",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 一次性不限时流量包（买断制）",
+        "name": "隐形人·一次性精英流量包",
+        "price": "¥1199 / 一次性",
+        "numericPrice": 1199.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "1000 GB",
+        "targetUser": ""
+      },
+      {
+        "section": "3. 特殊定制版（王者定制版）",
+        "name": "标准套餐",
+        "price": "",
+        "numericPrice": null,
+        "billingCycle": "标准周期",
+        "traffic": "详见套餐",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "企业级 IEPL 纯专线与 BGP 智能调度，全节点 1 倍率计费",
+      "周期套餐不限设备数，一次性不限时流量包限制 1~3 台",
+      "提供周期月付 (¥24/月起)、年付包 (¥109/年 80GB) 及买断制包 (160GB~1000GB)",
+      "官方宣称解锁 Netflix、Prime Video、BBC iPlayer 及 ChatGPT、Copilot 等",
+      "1. 首次推荐月付体验 (¥24/月 144GB)",
+      "2. 区分按年重置的年付包 (¥109/年) 与用完即止的不限时买断包"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 32
+  },
+  {
+    "id": "ap_33",
+    "slug": "feimaoyun",
+    "name": "飞猫云",
+    "aliases": [
+      "Feimaoyun"
+    ],
+    "summary": "飞猫云提供全 IPLC 专线网络加速服务，最高带宽支持 2.5Gbps。全节点 1 倍速率、高峰期不降速且不限制设备连接数量。节点覆盖全球多个主要地区，原生 IP 解锁主流流媒体与 AI 服务，同时提供灵活的周期套餐、不限时流量包及独享企业定制方案。",
+    "officialUrl": null,
+    "affiliateUrl": "https://flycat1.flycatvipaff.cc/#/?code=3NlSNiJl",
+    "registrationUrl": "https://flycat1.flycatvipaff.cc/#/?code=3NlSNiJl",
+    "telegramUrl": null,
+    "ctaUrl": "https://flycat1.flycatvipaff.cc/#/?code=3NlSNiJl",
+    "ctaText": "查看套餐",
+    "currency": "CNY",
+    "architecture": "全 IPLC 专线网络，提供最高 2.5Gbps 稳定速率",
+    "protocols": [],
+    "regions": [
+      "香港",
+      "台湾",
+      "日本",
+      "新加坡",
+      "美国",
+      "英国",
+      "马来西亚",
+      "德国",
+      "法国",
+      "泰国",
+      "越南",
+      "韩国",
+      "印度",
+      "菲律宾",
+      "阿根廷"
+    ],
+    "deviceLimits": null,
+    "clients": [
+      "Clash",
+      "Shadowrocket",
+      "Sing-box"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Android",
+      "iOS"
+    ],
+    "hasClash": false,
+    "paymentMethods": [
+      "支付宝",
+      "USDT"
+    ],
+    "discounts": null,
+    "streamingServices": [],
+    "aiServices": [],
+    "pricing": {
+      "monthly": 25.0,
+      "annual": 84.0,
+      "oneTime": 550.0
+    },
+    "plans": [
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "飞猫·学生版",
+        "price": "¥84.00 / 年",
+        "numericPrice": 84.0,
+        "billingCycle": "年付",
+        "traffic": "50GB / 月",
+        "targetUser": "年费小包，适用于低流量用户与学生党，每月自动刷新流量"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "飞猫·星耀版",
+        "price": "¥25.00 / 月",
+        "numericPrice": 25.0,
+        "billingCycle": "月付",
+        "traffic": "150GB / 月",
+        "targetUser": "日常轻中度流量使用，季付及以上买即起每 30 天自动刷新"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "飞猫·星环版",
+        "price": "¥45.00 / 月",
+        "numericPrice": 45.0,
+        "billingCycle": "月付",
+        "traffic": "300GB / 月",
+        "targetUser": "办公、AI 工具与中高频流媒体影音播放"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "飞猫·银河版",
+        "price": "¥85.00 / 月",
+        "numericPrice": 85.0,
+        "billingCycle": "月付",
+        "traffic": "600GB / 月",
+        "targetUser": "多设备共享与大流量重度使用"
+      },
+      {
+        "section": "1. 周期订阅套餐",
+        "name": "飞猫·宇宙版",
+        "price": "¥150.00 / 月",
+        "numericPrice": 150.0,
+        "billingCycle": "月付",
+        "traffic": "1.0TB / 月",
+        "targetUser": "极致超大流量与重度业务/影音需求"
+      },
+      {
+        "section": "2. 不限时流量包与定制套餐",
+        "name": "飞猫·不限时套餐",
+        "price": "¥680.00 / 一次性",
+        "numericPrice": 680.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "1.0TB",
+        "targetUser": ""
+      },
+      {
+        "section": "2. 不限时流量包与定制套餐",
+        "name": "飞猫·定制套餐",
+        "price": "¥550.00 / 月",
+        "numericPrice": 550.0,
+        "billingCycle": "一次性不限时",
+        "traffic": "500GB",
+        "targetUser": ""
+      }
+    ],
+    "features": [
+      "优质 IPLC 专线：全节点均采用 1 倍率计费且峰值带宽达 2.5Gbps，多端可同时登录且不限制设备数量。",
+      "原生 IP 解锁：全面支持各种 AI 平台（ChatGPT、Claude 等）以及海外主流 4K 流媒体与短视频（TikTok）。",
+      "企业级定制能力：提供独享 IP 与专属带宽的定制方案，包含一对一技术支持与优先客服通道，满足跨境直播与远端办公需求。",
+      "选购策略：日常轻度用户可直接选择 学生版 (¥84/年) 或 星耀版 (¥25/月) 进行测试；若有长周期计划，建议配合年付/多两年付折扣以获取最大优惠。",
+      "citation_markers_present_without_embedded_source_map",
+      "contains_service_or_marketing_claims_not_independently_verified"
+    ],
+    "verification": {
+      "status": "服务商资料整理",
+      "level": "资料参考",
+      "isIndependentVerified": false,
+      "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+    },
+    "lastChecked": "2026-09-28",
+    "displayOrder": 33
+  }
+]

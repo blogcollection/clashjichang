@@ -1,0 +1,449 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import { getAllAirports, getRelatedAirports } from '../../lib/airports/recommendations';
+import type { Airport } from '../../lib/airports/types';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const airports = getAllAirports();
+  return airports.map((airport) => ({
+    params: { slug: airport.slug },
+    props: { airport }
+  }));
+}
+
+interface Props {
+  airport: Airport;
+}
+
+const { airport } = Astro.props;
+
+// Related airports
+const relatedAirports = getRelatedAirports(airport.slug, 3);
+
+// Related articles
+const allPosts = await getCollection('posts');
+const relatedTutorials = allPosts
+  .filter(p => p.data.category === 'client' || p.data.category === 'subscription')
+  .slice(0, 3);
+const relatedTroubleshoots = allPosts
+  .filter(p => p.data.category === 'troubleshoot')
+  .slice(0, 2);
+
+// Pricing text
+let lowestPriceText = '以官网为准';
+if (airport.pricing.monthly !== null) {
+  lowestPriceText = `¥${airport.pricing.monthly} / 月起`;
+} else if (airport.pricing.annual !== null) {
+  lowestPriceText = `¥${airport.pricing.annual} / 年起`;
+} else if (airport.pricing.oneTime !== null) {
+  lowestPriceText = `¥${airport.pricing.oneTime} / 一次性`;
+}
+
+// Breadcrumbs
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: '机场大全', url: '/airports/' },
+  { name: airport.name, url: `/airports/${airport.slug}/` }
+];
+
+// Airport specific FAQs
+const airportFaqs = [
+  {
+    q: `${airport.name} 支持哪些客户端？`,
+    a: `${airport.name} 提供标准通用订阅。根据服务商资料与常用客户端兼容性，支持 ${airport.clients.join('、')} 等主流工具。`
+  },
+  {
+    q: `${airport.name} 的线路架构是什么类型？`,
+    a: `资料显示 ${airport.name} 采用 ${airport.architecture}。相比普通公共中转线路，在晚高峰抗拥堵和稳定性上有较好的带宽冗余保障。`
+  },
+  {
+    q: `${airport.name} 可以解锁 Netflix 或 ChatGPT 吗？`,
+    a: `${airport.streamingServices.length > 0 ? `服务商资料标注解锁支持：${airport.streamingServices.join('、')}。` : '官方资料暂未明确列出专项流媒体解锁清单。'} ${airport.aiServices.length > 0 ? `AI 工具方面标明支持：${airport.aiServices.join('、')}。` : ''}实际可用性建议以个人本地网络及当前节点 IP 状态为准。`
+  },
+  {
+    q: `如何使用 Clash 导入 ${airport.name} 订阅？`,
+    a: `在 ${airport.name} 用户中心复制专属 Clash 订阅链接，打开 Clash Verge Rev 或 Mihomo Party，在“配置”界面粘贴并点击“下载”，选中配置后开启系统代理即可使用。`
+  }
+];
+---
+
+<BaseLayout
+  title={`${airport.name}怎么样？Clash机场节点评测与套餐价格 - Clash机场`}
+  description={`${airport.name}详细资料与 Clash 节点评测：${airport.architecture}，入门资费 ${lowestPriceText}，支持节点地区包括 ${airport.regions.slice(0, 5).join('、')}。提供套餐价格表与配置教程。`}
+  breadcrumbs={breadcrumbs}
+  faqs={airportFaqs}
+>
+  <!-- Detail Header Hero -->
+  <div class="border-b border-slate-200 bg-white py-8 sm:py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb Nav -->
+      <nav class="flex text-xs text-slate-500 mb-4" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1">
+          <li><a href="/" class="hover:text-slate-900 transition">首页</a></li>
+          <li><span class="mx-1">/</span></li>
+          <li><a href="/airports/" class="hover:text-slate-900 transition">机场大全</a></li>
+          <li><span class="mx-1">/</span></li>
+          <li class="font-semibold text-slate-900">{airport.name}</li>
+        </ol>
+      </nav>
+
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+        <div class="max-w-3xl">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="rounded bg-slate-900 text-white font-mono text-xs px-2.5 py-0.5 font-medium">
+              {airport.architecture}
+            </span>
+            {airport.hasClash && (
+              <span class="rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs px-2 py-0.5 font-medium">
+                支持 Clash 原生订阅
+              </span>
+            )}
+            <span class="rounded bg-slate-100 text-slate-600 text-xs px-2 py-0.5 font-medium">
+              最近核验: {airport.lastChecked}
+            </span>
+          </div>
+
+          <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+            {airport.name} Clash机场介绍与评测
+          </h1>
+
+          <p class="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
+            {airport.summary}
+          </p>
+        </div>
+
+        <!-- CTA Box -->
+        <div class="w-full md:w-72 shrink-0 rounded-lg border border-slate-200 bg-slate-50 p-5">
+          <span class="text-xs font-medium text-slate-500 block">参考最低门槛</span>
+          <div class="text-2xl font-extrabold text-brand-600 mt-1">
+            {lowestPriceText}
+          </div>
+
+          <div class="mt-4 space-y-2">
+            <a
+              href={airport.ctaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex w-full items-center justify-center rounded bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 transition"
+            >
+              {airport.ctaText}
+            </a>
+
+            {airport.registrationUrl && airport.registrationUrl !== airport.ctaUrl && (
+              <a
+                href={airport.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex w-full items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition"
+              >
+                直接访问注册
+              </a>
+            )}
+          </div>
+
+          <p class="mt-3 text-[11px] text-slate-500 leading-tight text-center">
+            * 实际价格与活动以服务商最新结算页面为准
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-3">
+      <!-- Main Content (2 Columns) -->
+      <div class="lg:col-span-2 space-y-10">
+        <!-- 1. 基本资料参数表 -->
+        <section class="rounded-lg border border-slate-200 bg-white p-6">
+          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">
+            {airport.name} 基本参数规格
+          </h2>
+
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            <div class="border-b border-slate-100 pb-2">
+              <span class="text-slate-400 block">服务商名称</span>
+              <span class="font-semibold text-slate-800 text-sm mt-0.5 block">{airport.name}</span>
+            </div>
+
+            <div class="border-b border-slate-100 pb-2">
+              <span class="text-slate-400 block">线路架构</span>
+              <span class="font-semibold text-slate-800 text-sm mt-0.5 block">{airport.architecture}</span>
+            </div>
+
+            <div class="border-b border-slate-100 pb-2">
+              <span class="text-slate-400 block">支持协议</span>
+              <span class="font-semibold text-slate-800 text-sm mt-0.5 block">
+                {airport.protocols.length > 0 ? airport.protocols.join(' / ') : '请以实际订阅配置为准'}
+              </span>
+            </div>
+
+            <div class="border-b border-slate-100 pb-2">
+              <span class="text-slate-400 block">设备并发限制</span>
+              <span class="font-semibold text-slate-800 text-sm mt-0.5 block">
+                {airport.deviceLimits || '以实际套餐规则为准'}
+              </span>
+            </div>
+
+            <div class="border-b border-slate-100 pb-2">
+              <span class="text-slate-400 block">支持客户端</span>
+              <span class="font-semibold text-slate-800 text-sm mt-0.5 block">
+                {airport.clients.join('、')}
+              </span>
+            </div>
+
+            <div class="border-b border-slate-100 pb-2">
+              <span class="text-slate-400 block">支付方式</span>
+              <span class="font-semibold text-slate-800 text-sm mt-0.5 block">
+                {airport.paymentMethods.join(' / ')}
+              </span>
+            </div>
+
+            <div class="col-span-2 border-b border-slate-100 pb-2">
+              <span class="text-slate-400 block">节点覆盖地区 ({airport.regions.length} 个地区)</span>
+              <div class="flex flex-wrap gap-1.5 mt-1.5">
+                {airport.regions.length > 0 ? (
+                  airport.regions.map(r => (
+                    <span class="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-700">
+                      {r}
+                    </span>
+                  ))
+                ) : (
+                  <span class="text-slate-500 text-xs">涵盖主流香港、台湾、日本、新加坡、美国等多地节点</span>
+                )}
+              </div>
+            </div>
+
+            {airport.discounts && (
+              <div class="col-span-2 rounded bg-amber-50 border border-amber-200 p-2.5 text-amber-800 text-xs">
+                <strong>优惠提示：</strong> {airport.discounts}
+              </div>
+            )}
+          </div>
+        </section>
+
+        <!-- 2. 详细套餐计划 (plans_json) -->
+        <section class="rounded-lg border border-slate-200 bg-white p-6">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div>
+              <h2 class="text-lg font-bold text-slate-900">
+                订阅套餐与资费明细
+              </h2>
+              <p class="text-xs text-slate-500 mt-0.5">
+                数据整理自服务商公开套餐方案
+              </p>
+            </div>
+            <a
+              href={airport.ctaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-xs font-semibold text-brand-600 hover:underline"
+            >
+              在官网查看完整定价 &rarr;
+            </a>
+          </div>
+
+          {airport.plans && airport.plans.length > 0 ? (
+            <div class="mt-4 overflow-x-auto">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>套餐名称</th>
+                    <th>方案价格</th>
+                    <th>包含流量</th>
+                    <th>计费周期</th>
+                    <th>适合人群与特点</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {airport.plans.map(p => (
+                    <tr>
+                      <td class="font-bold text-slate-900 text-xs whitespace-nowrap">
+                        {p.name}
+                      </td>
+                      <td class="font-semibold text-brand-600 text-xs whitespace-nowrap">
+                        {p.price}
+                      </td>
+                      <td class="text-xs text-slate-700 font-mono whitespace-nowrap">
+                        {p.traffic}
+                      </td>
+                      <td class="text-xs text-slate-600 whitespace-nowrap">
+                        {p.billingCycle}
+                      </td>
+                      <td class="text-xs text-slate-500 leading-relaxed min-w-[200px]">
+                        {p.targetUser || '-'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p class="mt-4 text-xs text-slate-500">
+              暂未提取到结构化套餐列表，请直接点击进入服务商页面查阅。
+            </p>
+          )}
+        </section>
+
+        <!-- 3. 特性与购买建议 -->
+        <section class="rounded-lg border border-slate-200 bg-white p-6">
+          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">
+            特点分析与选购建议
+          </h2>
+
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-xs leading-relaxed">
+            <div>
+              <h3 class="font-bold text-slate-900 mb-2 text-sm flex items-center gap-1.5">
+                <span class="inline-block h-2 w-2 rounded-full bg-emerald-500"></span>
+                适合哪些用户
+              </h3>
+              <ul class="space-y-2 text-slate-600 list-disc pl-4">
+                <li>追求 {airport.architecture} 专线低延迟，希望在晚高峰保持流畅网页访问的用户。</li>
+                {airport.streamingServices.length > 0 && (
+                  <li>有稳定观看 {airport.streamingServices.slice(0, 3).join('、')} 需求的流媒体观众。</li>
+                )}
+                {airport.aiServices.length > 0 && (
+                  <li>需要频繁使用 {airport.aiServices.join('、')} 等生产力工具的开发者与办公人群。</li>
+                )}
+                <li>寻找支持全平台客户端导入、支付便捷且按月灵活付费的用户。</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-900 mb-2 text-sm flex items-center gap-1.5">
+                <span class="inline-block h-2 w-2 rounded-full bg-amber-500"></span>
+                需要注意事项
+              </h3>
+              <ul class="space-y-2 text-slate-600 list-disc pl-4">
+                <li>服务商所宣称的技术指标（如最高速率、不限速）整理自官方宣传资料，未经过第三方独立压力验证。</li>
+                <li>强烈建议新手用户<strong>首期仅选购单月套餐</strong>进行本地实测，确认晚高峰满足需求后再考虑更长周期。</li>
+                <li>流媒体与 AI 工具的封锁策略处于动态对抗中，节点 IP 可用性可能会有偶发轮换。</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Clash 使用方式与导入指南 -->
+        <section class="rounded-lg border border-slate-200 bg-white p-6">
+          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">
+            在 Clash 中配置 {airport.name} 的标准步骤
+          </h2>
+
+          <div class="mt-4 space-y-4 text-xs text-slate-600 leading-relaxed">
+            <div class="flex items-start gap-3">
+              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-slate-900 text-white font-bold text-[11px]">1</span>
+              <div>
+                <strong class="text-slate-900 block text-sm">复制 Clash 订阅链接</strong>
+                <p class="mt-0.5">在 {airport.name} 官网用户中心找到“便捷导入 / 复制订阅”，点击复制以 http/https 开头的完整订阅链接。</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-slate-900 text-white font-bold text-[11px]">2</span>
+              <div>
+                <strong class="text-slate-900 block text-sm">粘贴并下载配置文件</strong>
+                <p class="mt-0.5">打开电脑端的 Clash Verge Rev、Mihomo Party 或手机端客户端，进入配置管理界面，将链接粘贴至 URL 输入框后点击“下载”。</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-slate-900 text-white font-bold text-[11px]">3</span>
+              <div>
+                <strong class="text-slate-900 block text-sm">选择节点并开启系统代理</strong>
+                <p class="mt-0.5">在代理策略组中选择香港、日本或新加坡等低延迟专线节点，将分流模式设为 Rule（规则分流），最后开启系统代理即可畅享高速网络。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. 常见问答 FAQ -->
+        <section class="rounded-lg border border-slate-200 bg-white p-6">
+          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">
+            关于 {airport.name} 的常见疑问
+          </h2>
+
+          <div class="mt-4 space-y-4 text-xs">
+            {airportFaqs.map(faq => (
+              <div class="rounded border border-slate-100 bg-slate-50/60 p-4">
+                <h3 class="font-bold text-slate-900 text-sm">{faq.q}</h3>
+                <p class="mt-1.5 text-slate-600 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Sidebar (1 Column) -->
+      <div class="space-y-6">
+        <!-- Official Link Card -->
+        <div class="rounded-lg border border-brand-200 bg-brand-50/50 p-5">
+          <h3 class="text-sm font-bold text-slate-900">快速访问服务商</h3>
+          <p class="mt-1 text-xs text-slate-600 leading-relaxed">
+            建议通过官方渠道注册与选购套餐，避免假冒钓鱼网站造成资产损失。
+          </p>
+
+          <a
+            href={airport.ctaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 flex w-full items-center justify-center rounded bg-brand-600 px-4 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-brand-700 transition"
+          >
+            {airport.ctaText} &rarr;
+          </a>
+        </div>
+
+        <!-- Related Airports -->
+        <div class="rounded-lg border border-slate-200 bg-white p-5">
+          <h3 class="text-sm font-bold text-slate-900 border-b border-slate-100 pb-2">
+            类似线路机场推荐
+          </h3>
+          <div class="mt-3 space-y-3">
+            {relatedAirports.map(rel => (
+              <a
+                href={`/airports/${rel.slug}/`}
+                class="block rounded border border-slate-100 p-2.5 hover:border-slate-300 hover:bg-slate-50 transition"
+              >
+                <div class="flex items-center justify-between text-xs font-bold text-slate-900">
+                  <span>{rel.name}</span>
+                  <span class="text-brand-600">
+                    {rel.pricing.monthly ? `¥${rel.pricing.monthly}/月起` : '查看'}
+                  </span>
+                </div>
+                <p class="text-[11px] text-slate-500 font-mono mt-0.5">{rel.architecture}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Related Tutorials -->
+        <div class="rounded-lg border border-slate-200 bg-white p-5">
+          <h3 class="text-sm font-bold text-slate-900 border-b border-slate-100 pb-2">
+            Clash 教程与排障指南
+          </h3>
+          <ul class="mt-3 space-y-2 text-xs">
+            {relatedTutorials.map(tut => (
+              <li>
+                <a href={`/posts/${tut.slug}/`} class="text-slate-600 hover:text-brand-600 transition line-clamp-1">
+                  • {tut.data.title}
+                </a>
+              </li>
+            ))}
+            {relatedTroubleshoots.map(trouble => (
+              <li>
+                <a href={`/posts/${trouble.slug}/`} class="text-rose-600 hover:text-rose-700 transition line-clamp-1">
+                  • {trouble.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Disclaimer Box -->
+        <div class="rounded-lg border border-slate-200 bg-slate-50 p-4 text-[11px] leading-relaxed text-slate-500">
+          <strong class="font-semibold text-slate-700 block mb-1">资料客观性说明：</strong>
+          {airport.verification.note}
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

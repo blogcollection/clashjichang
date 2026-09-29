@@ -1,0 +1,94 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-auto border-t border-slate-200 bg-slate-900 text-slate-300">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 gap-8 md:grid-cols-5">
+      <!-- Site Info -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="flex items-center gap-2 text-white">
+          <div class="flex h-7 w-7 items-center justify-center rounded bg-brand-600 font-bold text-sm text-white">
+            C
+          </div>
+          <span class="text-lg font-bold tracking-tight text-white">Clash机场</span>
+        </a>
+        <p class="mt-3 text-xs leading-relaxed text-slate-400">
+          专注于 Clash 机场推荐、节点测速筛选、订阅教程与客户端故障排查的垂直知识库与资料整理站。
+        </p>
+        <div class="mt-4 flex items-center gap-2 text-xs text-slate-400">
+          <span class="inline-block h-2 w-2 rounded-full bg-emerald-500"></span>
+          <span>数据持续核验更新</span>
+        </div>
+      </div>
+
+      <!-- Column 1: Clash 机场 -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-white">Clash 机场</h3>
+        <ul class="mt-3 space-y-2 text-xs text-slate-400">
+          <li><a href="/recommend/" class="hover:text-white transition">Clash机场推荐</a></li>
+          <li><a href="/airports/" class="hover:text-white transition">机场大全</a></li>
+          <li><a href="/compare/" class="hover:text-white transition">机场对比</a></li>
+          <li><a href="/posts/cheap-clash-airport-selection/" class="hover:text-white transition">便宜机场选购</a></li>
+          <li><a href="/posts/what-is-airport-node/" class="hover:text-white transition">Clash节点解析</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Clash 教程 -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-white">Clash 教程</h3>
+        <ul class="mt-3 space-y-2 text-xs text-slate-400">
+          <li><a href="/posts/windows-clash-tutorial/" class="hover:text-white transition">Windows Clash安装</a></li>
+          <li><a href="/posts/how-to-import-clash-subscription/" class="hover:text-white transition">Clash订阅导入</a></li>
+          <li><a href="/posts/how-to-choose-clash-nodes/" class="hover:text-white transition">Clash节点选择</a></li>
+          <li><a href="/posts/clash-verge-rev-tutorial/" class="hover:text-white transition">Clash Verge Rev</a></li>
+          <li><a href="/posts/what-is-clash-meta/" class="hover:text-white transition">Clash Meta</a></li>
+          <li><a href="/posts/mihomo-party-tutorial/" class="hover:text-white transition">Mihomo Party</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: 机场知识 -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-white">机场知识</h3>
+        <ul class="mt-3 space-y-2 text-xs text-slate-400">
+          <li><a href="/posts/what-is-iplc-node/" class="hover:text-white transition">IPLC 专线科普</a></li>
+          <li><a href="/posts/what-is-iepl-node/" class="hover:text-white transition">IEPL 专线科普</a></li>
+          <li><a href="/posts/what-is-shadowsocks-node/" class="hover:text-white transition">Shadowsocks 协议</a></li>
+          <li><a href="/posts/what-is-trojan-node/" class="hover:text-white transition">Trojan 协议</a></li>
+          <li><a href="/posts/what-is-vless-node/" class="hover:text-white transition">VLESS 协议</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: 常见问题 -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-white">常见问题</h3>
+        <ul class="mt-3 space-y-2 text-xs text-slate-400">
+          <li><a href="/posts/clash-nodes-all-timeout-solutions/" class="hover:text-white transition">节点全部超时</a></li>
+          <li><a href="/posts/clash-subscription-failed-solutions/" class="hover:text-white transition">订阅更新失败</a></li>
+          <li><a href="/posts/clash-connected-but-no-internet/" class="hover:text-white transition">Clash连上无网络</a></li>
+          <li><a href="/posts/clash-dns-leak-and-pollution-guide/" class="hover:text-white transition">DNS 解析与防泄漏</a></li>
+          <li><a href="/problems/" class="hover:text-white transition">全部排错手册</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Affiliate Disclosure & Legal Notice -->
+    <div class="mt-10 border-t border-slate-800 pt-6">
+      <div class="rounded border border-slate-800 bg-slate-850 p-4 text-[11px] leading-relaxed text-slate-400">
+        <p class="font-semibold text-slate-300 mb-1">推广与联盟合作透明声明：</p>
+        <p>
+          本站部分外部跳转链接可能包含推广代码（Affiliate Link）。若您通过这些链接注册并购买套餐，本站可能会获得少许服务商佣金以维持服务器与数据收集运营开销，但绝不会因此增加您的实际购买费用。本站所有机场技术参数、节点地区与价格信息均整理自各服务商公开资料，不构成绝对购买建议，请始终优先以服务商官网最新实时数据及短期月付测试为准。
+        </p>
+      </div>
+
+      <div class="mt-6 flex flex-col items-center justify-between gap-4 text-xs text-slate-400 sm:flex-row">
+        <p>© {year} Clash机场 (clashjichang.sbs). 保留所有权利。</p>
+        <div class="flex gap-4">
+          <a href="/sitemap-index.xml" class="hover:text-white transition">站点地图 (Sitemap)</a>
+          <a href="/rss.xml" class="hover:text-white transition">RSS 订阅</a>
+          <a href="/airports/" class="hover:text-white transition">机场数据库</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

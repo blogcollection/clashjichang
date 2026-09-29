@@ -1,0 +1,130 @@
+---
+import type { RecommendationContext } from '../../lib/airports/types';
+import { getAirportRecommendations } from '../../lib/airports/recommendations';
+
+interface Props {
+  context?: RecommendationContext;
+  title?: string;
+  description?: string;
+}
+
+const {
+  context = 'clash',
+  title,
+  description
+} = Astro.props;
+
+const airports = getAirportRecommendations(context, 3);
+
+const contextTitles: Record<RecommendationContext, { title: string; desc: string }> = {
+  cheap: {
+    title: '高性价比平价 Clash 机场精选',
+    desc: '依据真实最低月付与年付门槛排序，适合预算有限、轻度查资料与学生群体的经济之选：'
+  },
+  beginner: {
+    title: '新手友好型 Clash 机场推荐',
+    desc: '开箱即用、一键导入便捷、客户端支持完备且客服响应及时的入门首选：'
+  },
+  streaming: {
+    title: 'Netflix / Disney+ 流媒体解锁机场精选',
+    desc: '官方资料明确标注解锁 Netflix、Disney+、YouTube 4K 等主流海外流媒体的高速节点服务商：'
+  },
+  ai: {
+    title: 'ChatGPT / Claude 生产力 AI 专用节点机场',
+    desc: '提供原生 IP 资源，支持 ChatGPT、Claude、Gemini 等 AI 平台低封控平稳访问的专线服务：'
+  },
+  clash: {
+    title: 'Clash 优质节点与订阅优选机场',
+    desc: '完美适配 Clash Verge Rev、Mihomo 等现代客户端，规则分流精准的精选节点：'
+  },
+  largeTraffic: {
+    title: '大流量高带宽 Clash 机场推荐',
+    desc: '提供 500GB 至 1TB+ 月流量套餐，适合高频下载、团队协同办公与 4K 追剧的充沛方案：'
+  },
+  oneTime: {
+    title: '不限时按量计费流量包机场',
+    desc: '一次性付费、无到期清零风险，专为低频备用、突发查资料用户设计的按量套餐：'
+  },
+  multiDevice: {
+    title: '多设备无限制 Clash 机场推荐',
+    desc: '不限制在线客户端与并发设备数量，家庭共享、多台电脑/手机协同的不二之选：'
+  },
+  iepl: {
+    title: '企业级 IEPL 专线骨干机场推荐',
+    desc: '采用 IEPL 内网专线过境，抗封锁能力出众、零丢包且晚高峰极速响应的高稳定性机场：'
+  },
+  iplc: {
+    title: '纯 IPLC 国际专线高稳机场推荐',
+    desc: '点对点物理专线不过 GFW 防火墙检测，无惧敏感时期波动的优质专线服务：'
+  }
+};
+
+const currentContext = contextTitles[context] || contextTitles.clash;
+const heading = title || currentContext.title;
+const subText = description || currentContext.desc;
+---
+
+<div class="my-8 rounded-lg border border-slate-200 bg-slate-50/80 p-5 not-prose">
+  <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+    <div>
+      <h3 class="text-base font-bold text-slate-900">{heading}</h3>
+      <p class="mt-0.5 text-xs text-slate-500">{subText}</p>
+    </div>
+    <a href="/recommend/" class="hidden sm:inline-block text-xs font-semibold text-brand-600 hover:text-brand-700">
+      查看更多推荐 &rarr;
+    </a>
+  </div>
+
+  <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+    {airports.map((airport) => {
+      let priceText = '价格以官网为准';
+      if (airport.pricing.monthly !== null) {
+        priceText = `¥${airport.pricing.monthly}/月起`;
+      } else if (airport.pricing.annual !== null) {
+        priceText = `¥${airport.pricing.annual}/年起`;
+      }
+
+      return (
+        <div class="flex flex-col justify-between rounded border border-slate-200 bg-white p-3.5 shadow-sm transition hover:border-slate-300">
+          <div>
+            <div class="flex items-start justify-between gap-1">
+              <h4 class="text-sm font-bold text-slate-900">
+                <a href={`/airports/${airport.slug}/`} class="hover:text-brand-600 transition">
+                  {airport.name}
+                </a>
+              </h4>
+              <span class="text-xs font-bold text-brand-600 whitespace-nowrap">{priceText}</span>
+            </div>
+
+            <p class="mt-1 text-[11px] text-slate-500 font-mono line-clamp-1">{airport.architecture}</p>
+            <p class="mt-2 text-xs text-slate-600 line-clamp-2 leading-relaxed">{airport.summary}</p>
+          </div>
+
+          <div class="mt-3 flex items-center gap-2 border-t border-slate-100 pt-2.5">
+            <a
+              href={`/airports/${airport.slug}/`}
+              class="flex-1 rounded border border-slate-200 bg-slate-50 py-1 text-center text-xs font-medium text-slate-700 hover:bg-slate-100 transition"
+            >
+              测评详情
+            </a>
+            <a
+              href={airport.ctaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 rounded bg-slate-900 py-1 text-center text-xs font-medium text-white hover:bg-slate-800 transition"
+            >
+              {airport.ctaText}
+            </a>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  <div class="mt-3 flex items-center justify-between text-[11px] text-slate-500">
+    <span>注：推荐基于机场客观参数与场景匹配，非商业付费排名</span>
+    <a href="/airports/" class="font-medium text-slate-700 hover:underline">
+      浏览全部 31 家机场完整数据库 &rarr;
+    </a>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const clientPosts = allPosts.filter(p => p.data.category === 'client');
+const subPosts = allPosts.filter(p => p.data.category === 'subscription');
+const nodePosts = allPosts.filter(p => p.data.category === 'node');
+
+const breadcrumbs = [
+  { name: '首页', url: '/' },
+  { name: 'Clash教程', url: '/tutorials/' }
+];
+---
+
+<BaseLayout
+  title="Clash教程｜订阅、节点与客户端使用指南 - Clash机场"
+  description="系统的 Clash 从零配置全景教程：包括 Clash Verge Rev、Mihomo Party 等各平台客户端安装使用、订阅链接导入与节点选择指南。"
+  breadcrumbs={breadcrumbs}
+>
+  <div class="border-b border-slate-200 bg-white py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="flex text-xs text-slate-500 mb-3" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1">
+          <li><a href="/" class="hover:text-slate-900 transition">首页</a></li>
+          <li><span class="mx-1">/</span></li>
+          <li class="font-semibold text-slate-900">Clash教程</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-3xl">
+        <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+          Clash 客户端与订阅配置教程
+        </h1>
+        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+          全面覆盖主流操作系统（Windows、macOS、Android）最新客户端选型、快速导入通用订阅、分流规则定制与常用节点调优技巧。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-12">
+    <!-- Section 1: 客户端教程 -->
+    <div>
+      <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <span>主流客户端安装与实操教程</span>
+        <span class="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-600">Client Setup</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {clientPosts.map(post => (
+          <div class="rounded-lg border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-sm transition flex flex-col justify-between">
+            <div>
+              <h3 class="text-base font-bold text-slate-900">
+                <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                {post.data.description}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-400">2026-09-28</span>
+              <a href={`/posts/${post.slug}/`} class="text-brand-600 font-semibold hover:underline">
+                查看步骤 &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Section 2: 订阅指南 -->
+    <div>
+      <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <span>订阅管理与格式解析</span>
+        <span class="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-600">Subscription</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {subPosts.map(post => (
+          <div class="rounded-lg border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-sm transition flex flex-col justify-between">
+            <div>
+              <h3 class="text-base font-bold text-slate-900">
+                <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                {post.data.description}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-400">2026-09-28</span>
+              <a href={`/posts/${post.slug}/`} class="text-brand-600 font-semibold hover:underline">
+                查看步骤 &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Section 3: 节点知识 -->
+    <div>
+      <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <span>节点选择与底层专线知识</span>
+        <span class="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-600">Nodes & Network</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {nodePosts.map(post => (
+          <div class="rounded-lg border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-sm transition flex flex-col justify-between">
+            <div>
+              <h3 class="text-base font-bold text-slate-900">
+                <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                {post.data.description}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-400">2026-09-28</span>
+              <a href={`/posts/${post.slug}/`} class="text-brand-600 font-semibold hover:underline">
+                查看步骤 &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
