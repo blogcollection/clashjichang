@@ -42,8 +42,12 @@ for hf in all_html_files:
     with open(hf, 'r', encoding='utf-8') as f:
         html = f.read()
 
-    # Check disallowed terms in visible html (ignoring standard js script attributes if any)
-    for bad in DISALLOWED:
+    # Check for unrendered JS artifacts
+    for bad in ['NaN', 'undefined', '[object Object]', '{"section":']:
+        if bad in html:
+            prohibited_findings.append((rel_path, bad))
+    # Check for leaked localhost / 127.0.0.1 in links / scripts
+    for bad in ['href="http://localhost', 'href="http://127.0.0.1', 'src="http://localhost', 'src="http://127.0.0.1', 'href="//localhost']:
         if bad in html:
             prohibited_findings.append((rel_path, bad))
 

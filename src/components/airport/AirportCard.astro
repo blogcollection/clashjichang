@@ -28,7 +28,14 @@ if (airport.plans && airport.plans.length > 0) {
 }
 
 // Top 4-5 regions
-const topRegions = airport.regions.slice(0, 5);
+const topRegions = (airport.regions ?? []).slice(0, 5);
+const architecture = airport.architecture || '线路资料暂缺';
+
+// Strict Clash support determination based on explicit source data
+const supportsClash = Boolean(
+  airport.hasClash || 
+  (airport.clients && airport.clients.some(c => c.toLowerCase().includes('clash') || c.toLowerCase().includes('mihomo')))
+);
 ---
 
 <div class={`flex flex-col justify-between rounded-lg border bg-white p-5 transition-all duration-200 ${
@@ -46,7 +53,7 @@ const topRegions = airport.regions.slice(0, 5);
           </a>
         </h3>
         <p class="mt-0.5 text-xs text-slate-500 font-mono">
-          {airport.architecture}
+          {architecture}
         </p>
       </div>
 
@@ -66,7 +73,7 @@ const topRegions = airport.regions.slice(0, 5);
     <div class="mt-4 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3 text-xs text-slate-600">
       <div>
         <span class="text-slate-400 block text-[11px]">线路类型</span>
-        <span class="font-medium text-slate-800 line-clamp-1">{airport.architecture}</span>
+        <span class="font-medium text-slate-800 line-clamp-1">{architecture}</span>
       </div>
 
       <div>
@@ -84,11 +91,11 @@ const topRegions = airport.regions.slice(0, 5);
               </span>
             ))
           ) : (
-            <span class="text-[11px] text-slate-500">主流亚太/欧美多节点</span>
+            <span class="text-[11px] text-slate-400">节点地区资料暂缺</span>
           )}
-          {airport.regions.length > 5 && (
+          {(airport.regions?.length ?? 0) > 5 && (
             <span class="inline-block text-[10px] text-slate-400 self-center">
-              +{airport.regions.length - 5}
+              +{(airport.regions?.length ?? 0) - 5}
             </span>
           )}
         </div>
@@ -97,17 +104,17 @@ const topRegions = airport.regions.slice(0, 5);
 
     <!-- Supported Features / Badges -->
     <div class="mt-3 flex flex-wrap gap-1.5 border-t border-slate-100 pt-3">
-      {airport.hasClash && (
+      {supportsClash && (
         <span class="rounded border border-blue-200 bg-blue-50 px-1.5 py-0.5 text-[10px] font-medium text-blue-700">
           支持 Clash
         </span>
       )}
-      {airport.streamingServices.length > 0 && (
+      {airport.streamingServices && airport.streamingServices.length > 0 && (
         <span class="rounded border border-emerald-200 bg-emerald-50 px-1.5 py-0.5 text-[10px] font-medium text-emerald-700">
           流媒体解锁
         </span>
       )}
-      {airport.aiServices.length > 0 && (
+      {airport.aiServices && airport.aiServices.length > 0 && (
         <span class="rounded border border-purple-200 bg-purple-50 px-1.5 py-0.5 text-[10px] font-medium text-purple-700">
           ChatGPT/AI
         </span>
@@ -131,7 +138,7 @@ const topRegions = airport.regions.slice(0, 5);
     <a
       href={airport.ctaUrl}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="sponsored nofollow noopener noreferrer"
       class="flex-1 rounded border border-brand-600 bg-brand-600 py-1.5 text-center text-xs font-medium text-white transition hover:bg-brand-700"
     >
       {airport.ctaText}

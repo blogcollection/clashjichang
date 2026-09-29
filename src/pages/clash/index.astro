@@ -2,8 +2,12 @@
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('posts');
-const clashPosts = allPosts.filter(p => p.data.category === 'client' || p.data.category === 'subscription');
+const allPosts = (await getCollection('posts')).filter(post => !post.data.draft);
+const clashPosts = allPosts.filter(p => 
+  p.data.category === 'tutorial' || 
+  p.data.category === 'concept' || 
+  p.slug.includes('clash')
+);
 
 const breadcrumbs = [
   { name: '首页', url: '/' },
@@ -43,7 +47,7 @@ const breadcrumbs = [
         <article class="rounded-lg border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-sm transition flex flex-col justify-between">
           <div>
             <span class="rounded bg-brand-50 text-brand-700 text-[11px] font-medium px-2 py-0.5">
-              {post.data.category === 'client' ? '客户端' : '订阅指南'}
+              {post.data.tags[0] || (post.data.category === 'tutorial' ? '操作教程' : '技术科普')}
             </span>
             <h2 class="text-base font-bold text-slate-900 mt-2">
               <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
@@ -55,7 +59,7 @@ const breadcrumbs = [
             </p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span class="text-slate-400">2026-09-28</span>
+            <span class="text-slate-400">{post.data.pubDate.toISOString().split('T')[0]}</span>
             <a href={`/posts/${post.slug}/`} class="text-brand-600 font-semibold hover:underline">
               阅读全文 &rarr;
             </a>

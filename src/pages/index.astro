@@ -2,18 +2,18 @@
 import BaseLayout from '../components/layout/BaseLayout.astro';
 import AirportCard from '../components/airport/AirportCard.astro';
 import AirportTable from '../components/airport/AirportTable.astro';
-import { getAllAirports } from '../lib/airports/recommendations';
+import { getAllAirports, getHomeFeaturedAirports } from '../lib/airports/recommendations';
 import { getCollection } from 'astro:content';
 
 const allAirports = getAllAirports();
-// Top 6-8 popular airports
-const popularAirports = allAirports.slice(0, 8);
+// Top 6-8 popular/featured airports
+const popularAirports = getHomeFeaturedAirports(8);
 
 // Posts
-const allPosts = await getCollection('posts');
-const tutorialPosts = allPosts.filter(p => p.data.category === 'client' || p.data.category === 'subscription').slice(0, 6);
+const allPosts = (await getCollection('posts')).filter(post => !post.data.draft);
+const tutorialPosts = allPosts.filter(p => p.data.category === 'tutorial').slice(0, 6);
 const problemPosts = allPosts.filter(p => p.data.category === 'troubleshoot').slice(0, 6);
-const knowledgePosts = allPosts.filter(p => p.data.category === 'node').slice(0, 6);
+const knowledgePosts = allPosts.filter(p => p.data.category === 'concept').slice(0, 6);
 const recentPosts = [...allPosts].sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()).slice(0, 6);
 
 const homeFaqs = [
@@ -31,18 +31,18 @@ const homeFaqs = [
   },
   {
     q: 'IPLC 专线与普通公网中转有什么区别？',
-    a: 'IPLC 专线是点对点租用的内网物理光纤，数据不过公网 GFW 防火墙检测，晚高峰极度稳定且零丢包；普通公网中转价格较低，但在特殊网络波动时期可能会受到跨境抖动影响。'
+    a: 'IEPL/IPLC 属于专线或专用网络连接方案，通常相比普通公网路径具有不同的路由和网络质量特征，但实际稳定性、延迟和可用性仍取决于具体服务商线路、入口、出口和用户本地网络。'
   },
   {
     q: 'Clash 节点全部超时打不开网页怎么解决？',
-    a: '请先核对账户套餐流量是否耗尽或过期，其次检查电脑系统时间是否准确（时间偏差超过 90 秒会导致 TLS 握手失败），最后可在机场用户中心复制最新订阅地址重新下载配置。'
+    a: '请先核对账户套餐流量是否耗尽或过期，其次检查电脑系统时间是否准确（时间偏差过大会导致 TLS 握手失败），最后可在机场用户中心复制最新订阅地址重新下载配置。'
   }
 ];
 ---
 
 <BaseLayout
   title="Clash机场推荐｜Clash节点、订阅与使用教程 - Clash机场"
-  description="整理 Clash 机场、节点、订阅和客户端教程，帮助你了解不同机场套餐并解决 Clash 使用问题。提供 31 家优质专线机场评测与使用排障指南。"
+  description="整理 Clash 机场、节点、订阅和客户端教程，帮助你了解不同机场套餐并解决 Clash 使用问题。提供 31 家机场套餐、线路与节点资料与使用排障指南。"
   faqs={homeFaqs}
 >
   <!-- 1. Hero Section -->
@@ -96,7 +96,7 @@ const homeFaqs = [
             热门 Clash 机场精选
           </h2>
           <p class="mt-1 text-sm text-slate-600">
-            综合线路架构、节点覆盖、流媒体与 AI 解锁表现筛选的高关注度机场
+            根据当前整理的线路架构、套餐、节点地区、流媒体和 AI 服务支持资料展示。
           </p>
         </div>
         <a href="/airports/" class="text-sm font-semibold text-brand-600 hover:text-brand-700 transition">
@@ -125,14 +125,14 @@ const homeFaqs = [
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4">
         {[
           { title: '便宜机场', tag: 'cheap', desc: '最低月付 ¥20 内或年付百元内平价入门' },
-          { title: '大流量机场', tag: 'largeTraffic', desc: '月流量 500GB 至 1TB+ 高频下载优选' },
-          { title: '不限时流量机场', tag: 'oneTime', desc: '一次性充值无过期清零风险按量计费' },
-          { title: 'Clash机场', tag: 'clash', desc: '深度适配 Clash Verge Rev / Mihomo' },
-          { title: '流媒体机场', tag: 'streaming', desc: '官方标注解锁 Netflix、Disney+ 4K' },
-          { title: 'AI工具机场', tag: 'ai', desc: '原生 IP 稳定畅连 ChatGPT 与 Claude' },
-          { title: '多设备机场', tag: 'multiDevice', desc: '不限制在线客户端与并发设备数量' },
-          { title: 'IEPL机场', tag: 'iepl', desc: '企业级以太网内网专线保障晚高峰' },
-          { title: 'IPLC机场', tag: 'iplc', desc: '纯国际物理专线点对点无视敏感期' },
+          { title: '大流量机场', tag: 'largeTraffic', desc: '月流量 500GB 至 1TB+ 高频下载参考' },
+          { title: '不限时流量机场', tag: 'oneTime', desc: '一次性充值按量计费包' },
+          { title: 'Clash机场', tag: 'clash', desc: '资料中明确支持 Clash / Mihomo' },
+          { title: '流媒体机场', tag: 'streaming', desc: '资料中提及支持 Netflix、Disney+' },
+          { title: 'AI工具机场', tag: 'ai', desc: '资料中提及支持 ChatGPT 或 Claude' },
+          { title: '多设备机场', tag: 'multiDevice', desc: '资料中标注不限制在线客户端数量' },
+          { title: 'IEPL机场', tag: 'iepl', desc: '资料中标注 IEPL 专线或内网中转' },
+          { title: 'IPLC机场', tag: 'iplc', desc: '资料中标注 IPLC 专线连接' },
         ].map(cat => (
           <a
             href={`/recommend/#${cat.tag}`}
@@ -201,10 +201,10 @@ const homeFaqs = [
             <div>
               <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
                 <span class="rounded bg-slate-100 px-2 py-0.5 font-medium text-slate-600">
-                  {post.data.category === 'client' ? '客户端' : '订阅指南'}
+                  {post.data.tags[0] || '客户端配置'}
                 </span>
                 <span>•</span>
-                <span>2026-09-28</span>
+                <span>{post.data.pubDate.toISOString().split('T')[0]}</span>
               </div>
               <h3 class="text-base font-bold text-slate-900 leading-snug">
                 <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
@@ -253,7 +253,7 @@ const homeFaqs = [
                   故障诊断
                 </span>
                 <span>•</span>
-                <span>实用排障</span>
+                <span>{post.data.pubDate.toISOString().split('T')[0]}</span>
               </div>
               <h3 class="text-base font-bold text-slate-900 leading-snug">
                 <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">

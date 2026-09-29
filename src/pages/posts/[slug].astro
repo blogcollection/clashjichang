@@ -4,7 +4,7 @@ import AirportRecommendation from '../../components/airport/AirportRecommendatio
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const posts = (await getCollection('posts')).filter(post => !post.data.draft);
   return posts.map(post => ({
     params: { slug: post.slug },
     props: { post }
@@ -13,9 +13,10 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+const publishedDate = post.data.pubDate.toISOString().slice(0, 10);
 
 // Related posts
-const allPosts = await getCollection('posts');
+const allPosts = (await getCollection('posts')).filter(post => !post.data.draft);
 const relatedPosts = allPosts
   .filter(p => p.slug !== post.slug && (p.data.category === post.data.category || p.data.recommendationContext === post.data.recommendationContext))
   .slice(0, 3);
@@ -26,7 +27,10 @@ const categoryNames: Record<string, string> = {
   client: '客户端教程',
   subscription: '订阅指南',
   node: '节点知识',
-  troubleshoot: '故障排错'
+  troubleshoot: '故障排错',
+  tutorial: 'Clash教程',
+  concept: '原理解析',
+  selection: '机场选购'
 };
 
 const categoryHref: Record<string, string> = {
@@ -34,10 +38,13 @@ const categoryHref: Record<string, string> = {
   client: '/tutorials/',
   subscription: '/tutorials/',
   node: '/tutorials/',
-  troubleshoot: '/problems/'
+  troubleshoot: '/problems/',
+  tutorial: '/tutorials/',
+  concept: '/tutorials/',
+  selection: '/recommend/'
 };
 
-const catName = categoryNames[post.data.category] || '文章详情';
+const catName = categoryNames[post.data.category] || 'Clash教程';
 const catHref = categoryHref[post.data.category] || '/tutorials/';
 
 const breadcrumbs = [
@@ -72,9 +79,9 @@ const breadcrumbs = [
         <span class="rounded bg-brand-50 text-brand-700 text-xs px-2.5 py-0.5 font-medium">
           {catName}
         </span>
-        <span class="text-xs text-slate-400">发布于 2026-09-28</span>
+        <span class="text-xs text-slate-400">发布于 {publishedDate}</span>
         <span class="text-xs text-slate-400">•</span>
-        <span class="text-xs text-slate-400">核验有效</span>
+        <span class="text-xs text-slate-400">Clash机场指南</span>
       </div>
 
       <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl md:text-4xl leading-tight">
@@ -105,6 +112,19 @@ const breadcrumbs = [
 
     <!-- Contextual Airport Recommendation (Hard Requirement) -->
     <div class="my-10">
+      <div class="mb-3 rounded-lg border border-brand-200 bg-brand-50/70 p-4 text-xs text-brand-950 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-600 text-white font-bold text-xs flex-shrink-0">
+            ✓
+          </span>
+          <p class="font-medium leading-relaxed">
+            配置好 Clash 后，你需要一个稳定的机场订阅。以下是经过整理的服务商：
+          </p>
+        </div>
+        <a href="/airports/" class="text-brand-700 font-bold hover:underline whitespace-nowrap self-end sm:self-center">
+          查看全部 31 家机场 &rarr;
+        </a>
+      </div>
       <AirportRecommendation context={post.data.recommendationContext} />
     </div>
 

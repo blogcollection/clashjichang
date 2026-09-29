@@ -3,7 +3,7 @@ import BaseLayout from '../../components/layout/BaseLayout.astro';
 import AirportRecommendation from '../../components/airport/AirportRecommendation.astro';
 import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('posts');
+const allPosts = (await getCollection('posts')).filter(post => !post.data.draft);
 const problemPosts = allPosts.filter(p => p.data.category === 'troubleshoot');
 
 const breadcrumbs = [
@@ -60,7 +60,7 @@ const breadcrumbs = [
               </p>
             </div>
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-slate-400">核验有效</span>
+              <span class="text-slate-400">实用排障</span>
               <a href={`/posts/${post.slug}/`} class="text-rose-600 font-semibold hover:underline">
                 查看解决指南 &rarr;
               </a>
@@ -74,8 +74,8 @@ const breadcrumbs = [
     <div>
       <AirportRecommendation
         context="iepl"
-        title="频繁遇到节点超时？考虑备选高稳定性专线"
-        description="若排查本地配置无误后依然频繁丢包断流，多为当前服务商公网隧道受阻。以下为具备独立冗余入口的优质专线服务商："
+        title="频繁遇到节点超时？考虑备选专线服务"
+        description="若排查本地配置无误后依然存在断连，多为当前服务商公网隧道受阻。以下为具备独立专线入口的机场服务商参考："
       />
     </div>
   </div>

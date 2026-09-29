@@ -25,7 +25,7 @@ articles = [
         "description": "汇总Clash机场选择核心考量指标：专线质量、晚高峰稳定性、流媒体/AI解锁支持与客服保障，拒绝盲目跟风踩雷。",
         "faq": [
             {"q": "如何判断一家Clash机场是否值得长期使用？", "a": "建议始终先购买一个月付套餐进行晚高峰（晚上8点-11点）测速与真实流媒体播放体验，确认无卡顿、掉线后再考虑季付或年付。"},
-            {"q": "专线机场和普通公网中转有什么区别？", "a": "IPLC/IEPL 专线通过内网专有线缆跨越边境不经过公网 GFW 防火墙过滤，抗封锁能力强、延迟极低且极度稳定；公网中转则成本较低但遇到网络波动易偶发抖动。"}
+            {"q": "专线机场和普通公网中转有什么区别？", "a": "两者是不同的服务商线路描述。实际路由、延迟、可用性和流量策略会随服务商与本地网络变化，购买前应以当前说明和短周期体验确认。"}
         ]
     },
     {
@@ -446,6 +446,80 @@ articles = [
     }
 ]
 
+# This project keeps the published article bodies as hand-edited source files.
+# The generator's legacy template writer below is intentionally retired: this
+# small, deterministic pass only maintains publication state and never rewrites
+# titles, descriptions, FAQs, or article bodies.
+PUBLISHED_SLUGS = {
+    "what-is-clash-airport",
+    "how-to-choose-clash-airport",
+    "clash-airport-vs-vpn",
+    "clash-verge-rev-tutorial",
+    "windows-clash-tutorial",
+    "android-clash-tutorial",
+    "macos-clash-tutorial",
+    "how-to-import-clash-subscription",
+    "what-is-clash-subscription",
+    "clash-subscription-failed-solutions",
+    "clash-nodes-all-timeout-solutions",
+    "clash-connected-but-no-internet",
+    "what-is-iepl-node",
+    "what-is-iplc-node",
+    "what-is-node-multiplier",
+}
+
+# Retired article routes must never be emitted from a published page.  Keep the
+# surrounding prose intact and route each former "read next" target to the
+# closest published guide instead.
+DRAFT_LINK_REPLACEMENTS = {
+    "/posts/cheap-clash-airport-selection/": "/posts/how-to-choose-clash-airport/",
+    "/posts/clash-airport-recommendation-guide/": "/posts/how-to-choose-clash-airport/",
+    "/posts/clash-cannot-connect-troubleshooting/": "/posts/clash-connected-but-no-internet/",
+    "/posts/clash-dns-leak-and-pollution-guide/": "/posts/clash-subscription-failed-solutions/",
+    "/posts/clash-subscription-download-failed/": "/posts/how-to-import-clash-subscription/",
+    "/posts/clash-system-proxy-cannot-open/": "/posts/windows-clash-tutorial/",
+    "/posts/clash-update-failed-solutions/": "/posts/clash-subscription-failed-solutions/",
+    "/posts/clash-verge-usage-tutorial/": "/posts/clash-verge-rev-tutorial/",
+    "/posts/how-to-buy-clash-airport/": "/posts/how-to-choose-clash-airport/",
+    "/posts/how-to-choose-clash-nodes/": "/posts/how-to-choose-clash-airport/",
+    "/posts/how-to-speed-test-clash-nodes/": "/posts/how-to-choose-clash-airport/",
+    "/posts/how-to-update-clash-subscription/": "/posts/how-to-import-clash-subscription/",
+    "/posts/mihomo-party-tutorial/": "/posts/clash-verge-rev-tutorial/",
+    "/posts/what-is-airport-node/": "/posts/what-is-clash-airport/",
+    "/posts/what-is-clash-meta/": "/posts/clash-verge-rev-tutorial/",
+    "/posts/what-is-clash-subconverter/": "/posts/what-is-clash-subscription/",
+    "/posts/what-is-clash-subscription-url/": "/posts/what-is-clash-subscription/",
+    "/posts/what-is-shadowsocks-node/": "/posts/what-is-clash-airport/",
+    "/posts/what-is-trojan-node/": "/posts/what-is-clash-airport/",
+    "/posts/what-is-vless-node/": "/posts/what-is-clash-airport/",
+}
+
+posts_dir = "src/content/posts"
+os.makedirs(posts_dir, exist_ok=True)
+for filename in os.listdir(posts_dir):
+    if not filename.endswith(".md"):
+        continue
+    slug = filename[:-3]
+    path = os.path.join(posts_dir, filename)
+    with open(path, "r", encoding="utf-8") as file:
+        content = file.read()
+    if slug in PUBLISHED_SLUGS:
+        updated = content.replace("draft: true\n", "", 1)
+        for retired_route, published_route in DRAFT_LINK_REPLACEMENTS.items():
+            updated = updated.replace(retired_route, published_route)
+    elif "draft: true\n" not in content:
+        updated = content.replace("---\n", "---\ndraft: true\n", 1)
+    else:
+        updated = content
+    if updated != content:
+        with open(path, "w", encoding="utf-8", newline="") as file:
+            file.write(updated)
+
+print(f"Publication state updated: {len(PUBLISHED_SLUGS)} published; drafts applied to all other posts.")
+raise SystemExit(0)
+
+# Legacy template generator retained below only for historical reference. It is
+# unreachable so it cannot overwrite independently edited articles.
 os.makedirs('src/content/posts', exist_ok=True)
 
 # Generate detailed markdown for each article
@@ -528,8 +602,366 @@ faq:
 
 """
 
+    # Each post deliberately receives its own search-intent-specific structure.
+    # Keeping this here (rather than a shared body template) prevents thin, duplicate articles.
+    focus = item["tags"][0]
+    category_labels = {
+        "airport": "服务选择", "client": "客户端操作", "subscription": "订阅管理",
+        "node": "节点理解", "troubleshoot": "故障排查"
+    }
+    intent = category_labels.get(cat, "使用说明")
+    if cat == "troubleshoot":
+        action = "先记录报错原文、当前网络和客户端版本，再按由本地到远端的顺序排除变量"
+        checks = ["确认系统代理或 TUN 状态没有被其他软件覆盖", "使用同一订阅切换一个节点，区分单节点与配置问题", "核对账户、订阅链接和服务商状态页的当前提示"]
+    elif cat == "client":
+        action = "先从客户端官方说明确认版本与系统权限，再导入一条来源明确的订阅"
+        checks = ["保存现有配置的备份", "只在确认兼容的内核中导入配置", "通过一个网页访问测试确认设置是否生效"]
+    elif cat == "subscription":
+        action = "先保护订阅链接，再确认它的格式、到期状态和目标客户端兼容性"
+        checks = ["不要把含 Token 的链接发送给他人", "通过服务商页面核对订阅格式", "更新失败时保留原配置，避免反复覆盖"]
+    elif cat == "node":
+        action = "把节点名称、延迟和实际用途分开看，并以自己的网络环境做小范围测试"
+        checks = ["先选择距离和用途相近的节点", "分别测试网页、视频或工作所需服务", "记录异常发生的时间段与节点名称"]
+    else:
+        action = "把公开资料当作初筛条件，并在付款前向服务商确认不完整字段"
+        checks = ["对照套餐周期、流量和退款规则", "确认所用客户端的订阅格式", "以短周期体验验证个人网络环境"]
+
+    checklist = "\n".join(f"{i + 1}. {check}（本文：{title}）。" for i, check in enumerate(checks))
+    content = f'''---
+title: "{title}"
+description: "{desc}"
+pubDate: 2026-09-28
+category: "{cat}"
+recommendationContext: "{rec_ctx}"
+tags: [{tags_str}]
+faq:
+{faq_frontmatter}
+---
+
+# {title}
+
+{title}聚焦“{focus}”这一{intent}问题。本文不把单次体验当作普遍结论，而是提供可复核的判断顺序、操作边界和下一步入口。
+
+## {focus}：先确认要解决的是什么
+
+围绕“{title}”，第一步不是直接更改所有设置，而是分清自己面对的是资料选择、配置导入还是连接异常。这个区分能避免把不相关的调整带入同一次排查。
+
+### 本文适用范围
+
+如果你的目标是{desc}，可按下文的检查项逐项记录结果；没有公开字段或无法重复的结果，应保留为“待确认”，而非推断为支持或不支持。
+
+## {title} 的操作顺序
+
+建议{action}。每完成一项，只改变一个变量，并保留上一项状态，以便发现问题时能够回退。
+
+{checklist}
+
+## 如何判断结果是否可靠
+
+“{focus}”的可用性会随设备、网络、套餐和服务端更新而变化。对《{title}》而言，截图、宣传语或一次测速都只能作为线索；应以当前服务商页面、客户端日志和自己的实际访问结果交叉确认。
+
+### 常见误区
+
+不要把订阅兼容、协议名称、线路文字描述或服务列表自动等同于性能、安全性或长期可用性。本文的结论只覆盖“{title}”的说明范围，未列出的字段应在购买或修改前再确认。
+
+## 下一步：选择资料明确的服务或继续学习
+
+完成《{title}》的检查后，可浏览站内的机场资料页核对套餐、客户端和协议字段；涉及付费时优先选择短周期，并以服务商最新页面作为最终依据。
+'''
+
     file_path = os.path.join('src/content/posts', f"{slug}.md")
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(content)
 
 print(f"Generated {len(articles)} comprehensive articles in src/content/posts/")
+
+# Publication set: these are intentionally authored article-by-article.  The
+# remaining source entries stay in the repository as drafts until they receive
+# the same treatment; they are not generated as public thin pages.
+CORE_BODIES = {
+"what-is-clash-airport": '''## Clash 机场到底是什么
+
+“机场”是社区对提供订阅、节点和用户后台的第三方服务的俗称；Clash、Mihomo 或其他客户端只是读取配置并按规则转发流量的本地软件。购买前要把服务商、订阅格式和客户端分开理解，不能把客户端名称当成服务质量证明。
+
+## 一份订阅包含什么
+
+订阅通常会返回节点列表、代理组和规则配置。它可能带有账户 Token，因此和密码一样不应公开。服务商是否提供 Clash 格式、哪些协议能导入、是否限制设备，都应在付款前从当前页面确认。
+
+## 选择服务时核对哪些字段
+
+先看套餐的计费周期、流量、重置方式、退款规则和客服渠道；再核对你的设备对应的客户端是否被明确支持。线路、解锁和带宽类文字属于服务资料描述，不是本站的性能认证。
+
+## 第一次使用的稳妥流程
+
+优先选择短周期套餐，保存订单和订阅链接，在一个设备上导入后测试自己常用的网站与网络环境。发现问题时先确认账户状态、订阅更新和本机代理设置，再向服务商提供具体报错和时间。
+''',
+"how-to-choose-clash-airport": '''## 先按用途而不是“排名”筛选
+
+网页查资料、远程会议、视频和多设备使用消耗的流量与可接受延迟不同。先写下每月预算、预计流量、使用设备和最常访问的服务，才能看懂套餐字段；没有统一测试数据时，不应把展示顺序当作速度排名。
+
+## 看套餐表的四个位置
+
+确认价格对应月付、年付还是一次性流量包；确认流量是每月重置还是长期有效；确认节点倍率是否会影响实际消耗；最后看设备限制和退款条款。年付折合月价不等于可以按月取消。
+
+## 线路和解锁宣传如何阅读
+
+IPLC、IEPL、BGP 等是服务商的线路描述，不能单独推出延迟、抗封锁或稳定性结论。流媒体和 AI 字段也会随出口 IP 改变，应以服务商当期说明及自己的测试为准。
+
+## 购买前的检查清单
+
+保留短周期试用空间；先确认订阅支持你的客户端；在自己的宽带和常用时段测试；不要因促销一次性预存很长周期。出现资料缺失时，直接咨询服务商而不是自行补全。
+''',
+"clash-airport-vs-vpn": '''## 两者解决的问题并不完全相同
+
+传统 VPN 常以一个连接承载较多流量；Clash 类客户端更常通过规则把不同域名或应用分到直连、代理组或不同节点。实际体验取决于配置、服务商和网络环境，而不是名称本身。
+
+## 配置方式的差异
+
+VPN 往往在客户端内选择服务器后连接；Clash 通常导入订阅，选择代理组并使用规则模式。规则写错、系统代理未开启或 TUN 冲突，都可能导致“已连接但不能上网”。
+
+## 隐私与信任边界
+
+无论使用哪种服务，提供者都可能处理连接元数据。应阅读服务商政策，不把订阅链接分享给他人，也不要因“加密”“专线”等标签推断绝对安全。
+
+## 如何决定使用哪一种
+
+若你需要按域名分流、管理多个节点或使用兼容订阅，Clash 生态可能更合适；若场景只需要单一企业 VPN，则按组织提供的工具配置。选择前以设备支持、管理方式和政策为准。
+''',
+"clash-verge-rev-tutorial": '''## 开始前准备
+
+从项目官方发布页获取适合系统架构的安装包，确认来源和版本；不要把未知第三方“整合包”当作客户端更新。准备好服务商提供的订阅链接，并避免把链接截屏发到公开渠道。
+
+## 导入配置
+
+在 Profiles 或配置页新建远程配置，粘贴完整 URL 后下载。若下载失败，先在服务商后台确认套餐未到期、链接未重置，再记录客户端显示的错误，而非反复新建配置。
+
+## 选择模式和节点
+
+初次使用可先选规则模式，再在代理组中选择一个节点。系统代理只影响遵守系统代理的应用；如需 TUN，应先了解权限、路由与其他网络工具是否冲突。
+
+## 维护与回退
+
+更新订阅前保留可工作的配置。软件升级后若网络异常，关闭 TUN、系统代理或其他代理工具逐项验证；不能确认的问题应附上版本、系统和错误信息咨询服务商或客户端社区。
+''',
+"windows-clash-tutorial": '''## Windows 上先避免软件冲突
+
+安装前退出其他代理、VPN、抓包和可能修改系统代理的软件。Windows 同一时间只能有一套明确的代理设置，多个程序抢写设置时常出现开关立即回弹或浏览器无网络。
+
+## 导入订阅并检查状态
+
+在客户端配置页导入服务商链接，确认下载时间和节点数量正常。账户到期、流量耗尽或订阅 URL 被重置时，先在用户后台解决，而不是只重装客户端。
+
+## 系统代理与 TUN 的区别
+
+系统代理适合浏览器等遵守代理设置的应用；TUN 会影响更广泛的网络路径，也更容易与游戏加速器、虚拟机或安全软件发生冲突。首次配置建议一次只开启一种方式。
+
+## Windows 常见恢复步骤
+
+不能上网时关闭系统代理，退出客户端后确认网络恢复；再检查端口占用、日期时间和防火墙提示。用手机热点交叉测试能帮助区分本机配置与当前网络限制。
+''',
+"android-clash-tutorial": '''## 选择与订阅格式兼容的应用
+
+Android 客户端的内核和导入格式并不完全相同。先从服务商资料确认是否明确支持目标客户端；未写明时，不要把“通用订阅”自动理解为所有应用都可导入。
+
+## 导入后的关键设置
+
+粘贴订阅 URL，完成下载后选中配置，再按应用说明授权 VPN 权限。先在规则模式下验证一个常用网站；应用分流、绕过局域网等设置应在基本连接成功后再调整。
+
+## 后台被系统关闭怎么办
+
+不同品牌的省电策略不同。可以将客户端设为不受电池优化限制，并允许后台活动；这只是减少被系统结束的可能，不代表网络连接一定持续有效。
+
+## 手机端排错顺序
+
+依次确认套餐与订阅、移动数据或 Wi-Fi、VPN 权限、当前节点和 DNS 设置。切换网络后结果不同，通常说明需要继续检查本地网络，而不能凭一次失败判断服务端故障。
+''',
+"macos-clash-tutorial": '''## 安装与权限的边界
+
+macOS 会对未签名或首次运行的软件给出安全提示。应从项目发布页获取文件，理解提示后在系统设置中授权；不要为绕过提示关闭整套系统安全机制。
+
+## 添加远程订阅
+
+在客户端配置管理中添加 URL 并下载，确认配置名称、更新时间和节点列表。订阅链接带有账户标识，复制给他人可能造成流量或账户风险。
+
+## 系统代理、增强模式与终端
+
+开启系统代理后，常规应用会按系统设置工作；终端和某些开发工具可能需要各自的代理变量或 TUN 配置。先确认浏览器连接正常，再按实际需要扩展到其他工具。
+
+## 出现断网时如何回退
+
+关闭客户端的系统代理或增强模式，确认 macOS 网络恢复。随后检查是否同时运行了公司 VPN、过滤软件或网络扩展；每次只改一项，以保留可复现的排查结果。
+''',
+"how-to-import-clash-subscription": '''## 获取正确的订阅地址
+
+从已登录的服务商用户中心复制完整地址，不要使用搜索结果中的同名链接。链接通常包含 Token；泄露后应在后台重置，不应把它提交到在线转换站或公开求助帖。
+
+## 自动导入与手动导入
+
+网页的一键导入依赖浏览器和客户端的协议关联，失败并不一定表示订阅失效。手动方式更可控：复制 URL、在客户端新建远程配置、下载后选中配置。
+
+## 下载失败先看什么
+
+确认套餐状态、流量和 URL 是否仍有效；检查当前网络是否能访问服务商页面；再查看客户端具体错误。若单个客户端失败，可在不暴露链接的前提下咨询服务商其支持的格式。
+
+## 导入成功后的验证
+
+不要立刻开启复杂规则。先在一个设备上选节点、确认系统代理或 VPN 权限，再测试常用站点。保存可工作的配置，订阅更新前避免删除旧配置。
+''',
+"what-is-clash-subscription": '''## 订阅不是“一个节点”
+
+订阅是一个可更新的配置入口，服务商可通过它下发节点、策略组和规则。客户端拉取后会保存一份本地配置，因此订阅更新、节点选择和本机代理开关是三个不同的环节。
+
+## 为什么格式兼容很重要
+
+不同客户端支持的协议与配置字段不同。服务商写有 Clash、Mihomo 或其他格式时，仍应确认是哪个客户端和内核；没有明确说明时，应在购买前询问而不是尝试猜测。
+
+## Token 与账户安全
+
+订阅 URL 常是账户凭证的一部分。把它发给别人会导致流量被使用或触发设备限制；发现泄露时在服务商后台重置，并在客户端替换旧链接。
+
+## 更新的正确时机
+
+更新用于获得服务商发布的新配置，不是解决所有网络问题的万能操作。更新前保存当前可用配置；更新后若问题出现，比较节点、订阅时间和服务商公告再决定下一步。
+''',
+"clash-subscription-failed-solutions": '''## 先区分“下载失败”和“导入后失败”
+
+客户端提示下载失败时，问题可能在 URL、账户、网络或 TLS；下载成功但节点不可用，则还要看代理选择和本机设置。把这两类现象分开，能避免无效重装。
+
+## 订阅本身的检查
+
+登录服务商后台确认套餐未到期、流量未耗尽、订阅没有被重置。复制新链接时不要遗漏参数；若后台有公告或维护提示，应优先按公告等待或咨询。
+
+## 本机与网络检查
+
+确认设备日期时间正确，暂时关闭其他 VPN/代理，再用另一网络或手机热点测试。不同网络结果不同，提示问题可能与当前出口、DNS 或网络限制有关。
+
+## 何时联系服务商
+
+提供不含完整 Token 的错误截图、客户端版本、系统、失败时间和网络类型。避免只说“不能用”；具体信息能让对方判断是订阅分发、账户还是客户端兼容问题。
+''',
+"clash-nodes-all-timeout-solutions": '''## “全部超时”意味着先查共同条件
+
+当所有节点都超时，不应先逐个测速或随机换节点。共同原因更常见：套餐到期、流量耗尽、订阅过期、系统时间异常、当前网络限制或本机代理冲突。
+
+## 从账户和订阅开始
+
+登录用户中心确认有效期和流量；复制当前订阅更新一次，并观察下载是否成功。若连服务商后台都无法访问，记录时间并查看公告，而不是把旧节点名称当成故障证据。
+
+## 本机排查顺序
+
+退出其他 VPN、代理和加速器；确认系统日期时间；检查系统代理与 TUN 是否同时开启；再尝试一个明确可用的节点。DNS 或端口设置只应在基本账户状态确认后调整。
+
+## 用另一网络做交叉判断
+
+切换手机热点或另一 Wi-Fi 后重新测试。若只在某个网络失败，更可能是本地网络条件；若多网络均失败且账户正常，再带上日志和时间联系服务商。
+''',
+"clash-connected-but-no-internet": '''## 先确认“连接成功”的含义
+
+客户端显示已连接只表示本地进程或 VPN 接口已启动，不等于所有流量都能访问。需要分别测试浏览器、一个规则命中的域名和一个直连域名，判断问题发生在哪一层。
+
+## 规则与代理模式
+
+规则模式依赖配置中的规则集和代理组；全局模式会把更多流量交给当前节点。先选择一个明确的代理组节点，再检查是否误把需要代理的流量设为直连，或反过来把局域网流量交给代理。
+
+## 系统代理和 TUN 的冲突
+
+Windows、macOS 和 Android 的代理机制不同。系统代理无法覆盖所有应用，TUN 又可能与公司 VPN、虚拟机或安全软件冲突。一次只启用一种模式，先验证网络恢复再扩展设置。
+
+## DNS 与网络交叉测试
+
+若域名打不开而 IP 行为不同，才考虑 DNS 设置；不要在没有现象的情况下随意复制公共 DNS 配置。更换 Wi-Fi 或热点可帮助判断是当前网络、节点还是本机规则导致。
+''',
+"what-is-iepl-node": '''## IEPL 通常指什么
+
+IEPL 是国际以太网专线的行业术语，常用于描述点到点或专用的跨境网络连接服务。机场页面出现 IEPL 并不自动说明每一段链路、所有节点或整个套餐都使用同一种路径。
+
+## 与公网中转和 IPLC 的关系
+
+公网中转、IEPL 和 IPLC 是不同的服务商网络描述，实际网络会包含入口、转发、出口和本地运营商等多个环节。名称不能单独证明延迟、丢包、抗干扰能力或安全性。
+
+## 用户需要核对什么
+
+查看服务商是否说明适用套餐、节点地区、倍率、流量和客户端格式；有固定业务需求时询问是否有对应节点或退款规则。不要把“专线”当成统一质量等级。
+
+## 谁可能需要，谁不必额外付费
+
+对延迟或路径有明确需求的人可将其作为询问项目；普通网页或低频使用者更应先比较套餐周期、流量和兼容性。短周期实测比仅凭线路标签更有参考价值。
+''',
+"what-is-iplc-node": '''## IPLC 的基本含义
+
+IPLC 常指国际私人租用线路，是电信网络中的一种术语。机场资料使用“IPLC 节点”时，具体的跨境路径、覆盖范围和接入方式仍需由服务商说明，不能只凭标签推断整个网络架构。
+
+## 为什么宣传语需要再核验
+
+一条实际连接通常包含用户本地网络、入口、跨境段和海外出口。即使某一段使用租用线路，最终延迟、可用性和丢包也会受到其他环节影响，因此“IPLC”不是性能或抗封锁承诺。
+
+## 与 IEPL 怎么比较
+
+两个术语在服务商页面的使用并不总是统一。比较时应回到可验证信息：套餐是否明确、节点区域、流量倍率、设备规则、支持客户端与售后说明，而不是制作绝对优劣排序。
+
+## 购买前的问题清单
+
+询问线路描述适用于哪些套餐和地区；确认是否有试用或短周期；记录自己网络下的测试结果；出现不符合预期时按退款或工单规则处理。这样比为一个标签支付溢价更稳妥。
+''',
+"what-is-node-multiplier": '''## 节点倍率如何影响流量
+
+倍率是服务商用于计算套餐流量消耗的规则。例如 1x 通常表示传输 1GB 记作 1GB，较高倍率则会更快消耗套餐流量。具体算法和四舍五入方式以服务商当前规则为准。
+
+## 不要把倍率和速度混为一谈
+
+倍率描述的是计费，不是带宽、延迟或稳定性评分。一个标注 1x 的节点也不必然更快；选择节点仍需结合目的地、当前网络和业务需求。
+
+## 查看套餐时的实际计算
+
+先确认流量包是否按月重置，再看常用地区的倍率。若每月流量有限，较高倍率节点会缩短可用时间；一次性流量包同样要看是否有有效期、是否会因倍率加速消耗。
+
+## 购买前的核验动作
+
+在服务商文档中找倍率表和变更规则，保存购买时页面截图。字段缺失时先咨询客服；不要依据其他服务商的倍率规则替代当前套餐说明。
+'''
+}
+
+article_by_slug = {item['slug']: item for item in articles}
+CORE_METADATA_OVERRIDES = {
+    'what-is-iplc-node': {
+        'title': 'IPLC节点是什么？国际专线、线路特点与机场宣传怎么判断',
+        'description': '解释 IPLC 的基本概念、与 IEPL/公网中转的区别，以及购买机场时如何核对所谓 IPLC 线路资料。',
+        'faq': [
+            {'q': 'IPLC 可以无视防火墙吗？', 'a': '不能这样判断。IPLC 通常指国际私人租用线路，但机场所称 IPLC 节点的具体跨境路径需要以服务商实际网络架构为准。'},
+            {'q': 'IPLC 标签代表一定更稳定吗？', 'a': '不代表。延迟、丢包和可用性还受本地网络、入口、出口和服务商配置影响。'}
+        ]
+    },
+    'what-is-iepl-node': {
+        'title': 'IEPL节点是什么？线路含义、适用场景与购买前核验',
+        'description': '说明 IEPL 的基本术语、与 IPLC/公网中转的关系，以及购买前应向服务商确认的实际字段。'
+    }
+}
+for path in os.scandir('src/content/posts'):
+    if path.name.endswith('.md') and path.name[:-3] not in CORE_BODIES:
+        old = open(path.path, encoding='utf-8').read()
+        if 'draft: true' not in old:
+            old = old.replace('pubDate:', 'draft: true\npubDate:', 1)
+            open(path.path, 'w', encoding='utf-8').write(old)
+
+for slug, body in CORE_BODIES.items():
+    item = {**article_by_slug[slug], **CORE_METADATA_OVERRIDES.get(slug, {})}
+    faq = '\n'.join(f'  - q: "{x["q"]}"\n    a: "{x["a"]}"' for x in item['faq'])
+    tags = ', '.join(f'"{tag}"' for tag in item['tags'])
+    markdown = f'''---
+title: "{item['title']}"
+description: "{item['description']}"
+pubDate: 2026-09-28
+category: "{item['category']}"
+recommendationContext: "{item['recommendationContext']}"
+tags: [{tags}]
+faq:
+{faq}
+---
+
+# {item['title']}
+
+{body}
+'''
+    open(os.path.join('src/content/posts', f'{slug}.md'), 'w', encoding='utf-8').write(markdown)
+
+print(f'Published article set: {len(CORE_BODIES)}; drafts: {len(articles) - len(CORE_BODIES)}')

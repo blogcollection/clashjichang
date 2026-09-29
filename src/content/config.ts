@@ -5,6 +5,7 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    draft: z.boolean().default(false),
     pubDate: z.date(),
     category: z.string(),
     recommendationContext: z.enum([

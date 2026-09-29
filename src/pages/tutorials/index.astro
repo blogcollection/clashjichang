@@ -1,24 +1,97 @@
 ---
 import BaseLayout from '../../components/layout/BaseLayout.astro';
+import AirportCard from '../../components/airport/AirportCard.astro';
+import { getAirportRecommendations, getAllAirports, isFeaturedAirport } from '../../lib/airports/recommendations';
 import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('posts');
-const clientPosts = allPosts.filter(p => p.data.category === 'client');
-const subPosts = allPosts.filter(p => p.data.category === 'subscription');
-const nodePosts = allPosts.filter(p => p.data.category === 'node');
+const allPosts = (await getCollection('posts')).filter(post => !post.data.draft);
+
+// Pre-defined classification sets to ensure rigorous mapping and 0 empty categories
+const clientSlugs = new Set([
+  'android-clash-tutorial',
+  'windows-clash-tutorial',
+  'macos-clash-tutorial',
+  'clash-verge-rev-tutorial',
+  'clash-verge-usage-tutorial',
+  'mihomo-party-tutorial',
+  'what-is-clash-meta',
+  'clash-system-proxy-cannot-open'
+]);
+
+const subscriptionSlugs = new Set([
+  'what-is-clash-subscription-url',
+  'how-to-import-clash-subscription',
+  'how-to-update-clash-subscription',
+  'what-is-clash-subscription',
+  'what-is-clash-subconverter',
+  'clash-subscription-download-failed',
+  'clash-subscription-failed-solutions',
+  'clash-update-failed-solutions'
+]);
+
+const nodeSlugs = new Set([
+  'how-to-choose-clash-nodes',
+  'clash-nodes-all-timeout-solutions',
+  'how-to-read-clash-node-latency',
+  'how-to-speed-test-clash-nodes',
+  'what-is-iplc-node',
+  'what-is-iepl-node',
+  'what-is-shadowsocks-node',
+  'what-is-trojan-node',
+  'what-is-vless-node',
+  'what-is-node-multiplier',
+  'what-is-airport-node',
+  'clash-connected-but-no-internet',
+  'clash-cannot-connect-troubleshooting',
+  'clash-dns-leak-and-pollution-guide'
+]);
+
+const selectionSlugs = new Set([
+  'what-is-clash-airport',
+  'clash-airport-recommendation-guide',
+  'how-to-choose-clash-airport',
+  'cheap-clash-airport-selection',
+  'how-to-buy-clash-airport',
+  'clash-airport-vs-vpn'
+]);
+
+const clientPosts = allPosts.filter(p => clientSlugs.has(p.slug));
+const subPosts = allPosts.filter(p => subscriptionSlugs.has(p.slug));
+const nodePosts = allPosts.filter(p => nodeSlugs.has(p.slug));
+// Fallback guarantees that 100% of posts are displayed
+const selectionPosts = allPosts.filter(p => 
+  selectionSlugs.has(p.slug) || 
+  (!clientSlugs.has(p.slug) && !subscriptionSlugs.has(p.slug) && !nodeSlugs.has(p.slug))
+);
+
+// Airport Recommendations for Conversion Funnel
+const allAirports = getAllAirports();
+// Top section: Prioritize featured airports with complete data
+const topAirports = allAirports.filter(a => isFeaturedAirport(a.slug)).slice(0, 4);
+// Middle section: Airports with explicit Clash compatibility records
+const middleAirports = getAirportRecommendations('clash', 3);
 
 const breadcrumbs = [
   { name: '首页', url: '/' },
   { name: 'Clash教程', url: '/tutorials/' }
 ];
+
+const formatDate = (date: Date) => {
+  try {
+    return date.toISOString().split('T')[0];
+  } catch {
+    return '2026-09-28';
+  }
+};
 ---
 
 <BaseLayout
   title="Clash教程｜订阅、节点与客户端使用指南 - Clash机场"
-  description="系统的 Clash 从零配置全景教程：包括 Clash Verge Rev、Mihomo Party 等各平台客户端安装使用、订阅链接导入与节点选择指南。"
+  description="系统的 Clash 从零配置全景教程：涵盖主流客户端安装、通用订阅链接导入排错、节点延迟与专线解析，以及根据当前整理资料筛选的 Clash 机场推荐。"
   breadcrumbs={breadcrumbs}
 >
-  <div class="border-b border-slate-200 bg-white py-10">
+  <!-- Hero Section -->
+  <div class="border-b border-slate-200 bg-white py-10 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <nav class="flex text-xs text-slate-500 mb-3" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1">
@@ -29,105 +102,392 @@ const breadcrumbs = [
       </nav>
 
       <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-1.5 rounded-full bg-brand-50 border border-brand-200 px-3 py-1 text-xs font-semibold text-brand-700 mb-3">
+          <span>📚 全景实操教程库</span>
+          <span>•</span>
+          <span>共收录 {allPosts.length} 篇技术与排障指南</span>
+        </div>
         <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
           Clash 客户端与订阅配置教程
         </h1>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-          全面覆盖主流操作系统（Windows、macOS、Android）最新客户端选型、快速导入通用订阅、分流规则定制与常用节点调优技巧。
+        <p class="mt-3 text-sm text-slate-600 leading-relaxed sm:text-base">
+          全面覆盖 Windows、macOS、Android 平台主流客户端选型（Clash Verge Rev、Mihomo Party 等），详解订阅导入与自动更新机制，排查节点全部超时与连接故障。
         </p>
       </div>
     </div>
   </div>
 
-  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-12">
-    <!-- Section 1: 客户端教程 -->
-    <div>
-      <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-        <span>主流客户端安装与实操教程</span>
-        <span class="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-600">Client Setup</span>
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 space-y-14">
+    <!-- Top Airport Recommendation Banner (Conversion Module 1) -->
+    <section class="rounded-xl border border-brand-200 bg-gradient-to-br from-brand-50/70 via-white to-slate-50 p-6 sm:p-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="inline-flex items-center gap-1.5 rounded-full bg-brand-100 text-brand-800 px-2.5 py-0.5 text-xs font-semibold mb-2">
+            <span>💡 新手准备步骤</span>
+          </div>
+          <h2 class="text-xl font-bold text-slate-900 sm:text-2xl">
+            还没有 Clash 订阅？可以先查看机场
+          </h2>
+          <p class="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl">
+            Clash 本质上是网络代理规则调度器，自身不附带任何服务器节点。导入配置前，请先准备好有效的机场订阅链接，再配合下方教程完成配置：
+          </p>
+        </div>
+        <a
+          href="/airports/"
+          class="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-brand-600 hover:text-brand-700 whitespace-nowrap self-start sm:self-center"
+        >
+          查看全部 31 家机场 &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {topAirports.map(airport => (
+          <AirportCard airport={airport} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Category 1: 主流客户端安装与实操教程 -->
+    <section>
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2.5">
+          <span>主流客户端安装与实操教程</span>
+          <span class="rounded bg-brand-50 text-brand-700 px-2 py-0.5 text-xs font-semibold">
+            {clientPosts.length} 篇
+          </span>
+        </h2>
+        <span class="text-xs text-slate-400 hidden sm:inline">Windows / macOS / Android 客户端全配置</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {clientPosts.map(post => (
-          <div class="rounded-lg border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-sm transition flex flex-col justify-between">
+          <article class="flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-5 hover:border-brand-500 hover:shadow-sm transition group">
             <div>
-              <h3 class="text-base font-bold text-slate-900">
-                <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2.5">
+                <span class="rounded bg-slate-100 text-slate-600 px-2 py-0.5 text-[11px] font-medium">
+                  {post.data.tags[0] || '客户端'}
+                </span>
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 group-hover:text-brand-600 transition leading-snug">
+                <a href={`/posts/${post.slug}/`}>
                   {post.data.title}
                 </a>
               </h3>
               <p class="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
                 {post.data.description}
               </p>
+              {post.data.tags.length > 0 && (
+                <div class="mt-3 flex flex-wrap gap-1">
+                  {post.data.tags.slice(0, 3).map(tag => (
+                    <span class="rounded bg-slate-50 border border-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-slate-400">2026-09-28</span>
-              <a href={`/posts/${post.slug}/`} class="text-brand-600 font-semibold hover:underline">
-                查看步骤 &rarr;
+              <span class="text-slate-400">查看教程</span>
+              <a
+                href={`/posts/${post.slug}/`}
+                class="text-brand-600 font-semibold hover:text-brand-700 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
+              >
+                查看教程 &rarr;
               </a>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
 
-    <!-- Section 2: 订阅指南 -->
-    <div>
-      <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-        <span>订阅管理与格式解析</span>
-        <span class="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-600">Subscription</span>
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Category 2: 订阅管理与格式解析 -->
+    <section>
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2.5">
+          <span>订阅管理与格式解析</span>
+          <span class="rounded bg-brand-50 text-brand-700 px-2 py-0.5 text-xs font-semibold">
+            {subPosts.length} 篇
+          </span>
+        </h2>
+        <span class="text-xs text-slate-400 hidden sm:inline">订阅链接导入、更新机制与格式报错排障</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {subPosts.map(post => (
-          <div class="rounded-lg border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-sm transition flex flex-col justify-between">
+          <article class="flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-5 hover:border-brand-500 hover:shadow-sm transition group">
             <div>
-              <h3 class="text-base font-bold text-slate-900">
-                <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2.5">
+                <span class="rounded bg-slate-100 text-slate-600 px-2 py-0.5 text-[11px] font-medium">
+                  {post.data.tags[0] || '订阅管理'}
+                </span>
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 group-hover:text-brand-600 transition leading-snug">
+                <a href={`/posts/${post.slug}/`}>
                   {post.data.title}
                 </a>
               </h3>
               <p class="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
                 {post.data.description}
               </p>
+              {post.data.tags.length > 0 && (
+                <div class="mt-3 flex flex-wrap gap-1">
+                  {post.data.tags.slice(0, 3).map(tag => (
+                    <span class="rounded bg-slate-50 border border-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-slate-400">2026-09-28</span>
-              <a href={`/posts/${post.slug}/`} class="text-brand-600 font-semibold hover:underline">
-                查看步骤 &rarr;
+              <span class="text-slate-400">查看教程</span>
+              <a
+                href={`/posts/${post.slug}/`}
+                class="text-brand-600 font-semibold hover:text-brand-700 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
+              >
+                查看教程 &rarr;
               </a>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
 
-    <!-- Section 3: 节点知识 -->
-    <div>
-      <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-        <span>节点选择与底层专线知识</span>
-        <span class="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-600">Nodes & Network</span>
-      </h2>
+    <!-- Middle Airport Recommendation: 【常用 Clash 机场】 (Conversion Module 2) -->
+    <section class="rounded-xl border border-slate-200 bg-slate-50/80 p-6 sm:p-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 text-emerald-800 px-2.5 py-0.5 text-xs font-semibold mb-2">
+            <span>⚡ 机场服务商参考</span>
+          </div>
+          <h2 class="text-xl font-bold text-slate-900 sm:text-2xl">
+            常用 Clash 机场推荐
+          </h2>
+          <p class="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl">
+            订阅管理与节点调优离不开优质的服务端支持。以下根据当前整理资料展示 3 家明确支持 Clash / Mihomo 订阅一键导入的服务商：
+          </p>
+        </div>
+        <a
+          href="/recommend/#clash"
+          class="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-brand-600 hover:text-brand-700 whitespace-nowrap self-start sm:self-center"
+        >
+          查看更多推荐 &rarr;
+        </a>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {middleAirports.map(airport => {
+          let priceText = '价格以官网为准';
+          if (airport.pricing.monthly !== null) {
+            priceText = `¥${airport.pricing.monthly}/月起`;
+          } else if (airport.pricing.annual !== null) {
+            priceText = `¥${airport.pricing.annual}/年起`;
+          } else if (airport.pricing.oneTime !== null) {
+            priceText = `¥${airport.pricing.oneTime}/一次性`;
+          }
+
+          const hasClash = Boolean(
+            airport.hasClash || 
+            (airport.clients && airport.clients.some(c => c.toLowerCase().includes('clash') || c.toLowerCase().includes('mihomo')))
+          );
+
+          return (
+            <div class="flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-5 hover:border-brand-500 hover:shadow-md transition">
+              <div>
+                <div class="flex items-start justify-between gap-2">
+                  <h3 class="text-base font-bold text-slate-900">
+                    <a href={`/airports/${airport.slug}/`} class="hover:text-brand-600 transition">
+                      {airport.name}
+                    </a>
+                  </h3>
+                  <span class="text-sm font-extrabold text-brand-600 whitespace-nowrap">{priceText}</span>
+                </div>
+
+                <div class="mt-2 flex flex-wrap gap-1.5">
+                  <span class="rounded bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700">
+                    {airport.architecture || '线路资料暂缺'}
+                  </span>
+                  {hasClash && (
+                    <span class="rounded bg-brand-50 px-2 py-0.5 text-[11px] font-medium text-brand-700">
+                      支持 Clash
+                    </span>
+                  )}
+                </div>
+
+                <p class="mt-3 text-xs leading-relaxed text-slate-600 line-clamp-3">
+                  {airport.summary}
+                </p>
+              </div>
+
+              <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                <a
+                  href={`/airports/${airport.slug}/`}
+                  class="text-xs font-semibold text-slate-700 hover:text-brand-600 transition"
+                >
+                  查看评测详情 &rarr;
+                </a>
+                <a
+                  href={airport.ctaUrl || airport.officialUrl || `/airports/${airport.slug}/`}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  class="rounded bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-brand-700 transition"
+                >
+                  访问官网 ↗
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- Category 3: 节点选择与底层专线知识 -->
+    <section>
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2.5">
+          <span>节点选择与底层专线知识</span>
+          <span class="rounded bg-brand-50 text-brand-700 px-2 py-0.5 text-xs font-semibold">
+            {nodePosts.length} 篇
+          </span>
+        </h2>
+        <span class="text-xs text-slate-400 hidden sm:inline">IPLC/IEPL 专线、协议机制、节点倍率与排障诊断</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {nodePosts.map(post => (
-          <div class="rounded-lg border border-slate-200 bg-white p-5 hover:border-slate-300 hover:shadow-sm transition flex flex-col justify-between">
+          <article class="flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-5 hover:border-brand-500 hover:shadow-sm transition group">
             <div>
-              <h3 class="text-base font-bold text-slate-900">
-                <a href={`/posts/${post.slug}/`} class="hover:text-brand-600 transition">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2.5">
+                <span class="rounded bg-slate-100 text-slate-600 px-2 py-0.5 text-[11px] font-medium">
+                  {post.data.tags[0] || '节点知识'}
+                </span>
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 group-hover:text-brand-600 transition leading-snug">
+                <a href={`/posts/${post.slug}/`}>
                   {post.data.title}
                 </a>
               </h3>
               <p class="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
                 {post.data.description}
               </p>
+              {post.data.tags.length > 0 && (
+                <div class="mt-3 flex flex-wrap gap-1">
+                  {post.data.tags.slice(0, 3).map(tag => (
+                    <span class="rounded bg-slate-50 border border-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-slate-400">2026-09-28</span>
-              <a href={`/posts/${post.slug}/`} class="text-brand-600 font-semibold hover:underline">
-                查看步骤 &rarr;
+              <span class="text-slate-400">查看教程</span>
+              <a
+                href={`/posts/${post.slug}/`}
+                class="text-brand-600 font-semibold hover:text-brand-700 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
+              >
+                查看教程 &rarr;
               </a>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
+
+    <!-- Category 4: 机场选购与避坑攻略 -->
+    <section>
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-6">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2.5">
+          <span>机场选购与避坑攻略</span>
+          <span class="rounded bg-brand-50 text-brand-700 px-2 py-0.5 text-xs font-semibold">
+            {selectionPosts.length} 篇
+          </span>
+        </h2>
+        <span class="text-xs text-slate-400 hidden sm:inline">科学选型、性价比辨析、支付安全与防跑路原则</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {selectionPosts.map(post => (
+          <article class="flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-5 hover:border-brand-500 hover:shadow-sm transition group">
+            <div>
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2.5">
+                <span class="rounded bg-slate-100 text-slate-600 px-2 py-0.5 text-[11px] font-medium">
+                  {post.data.tags[0] || '选购指南'}
+                </span>
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 group-hover:text-brand-600 transition leading-snug">
+                <a href={`/posts/${post.slug}/`}>
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="mt-2 text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                {post.data.description}
+              </p>
+              {post.data.tags.length > 0 && (
+                <div class="mt-3 flex flex-wrap gap-1">
+                  {post.data.tags.slice(0, 3).map(tag => (
+                    <span class="rounded bg-slate-50 border border-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-400">查看教程</span>
+              <a
+                href={`/posts/${post.slug}/`}
+                class="text-brand-600 font-semibold hover:text-brand-700 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
+              >
+                查看教程 &rarr;
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Bottom Action CTA (Conversion Module 3) -->
+    <section class="rounded-xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 text-center sm:p-12">
+      <h2 class="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+        不知道选哪个机场？
+      </h2>
+      <p class="mt-3 max-w-2xl mx-auto text-sm text-slate-600 leading-relaxed">
+        面对 30+ 家机场服务商无从下手？根据你的实际使用预算、特定应用场景与核心参数快速进行筛选与横向比对。
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="/airports/"
+          class="rounded-md bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 transition inline-flex items-center gap-2"
+        >
+          <span>查看全部 31 家机场</span>
+          <span>&rarr;</span>
+        </a>
+        <a
+          href="/recommend/"
+          class="rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition"
+        >
+          按需求查看推荐（便宜 / 专线 / 流媒体 / AI）
+        </a>
+        <a
+          href="/compare/"
+          class="rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition"
+        >
+          查看机场核心参数对比
+        </a>
+      </div>
+    </section>
   </div>
 </BaseLayout>

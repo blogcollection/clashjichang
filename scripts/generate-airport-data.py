@@ -120,8 +120,34 @@ def validate_discounts(val):
         return s
     return None
 
+PROTOCOL_ALIASES = {
+    'ss': 'Shadowsocks', 'shadowsocks': 'Shadowsocks', 'shadowsocksr': 'ShadowsocksR',
+    'ssr': 'ShadowsocksR', 'v2ray': 'V2Ray', 'vmess': 'VMess', 'vless': 'VLESS',
+    'trojan': 'Trojan', 'hysteria2': 'Hysteria 2', 'hysteria 2': 'Hysteria 2',
+    'hy2': 'Hysteria 2', 'hysteria': 'Hysteria', 'tuic': 'TUIC', 'anytls': 'AnyTLS', 'wireguard': 'WireGuard',
+}
+
+def normalize_protocol(value):
+    value = re.sub(r'^\s*(?:ss|shadowsocks)\s*\(\s*shadowsocks\s*\)\s*$', 'Shadowsocks', value, flags=re.I)
+    key = re.sub(r'\s+', ' ', value.strip()).lower()
+    return PROTOCOL_ALIASES.get(key, value.strip())
+
+def parse_protocols(raw):
+    """Split only explicit delimiters; whitespace is meaningful in Hysteria 2 and aliases."""
+    if not raw:
+        return []
+    normalized_raw = re.sub(r'\bHysteria\s*2\b|\bHysteria2\b|\bHY2\b', 'Hysteria 2', raw, flags=re.I)
+    normalized_raw = re.sub(r'\bSS\s*\(\s*Shadowsocks\s*\)', 'Shadowsocks', normalized_raw, flags=re.I)
+    values = re.split(r'[/、,，;；\n\r]+', normalized_raw)
+    result = []
+    for value in values:
+        protocol = normalize_protocol(re.sub(r'协议$', '', value.strip()))
+        if protocol and protocol not in result and not is_country_spillover(protocol):
+            result.append(protocol)
+    return result
+
 # Load XLSX
-z = zipfile.ZipFile('airports.csv')
+z = zipfile.ZipFile('airports.xlsx')
 shared_strings = []
 if 'xl/sharedStrings.xml' in z.namelist():
     tree = ET.fromstring(z.read('xl/sharedStrings.xml'))
@@ -157,6 +183,8 @@ data_audit = {
     "successfulParsedAirports": 0,
     "anomalousAirports": 0,
     "excludedAirports": 0,
+    "warningCount": 0,
+    "errorCount": 0,
     "airportsWithValidPrice": 0,
     "plansJsonSuccessCount": 0,
     "plansJsonFailedCount": 0,
@@ -164,7 +192,10 @@ data_audit = {
     "airportsWithOfficialUrl": 0,
     "airportsWithNodeRegions": 0,
     "airportsWithClashSupport": 0,
-    "anomalies": []
+    "anomalies": [],
+    "excludedList": [],
+    "warnings": [],
+    "errors": []
 }
 
 seen_slugs = set()
@@ -188,17 +219,18 @@ for r_idx in range(1, len(matrix)):
             "action": "discarded row"
         })
         data_audit["anomalousAirports"] += 1
+        data_audit["errorCount"] += 1
+        data_audit["errors"].append(f"Row {row_num}: Invalid service name '{service_name}'")
         continue
 
     # Exclude row 31 (duplicate WgetCloud / 闪跃.md)
     if '闪跃' in source_file or (service_name == 'WgetCloud（原 GaCloud）' and row_num == 31):
         data_audit["excludedAirports"] += 1
-        data_audit["anomalies"].append({
+        data_audit["excludedList"].append({
             "airport": service_name,
             "row": row_num,
-            "field": "is_excluded",
-            "rawValue": "true",
-            "problem": "Duplicate entry under 闪跃.md with status EXCLUDED_PENDING_REVIEW",
+            "sourceFile": source_file,
+            "reason": "Duplicate entry under 闪跃.md with status EXCLUDED_PENDING_REVIEW",
             "action": "excluded from website"
         })
         continue
@@ -215,12 +247,7 @@ for r_idx in range(1, len(matrix)):
     # Architecture & protocols
     arch = r.get(12, '').strip() or None
     protocols_raw = r.get(13, '').strip()
-    protocols = []
-    if protocols_raw:
-        for p in re.split(r'[/、,，\s]+', protocols_raw):
-            c = re.sub(r'协议$', '', p.strip())
-            if c and c not in protocols and not is_country_spillover(c):
-                protocols.append(c)
+    protocols = parse_protocols(protocols_raw)
 
     # Reconstruct regions standardized:
     reg_start = None
@@ -331,16 +358,17 @@ for r_idx in range(1, len(matrix)):
                 if not cycle_str:
                     cycle_str = '一次性不限时'
             else:
-                m_match = re.search(r'¥?\s*(\d+(?:\.\d+)?)\s*(?:元)?\s*/\s*月', price_str)
-                if m_match:
-                    monthly_prices.append(float(m_match.group(1)))
-                    if not cycle_str:
-                        cycle_str = '月付'
                 y_match = re.search(r'¥?\s*(\d+(?:\.\d+)?)\s*(?:元)?\s*/\s*年', price_str)
                 if y_match:
                     annual_prices.append(float(y_match.group(1)))
                     if not cycle_str:
                         cycle_str = '年付'
+                else:
+                    m_match = re.search(r'¥?\s*(\d+(?:\.\d+)?)\s*(?:元)?\s*/\s*月', price_str)
+                    if m_match:
+                        monthly_prices.append(float(m_match.group(1)))
+                        if not cycle_str:
+                            cycle_str = '月付'
 
             formatted_plans.append({
                 "section": sec_name,
@@ -405,9 +433,9 @@ for r_idx in range(1, len(matrix)):
     if is_country_spillover(platforms_raw):
         platforms_raw = ""
 
-    combined_client_text = f"{clients_raw} {platforms_raw} {summary_raw}"
-
-    has_clash = any(c.lower() in combined_client_text.lower() for c in ['clash', 'verge', 'mihomo', 'meta'])
+    combined_client_text = f"{clients_raw} {platforms_raw} {summary_raw} {protocols_raw}"
+    client_evidence = combined_client_text.lower()
+    has_clash = any(term in client_evidence for term in ['clash', 'clash verge', 'clash meta', 'mihomo', '兼容 clash', 'clash 订阅'])
     if has_clash:
         data_audit["airportsWithClashSupport"] += 1
 
@@ -460,8 +488,6 @@ for r_idx in range(1, len(matrix)):
     for pm in ['支付宝', '微信支付', 'USDT', '信用卡', '虚拟币']:
         if pm in payment_raw or pm in summary_raw:
             payment_methods.append(pm)
-    if not payment_methods:
-        payment_methods = ["支付宝", "USDT"]
 
     # Features
     features = []
@@ -496,12 +522,12 @@ for r_idx in range(1, len(matrix)):
         "ctaUrl": cta_url,
         "ctaText": cta_text,
         "currency": currency,
-        "architecture": arch or "专线/BGP中转",
+        "architecture": arch,
         "protocols": protocols,
-        "regions": regions_list,
+        "regions": regions_list or None,
         "deviceLimits": device_limits,
-        "clients": supported_clients if supported_clients else ["Clash", "Shadowrocket", "Sing-box"],
-        "platforms": supported_platforms if supported_platforms else ["Windows", "macOS", "Android", "iOS"],
+        "clients": supported_clients,
+        "platforms": supported_platforms,
         "hasClash": has_clash,
         "paymentMethods": payment_methods,
         "discounts": discounts,
@@ -518,7 +544,7 @@ for r_idx in range(1, len(matrix)):
             "status": "服务商资料整理",
             "level": "资料参考",
             "isIndependentVerified": False,
-            "note": "以上技术指标与解锁支持均整理自服务商公开资料，未经第三方实验室独立验证，请先以月付或短期测试为准。"
+            "note": "以上线路、协议、解锁与性能描述整理自现有服务资料；本站未进行统一独立性能测试，实际情况请以当前服务页面及个人网络环境测试为准。"
         },
         "lastChecked": "2026-09-28",
         "displayOrder": row_num

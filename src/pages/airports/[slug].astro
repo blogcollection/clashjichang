@@ -17,12 +17,20 @@ interface Props {
 }
 
 const { airport } = Astro.props;
+const architecture = airport.architecture || '待核验';
+const regions = airport.regions ?? [];
+const pageTitle = airport.hasClash
+  ? `${airport.name} Clash机场介绍、套餐与节点资料 - Clash机场`
+  : `${airport.name}机场介绍、套餐与节点资料 - Clash机场`;
+const pageHeading = airport.hasClash
+  ? `${airport.name} Clash机场资料与套餐`
+  : `${airport.name}机场资料与购买前核对`;
 
 // Related airports
 const relatedAirports = getRelatedAirports(airport.slug, 3);
 
 // Related articles
-const allPosts = await getCollection('posts');
+const allPosts = (await getCollection('posts')).filter(post => !post.data.draft);
 const relatedTutorials = allPosts
   .filter(p => p.data.category === 'client' || p.data.category === 'subscription')
   .slice(0, 3);
@@ -51,26 +59,31 @@ const breadcrumbs = [
 const airportFaqs = [
   {
     q: `${airport.name} 支持哪些客户端？`,
-    a: `${airport.name} 提供标准通用订阅。根据服务商资料与常用客户端兼容性，支持 ${airport.clients.join('、')} 等主流工具。`
+    a: airport.clients.length > 0
+      ? `公开资料提及可配合 ${airport.clients.join('、')} 使用；客户端兼容性仍应以服务商当前订阅格式为准。`
+      : '当前资料未明确列出客户端支持范围，购买前请向服务商确认订阅格式与客户端兼容性。'
   },
   {
     q: `${airport.name} 的线路架构是什么类型？`,
-    a: `资料显示 ${airport.name} 采用 ${airport.architecture}。相比普通公共中转线路，在晚高峰抗拥堵和稳定性上有较好的带宽冗余保障。`
+    a: airport.architecture ? `公开资料将其线路描述为 ${airport.architecture}；本站未对性能、可用性或稳定性作独立测试结论。` : '当前资料未提供可确认的线路架构描述，请以服务商页面为准。'
   },
   {
     q: `${airport.name} 可以解锁 Netflix 或 ChatGPT 吗？`,
     a: `${airport.streamingServices.length > 0 ? `服务商资料标注解锁支持：${airport.streamingServices.join('、')}。` : '官方资料暂未明确列出专项流媒体解锁清单。'} ${airport.aiServices.length > 0 ? `AI 工具方面标明支持：${airport.aiServices.join('、')}。` : ''}实际可用性建议以个人本地网络及当前节点 IP 状态为准。`
   },
-  {
+  ...(airport.hasClash ? [{
     q: `如何使用 Clash 导入 ${airport.name} 订阅？`,
-    a: `在 ${airport.name} 用户中心复制专属 Clash 订阅链接，打开 Clash Verge Rev 或 Mihomo Party，在“配置”界面粘贴并点击“下载”，选中配置后开启系统代理即可使用。`
-  }
+    a: `服务商资料提及 Clash 或兼容订阅时，可在用户中心复制订阅链接并按其页面说明导入客户端；若导入失败，请先确认套餐状态和订阅格式。`
+  }] : [{
+    q: `${airport.name} 是否明确支持 Clash？`,
+    a: '当前公开资料没有明确提及 Clash、Mihomo 或兼容订阅格式，因此本站不将其标为 Clash 兼容。购买前请向服务商确认。'
+  }])
 ];
 ---
 
 <BaseLayout
-  title={`${airport.name}怎么样？Clash机场节点评测与套餐价格 - Clash机场`}
-  description={`${airport.name}详细资料与 Clash 节点评测：${airport.architecture}，入门资费 ${lowestPriceText}，支持节点地区包括 ${airport.regions.slice(0, 5).join('、')}。提供套餐价格表与配置教程。`}
+  title={pageTitle}
+  description={`${airport.name}资料页：线路信息 ${architecture}，入门资费 ${lowestPriceText}，节点地区 ${regions.slice(0, 5).join('、') || '待核验'}。包含公开套餐字段与购买前确认项。`}
   breadcrumbs={breadcrumbs}
   faqs={airportFaqs}
 >
@@ -92,7 +105,7 @@ const airportFaqs = [
         <div class="max-w-3xl">
           <div class="flex flex-wrap items-center gap-2 mb-2">
             <span class="rounded bg-slate-900 text-white font-mono text-xs px-2.5 py-0.5 font-medium">
-              {airport.architecture}
+              {architecture}
             </span>
             {airport.hasClash && (
               <span class="rounded bg-blue-50 text-blue-700 border border-blue-200 text-xs px-2 py-0.5 font-medium">
@@ -105,11 +118,11 @@ const airportFaqs = [
           </div>
 
           <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
-            {airport.name} Clash机场介绍与评测
+            {pageHeading}
           </h1>
 
           <p class="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
-            {airport.summary}
+            <span class="font-medium text-slate-700">服务资料称：</span>{airport.summary}
           </p>
         </div>
 
@@ -124,7 +137,7 @@ const airportFaqs = [
             <a
               href={airport.ctaUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="sponsored nofollow noopener noreferrer"
               class="flex w-full items-center justify-center rounded bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 transition"
             >
               {airport.ctaText}
@@ -134,7 +147,7 @@ const airportFaqs = [
               <a
                 href={airport.registrationUrl}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="sponsored nofollow noopener noreferrer"
                 class="flex w-full items-center justify-center rounded border border-slate-300 bg-white px-4 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition"
               >
                 直接访问注册
@@ -168,7 +181,7 @@ const airportFaqs = [
 
             <div class="border-b border-slate-100 pb-2">
               <span class="text-slate-400 block">线路架构</span>
-              <span class="font-semibold text-slate-800 text-sm mt-0.5 block">{airport.architecture}</span>
+              <span class="font-semibold text-slate-800 text-sm mt-0.5 block">{architecture}</span>
             </div>
 
             <div class="border-b border-slate-100 pb-2">
@@ -188,28 +201,28 @@ const airportFaqs = [
             <div class="border-b border-slate-100 pb-2">
               <span class="text-slate-400 block">支持客户端</span>
               <span class="font-semibold text-slate-800 text-sm mt-0.5 block">
-                {airport.clients.join('、')}
+                {airport.clients.join('、') || '待核验'}
               </span>
             </div>
 
             <div class="border-b border-slate-100 pb-2">
               <span class="text-slate-400 block">支付方式</span>
               <span class="font-semibold text-slate-800 text-sm mt-0.5 block">
-                {airport.paymentMethods.join(' / ')}
+                {airport.paymentMethods.join(' / ') || '待核验'}
               </span>
             </div>
 
             <div class="col-span-2 border-b border-slate-100 pb-2">
-              <span class="text-slate-400 block">节点覆盖地区 ({airport.regions.length} 个地区)</span>
+              <span class="text-slate-400 block">节点覆盖地区 ({regions.length} 个地区)</span>
               <div class="flex flex-wrap gap-1.5 mt-1.5">
-                {airport.regions.length > 0 ? (
-                  airport.regions.map(r => (
+                {regions.length > 0 ? (
+                  regions.map(r => (
                     <span class="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-700">
                       {r}
                     </span>
                   ))
                 ) : (
-                  <span class="text-slate-500 text-xs">涵盖主流香港、台湾、日本、新加坡、美国等多地节点</span>
+                  <span class="text-slate-500 text-xs">待核验</span>
                 )}
               </div>
             </div>
@@ -236,7 +249,7 @@ const airportFaqs = [
             <a
               href={airport.ctaUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="sponsored nofollow noopener noreferrer"
               class="text-xs font-semibold text-brand-600 hover:underline"
             >
               在官网查看完整定价 &rarr;
@@ -298,14 +311,14 @@ const airportFaqs = [
                 适合哪些用户
               </h3>
               <ul class="space-y-2 text-slate-600 list-disc pl-4">
-                <li>追求 {airport.architecture} 专线低延迟，希望在晚高峰保持流畅网页访问的用户。</li>
+                <li>{airport.architecture ? `需要了解 ${architecture} 线路公开说明的用户。` : '愿意在购买前进一步确认线路资料的用户。'}</li>
                 {airport.streamingServices.length > 0 && (
                   <li>有稳定观看 {airport.streamingServices.slice(0, 3).join('、')} 需求的流媒体观众。</li>
                 )}
                 {airport.aiServices.length > 0 && (
                   <li>需要频繁使用 {airport.aiServices.join('、')} 等生产力工具的开发者与办公人群。</li>
                 )}
-                <li>寻找支持全平台客户端导入、支付便捷且按月灵活付费的用户。</li>
+                <li>希望根据公开套餐字段自行核对周期、流量与客户端兼容性的用户。</li>
               </ul>
             </div>
 
@@ -323,37 +336,34 @@ const airportFaqs = [
           </div>
         </section>
 
-        <!-- 4. Clash 使用方式与导入指南 -->
+        <!-- 4. Clash compatibility and import guidance -->
         <section class="rounded-lg border border-slate-200 bg-white p-6">
-          <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">
-            在 Clash 中配置 {airport.name} 的标准步骤
-          </h2>
-
-          <div class="mt-4 space-y-4 text-xs text-slate-600 leading-relaxed">
-            <div class="flex items-start gap-3">
-              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-slate-900 text-white font-bold text-[11px]">1</span>
-              <div>
-                <strong class="text-slate-900 block text-sm">复制 Clash 订阅链接</strong>
-                <p class="mt-0.5">在 {airport.name} 官网用户中心找到“便捷导入 / 复制订阅”，点击复制以 http/https 开头的完整订阅链接。</p>
+          {airport.hasClash ? (
+            <>
+              <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">
+                在 Clash 中配置 {airport.name}
+              </h2>
+              <div class="mt-4 space-y-4 text-xs text-slate-600 leading-relaxed">
+                <div class="flex items-start gap-3">
+                  <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-slate-900 text-white font-bold text-[11px]">1</span>
+                  <div><strong class="text-slate-900 block text-sm">复制 Clash 订阅链接</strong><p class="mt-0.5">在 {airport.name} 官网用户中心找到“便捷导入 / 复制订阅”，点击复制以 http/https 开头的完整订阅链接。</p></div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-slate-900 text-white font-bold text-[11px]">2</span>
+                  <div><strong class="text-slate-900 block text-sm">粘贴并下载配置文件</strong><p class="mt-0.5">打开 Clash Verge Rev、Mihomo Party 或手机端客户端，进入配置管理界面，将链接粘贴至 URL 输入框后点击“下载”。</p></div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-slate-900 text-white font-bold text-[11px]">3</span>
+                  <div><strong class="text-slate-900 block text-sm">选择节点并开启系统代理</strong><p class="mt-0.5">在代理策略组中选择节点，将分流模式设为 Rule（规则分流），最后开启系统代理。</p></div>
+                </div>
               </div>
-            </div>
-
-            <div class="flex items-start gap-3">
-              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-slate-900 text-white font-bold text-[11px]">2</span>
-              <div>
-                <strong class="text-slate-900 block text-sm">粘贴并下载配置文件</strong>
-                <p class="mt-0.5">打开电脑端的 Clash Verge Rev、Mihomo Party 或手机端客户端，进入配置管理界面，将链接粘贴至 URL 输入框后点击“下载”。</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3">
-              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-slate-900 text-white font-bold text-[11px]">3</span>
-              <div>
-                <strong class="text-slate-900 block text-sm">选择节点并开启系统代理</strong>
-                <p class="mt-0.5">在代理策略组中选择香港、日本或新加坡等低延迟专线节点，将分流模式设为 Rule（规则分流），最后开启系统代理即可畅享高速网络。</p>
-              </div>
-            </div>
-          </div>
+            </>
+          ) : (
+            <>
+              <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Clash 兼容性说明</h2>
+              <p class="mt-4 text-xs leading-relaxed text-slate-600">当前来源资料未明确确认该服务支持 Clash、Mihomo 或 Clash 兼容订阅格式。购买前请先向服务商确认订阅类型。若确认支持，可再参考本站<a href="/posts/how-to-import-clash-subscription/" class="font-semibold text-brand-600 hover:underline">通用 Clash 导入教程</a>。</p>
+            </>
+          )}
         </section>
 
         <!-- 5. 常见问答 FAQ -->
@@ -385,7 +395,7 @@ const airportFaqs = [
           <a
             href={airport.ctaUrl}
             target="_blank"
-            rel="noopener noreferrer"
+              rel="sponsored nofollow noopener noreferrer"
             class="mt-4 flex w-full items-center justify-center rounded bg-brand-600 px-4 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-brand-700 transition"
           >
             {airport.ctaText} &rarr;
@@ -409,7 +419,7 @@ const airportFaqs = [
                     {rel.pricing.monthly ? `¥${rel.pricing.monthly}/月起` : '查看'}
                   </span>
                 </div>
-                <p class="text-[11px] text-slate-500 font-mono mt-0.5">{rel.architecture}</p>
+                <p class="text-[11px] text-slate-500 font-mono mt-0.5">{rel.architecture || '待核验'}</p>
               </a>
             ))}
           </div>

@@ -18,44 +18,44 @@ const airports = getAirportRecommendations(context, 3);
 
 const contextTitles: Record<RecommendationContext, { title: string; desc: string }> = {
   cheap: {
-    title: '高性价比平价 Clash 机场精选',
-    desc: '依据真实最低月付与年付门槛排序，适合预算有限、轻度查资料与学生群体的经济之选：'
+    title: '低预算套餐参考',
+    desc: '按当前资料中公开的最低月付或年付价格排序展示，供低预算用户参考。购买前请核对服务商实时价格。'
   },
   beginner: {
-    title: '新手友好型 Clash 机场推荐',
-    desc: '开箱即用、一键导入便捷、客户端支持完备且客服响应及时的入门首选：'
+    title: '入门价格较低的服务参考',
+    desc: '展示基础月付门槛较低或客户端支持说明较明确的机场，不代表本站对其售后或体验做出保证。'
   },
   streaming: {
-    title: 'Netflix / Disney+ 流媒体解锁机场精选',
-    desc: '官方资料明确标注解锁 Netflix、Disney+、YouTube 4K 等主流海外流媒体的高速节点服务商：'
+    title: '流媒体字段已提及的服务',
+    desc: '展示当前资料中明确提到 Netflix、Disney+ 等流媒体服务支持的机场。实际可用性以当前节点状态与服务商说明为准。'
   },
   ai: {
-    title: 'ChatGPT / Claude 生产力 AI 专用节点机场',
-    desc: '提供原生 IP 资源，支持 ChatGPT、Claude、Gemini 等 AI 平台低封控平稳访问的专线服务：'
+    title: 'AI 服务字段已提及的服务',
+    desc: '展示当前资料中明确提到 ChatGPT、Claude、Gemini 等 AI 服务支持的机场。'
   },
   clash: {
-    title: 'Clash 优质节点与订阅优选机场',
-    desc: '完美适配 Clash Verge Rev、Mihomo 等现代客户端，规则分流精准的精选节点：'
+    title: '明确提及 Clash 兼容的服务',
+    desc: '优先展示当前资料中明确提到 Clash、Mihomo 或相关客户端支持的机场。'
   },
   largeTraffic: {
-    title: '大流量高带宽 Clash 机场推荐',
-    desc: '提供 500GB 至 1TB+ 月流量套餐，适合高频下载、团队协同办公与 4K 追剧的充沛方案：'
+    title: '大流量套餐服务参考',
+    desc: '展示当前资料中包含较大流量规格套餐的机场，具体流量重置与计费规则以服务商页面为准。'
   },
   oneTime: {
-    title: '不限时按量计费流量包机场',
-    desc: '一次性付费、无到期清零风险，专为低频备用、突发查资料用户设计的按量套餐：'
+    title: '不限时流量包服务参考',
+    desc: '展示当前资料中包含一次性或不限时计费流量包的机场，适合低频备用需求。'
   },
   multiDevice: {
-    title: '多设备无限制 Clash 机场推荐',
-    desc: '不限制在线客户端与并发设备数量，家庭共享、多台电脑/手机协同的不二之选：'
+    title: '标注多设备不限的服务参考',
+    desc: '展示当前资料中标注不限制在线客户端或并发设备数量的机场。'
   },
   iepl: {
-    title: '企业级 IEPL 专线骨干机场推荐',
-    desc: '采用 IEPL 内网专线过境，抗封锁能力出众、零丢包且晚高峰极速响应的高稳定性机场：'
+    title: '标注 IEPL 线路的服务参考',
+    desc: '展示当前资料中标注 IEPL 线路的机场。线路类型来自服务商或整理资料，实际体验会受到本地运营商、地区和时段影响。'
   },
   iplc: {
-    title: '纯 IPLC 国际专线高稳机场推荐',
-    desc: '点对点物理专线不过 GFW 防火墙检测，无惧敏感时期波动的优质专线服务：'
+    title: '标注 IPLC 专线的服务参考',
+    desc: '展示当前资料中标注 IPLC 专线线路的机场。专线信息整理自服务商资料，实际连通性与延迟以本地网络测试为准。'
   }
 };
 
@@ -96,7 +96,7 @@ const subText = description || currentContext.desc;
               <span class="text-xs font-bold text-brand-600 whitespace-nowrap">{priceText}</span>
             </div>
 
-            <p class="mt-1 text-[11px] text-slate-500 font-mono line-clamp-1">{airport.architecture}</p>
+            <p class="mt-1 text-[11px] text-slate-500 font-mono line-clamp-1">{airport.architecture || '线路资料暂缺'}</p>
             <p class="mt-2 text-xs text-slate-600 line-clamp-2 leading-relaxed">{airport.summary}</p>
           </div>
 
@@ -110,7 +110,7 @@ const subText = description || currentContext.desc;
             <a
               href={airport.ctaUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="sponsored nofollow noopener noreferrer"
               class="flex-1 rounded bg-slate-900 py-1 text-center text-xs font-medium text-white hover:bg-slate-800 transition"
             >
               {airport.ctaText}

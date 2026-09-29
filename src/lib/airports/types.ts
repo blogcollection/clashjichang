@@ -38,10 +38,10 @@ export interface Airport {
 
   currency: string;
 
-  architecture: string;
+  architecture: string | null;
   protocols: string[];
 
-  regions: string[];
+  regions: string[] | null;
 
   deviceLimits: string | null;
   clients: string[];
